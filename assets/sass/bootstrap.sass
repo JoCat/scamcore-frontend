@@ -1,0 +1,31 @@
+@import "../../node_modules/bootstrap/scss/functions"
+@import "../../node_modules/bootstrap/scss/variables"
+@import "../../node_modules/bootstrap/scss/mixins"
+
+@import "../../node_modules/bootstrap/scss/reboot"
+@import "../../node_modules/bootstrap/scss/type"
+
+// imported from "/bootstrap/scss/images"
+.img-fluid
+    @include img-fluid()
+
+// imported from "/bootstrap/scss/grid"
+
+// Container widths
+// Set the container width, and override it for fixed navbars in media queries.
+// Single container class with breakpoint max-widths
+.container
+    @include make-container()
+    @include make-container-max-widths()
+
+// Row
+// Rows contain your columns.
+.row
+    @include make-row()
+
+// Columns
+// Common styles for small and large grid columns
+@include make-grid-columns()
+
+.m-auto
+    margin: auto

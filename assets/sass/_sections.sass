@@ -1,0 +1,1827 @@
+section
+    margin-top: 50px
+.title
+    font-size: 29px
+    font-weight: bold
+    &::after
+        content: ''
+        display: block
+        width: 44px
+        height: 8px
+        background-color: $purple
+        border-radius: 4px
+        margin-top: 12px
+    &.center
+        text-align: center
+        &::after
+            margin: 12px auto 0
+.products
+    .title
+        margin-bottom: 60px
+    .products-card
+        @extend %card
+        padding: 15px
+        margin-bottom: 30px
+        text-align: center
+        img
+            display: block
+            margin: auto
+            margin-top: 24px
+            width: 135px
+            height: 127px
+            object-fit: none
+        strong
+            display: block
+            font-size: 22px
+            font-weight: $extrabold
+            margin: 26px 0
+        p
+            color: $purple-light
+            font-weight: 400
+            margin-bottom: 20px
+        .price
+            font-size: 18px
+            margin-bottom: 30px
+            span
+                color: $purple
+                font-size: 26px
+                font-weight: $extrabold
+        .buy
+            display: inline-block
+            @extend %button-purple
+            width: 100%
+            height: 58px
+            line-height: 58px
+            color: #fff
+            font-weight: bold
+            text-transform: uppercase
+    .more
+        border: 1px solid $purple
+        border-radius: 20px
+        display: block
+        width: 190px
+        height: 38px
+        margin: auto
+        margin-top: 20px
+        line-height: 38px
+        text-align: center
+        text-decoration: none
+        color: $purple
+        &:hover
+            color: #fff
+            background-color: $purple
+.services
+    .wrapper
+        margin: auto
+        .row > div:not(:nth-last-child(-n+3))
+            margin-bottom: 33px
+        @media (max-width: 575px)
+            .row > div
+                margin-bottom: 33px
+    .service-card-wrapper:hover
+        .service-card
+            text-decoration: none
+            color: #fff
+            background-color: $purple
+            margin-top: -27px
+            box-shadow: 0px 25px 40px 0px rgba(125, 56, 242, 0.31)
+            img
+                display: none
+                &.white
+                    display: block
+    .service-card
+        @extend %card
+        height: 269px
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        font-size: 22px
+        font-weight: bold
+        text-align: center
+        line-height: 1
+        color: $purple-black
+        padding: 0 10px
+        img
+            width: 108px
+            height: 108px
+            object-fit: none
+            margin-bottom: 25px
+            &.white
+                display: none
+.advantages
+    margin-top: 106px
+    &.in-hosting
+        margin-top: 52px
+    .title
+        margin-bottom: 22px
+    .wrapper
+        margin: auto
+    .advantage-card
+        text-align: center
+        @extend %card
+        padding: 19px 13px
+        margin-top: 74px
+        img
+            width: 88px
+            height: 95px
+            background-image: url(/images/advantages/bg.png)
+            display: block
+            margin: auto
+            margin-top: -57px
+            object-fit: none
+        strong
+            margin-top: 10px
+            display: inline-block
+            font-size: 18px
+        p
+            font-size: 13px
+.solutions
+    margin-top: 104px
+    display: flex
+    flex-wrap: wrap
+    .title
+        display: inline-block
+        margin-bottom: 36px
+    .bttn
+        @extend %button-purple
+        display: inline-block
+        margin-left: auto
+        width: 200px
+        height: 47px
+        line-height: 47px
+        text-align: center
+        color: #fff
+        font-weight: $medium
+        @media (max-width: 425px)
+            margin: 0 auto 30px
+    button
+        @extend %card
+        width: 100%
+        height: 68px
+        border: 0
+        outline: 0
+        font-weight: bold
+        font-size: 18px
+        text-align: left
+        padding: 8px 10px
+        display: flex
+        align-items: center
+        &:not(:last-child)
+            margin-bottom: 16px
+        @media (max-width: 991px)
+            &:last-child
+                margin-bottom: 16px
+        &:hover
+            background-color: $purple
+            color: #fff
+        img
+            @extend %card-purple
+            width: 52px
+            height: 52px
+            object-fit: none
+            margin-right: 10px
+    .solution-card
+        height: 100%
+        padding: 41px 27px
+        border-radius: 10px
+        background: $gray url(/images/solutions/bg.png) no-repeat calc(100% + 23px) calc(100% + 47px)
+        .header
+            font-size: 24px
+            line-height: 27px
+            font-weight: bold
+            text-transform: uppercase
+            margin-bottom: 18px
+            strong
+                font-weight: bold
+                color: $purple
+        p
+            padding-right: 18%
+.articles
+    margin-top: 93px
+    overflow: hidden
+    .title
+        margin-bottom: 51px
+    .wrapper
+        display: flex
+    .article-card
+        @extend %card
+        width: 370px
+        margin-right: 38px
+        position: relative
+        .stars
+            position: absolute
+            top: 0
+            right: 0
+            display: flex
+            background-color: rgba(26, 22, 33, .5)
+            padding: 4px 7px 8px 12px
+            .star
+                width: 17px
+                height: 16px
+                display: inline-block
+                background-image: url(/images/star-gray.png)
+                background-size: contain
+                &.active
+                    background-image: url(/images/star.png)
+                &:not(:last-child)
+                    margin-right: 4px
+        img
+            max-width: 100%
+            height: 171px
+            object-fit: none
+        .text
+            padding: 19px 16px 26px
+            strong
+                font-size: 24px
+                line-height: 26px
+                font-weight: bold
+                margin-bottom: 13px
+                display: block
+            p
+                color: #655a77
+                font-size: 14px
+                line-height: 18px
+                margin-bottom: 27px
+            a
+                @extend %border
+                display: block
+                margin: auto
+                border: 2px solid $purple
+                width: 138px
+                line-height: 38px
+                text-align: center
+                color: $purple
+                text-transform: uppercase
+                font-size: 14px
+                font-weight: $semibold
+                &:hover
+                    text-decoration: none
+                    background-color: $purple
+                    color: #fff
+    .controls
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin-top: 31px
+        .arrow-left,
+        .arrow-right
+            width: 36px
+            height: 36px
+        .arrow-left
+            background-image: url(/images/arrow-left.png)
+        .arrow-right
+            background-image: url(/images/arrow-right.png)
+        .dots
+            display: flex
+            .dot
+                border-radius: 50%
+                background-color: $purple
+                width: 14px
+                height: 14px
+                margin: 0 10px
+                &.active
+                    width: 40px
+                    border-radius: 7px
+.feedback
+    margin-top: 120px
+    margin-bottom: 80px
+    p
+        font-size: 14px
+        color: $purple-light
+    input
+        background-color: $gray
+        width: 100%
+        height: 54px
+        border: 0
+        margin-bottom: 18px
+        border-radius: 27px
+        padding: 10px 20px
+        text-align: center
+        outline: 0
+        font-size: 14px
+        color: #45414c
+        font-weight: $medium
+        &:hover,
+        &:focus
+            border: 1px solid $purple
+        &::placeholder
+            color: #45414c
+            font-weight: $medium
+    button
+        @extend %button-purple
+        border-radius: 27px
+        border: 0
+        width: 100%
+        height: 54px
+        color: #fff
+        font-size: 14px
+        font-weight: bold
+        text-transform: uppercase
+.servers-list
+    margin-top: 140px
+    .title
+        margin-bottom: 60px
+    .subscribe
+        margin: auto
+        margin-bottom: 60px
+        border-radius: 10px
+        background-color: $purple
+        display: flex
+        align-items: center
+        font-size: 22px
+        line-height: 26px
+        font-weight: bold
+        color: #fff
+        padding: 12px 15px
+        @media (max-width: 991px)
+            font-size: 20px
+        @media (max-width: 767px)
+            padding: 15px
+            text-align: center
+            div:first-child
+                margin-bottom: 15px
+        form
+            display: flex
+            background-color: #fff
+            height: 32px
+            border-radius: 16px
+            overflow: hidden
+            input
+                width: calc(100% - 166px)
+                border: 0
+                outline: 0
+                padding: 0 20px
+                font-size: 14px
+                font-weight: $medium
+                &::placeholder
+                    font-size: 14px
+                    font-weight: $medium
+                    color: $purple-black
+            button
+                width: 166px
+                border: 0
+                outline: 0
+                border-radius: 16px
+                background-color: $yellow
+                color: #fff
+                text-transform: uppercase
+                font-size: 14px
+                font-weight: $medium
+            @media (max-width: 575px)
+                height: auto
+                text-align: center
+                flex-direction: column
+                background-color: transparent
+                border-radius: 0
+                input,
+                button
+                    width: 100%
+                    height: 32px
+                input
+                    margin-bottom: 15px
+                    border-radius: 16px
+    .filter
+        @extend %card
+        margin: 0
+        margin-bottom: 22px
+        padding: 29px 7px 18px
+        @media (max-width: 991px)
+            &>div:last-child
+                margin-top: 45px
+        @media (max-width: 767px)
+            &>div:first-child
+                margin-bottom: 30px
+        .gray-overlay
+            background-color: #edeaf2
+            padding: 26px 22px 15px
+            margin: 32px -7px
+            width: 100%
+            box-sizing: content-box
+            border-radius: 10px
+            @media (max-width: 767px)
+                .row>div
+                    margin-bottom: 30px
+        label
+            font-size: 15px
+            display: block
+        .noUi-target
+            height: 8px
+            border-radius: 4px
+            border: 0
+            background-color: #fff
+            margin-bottom: 32px
+        .noUi-connects
+            cursor: pointer
+        .noUi-connect
+            height: 6px
+            background-color: $purple
+            margin-top: 1px
+        .noUi-handle
+            cursor: pointer
+            background-image: url(/images/slider-hexagon.png)
+            width: 25px
+            height: 27px
+            background-color: transparent
+            border: 0
+            border-radius: 0
+            box-shadow: unset
+            right: -12px
+            top: -10px
+            &::after,
+            &::before
+                display: none
+            &:focus
+                outline: 0
+            &:hover,
+            &:active
+                .noUi-tooltip
+                    display: block
+        .noUi-tooltip
+            border: 0
+            line-height: 1
+            color: #fff
+            font-size: 14px
+            background-color: $purple
+            display: none
+            &::after
+                content: ''
+                width: 8px
+                height: 8px
+                display: block
+                position: absolute
+                bottom: -7px
+                left: 50%
+                background-color: $purple
+                transform: rotate(45deg) translateX(-50%)
+                z-index: -1
+        .slider-value-min,
+        .slider-value-max
+            position: absolute
+            display: inline-block
+            margin-top: 15px
+            color: $purple
+            font-size: 15px
+            font-weight: bold
+        .slider-value-max
+            right: 0
+        .checkbox,
+        .checkbox-button
+            position: relative
+            display: inline-block
+            input
+                position: absolute
+                opacity: 0
+                z-index: -1
+            label
+                cursor: pointer
+        .checkbox
+            &:nth-child(even)
+                margin-right: 25px
+            @media (max-width: 767px)
+                margin-right: 25px
+            label
+                position: relative
+                padding-left: 29px
+                color: $purple
+                &::before
+                    content: ''
+                    border-radius: 50%
+                    background-color: #fff
+                    position: absolute
+                    left: 0
+                    width: 22px
+                    height: 22px
+            input:checked~label::after
+                content: ''
+                border-radius: 50%
+                background-color: $purple
+                position: absolute
+                top: 5px
+                left: 5px
+                width: 12px
+                height: 12px
+        .checkbox-button
+            &:not(:last-child)
+                margin-right: 15px
+                @media (max-width: 767px)
+                    margin-right: 5px
+            label
+                border-radius: 10px
+                background-color: #fff
+                width: 115px
+                line-height: 39px
+                text-align: center
+            input:checked~label
+                color: #fff
+                background-color: $purple
+        input[type=reset]
+            position: absolute
+            bottom: 0
+            right: 15px
+            border: 0
+            outline: 0
+            background-color: transparent
+            text-transform: uppercase
+            font-size: 15px
+            opacity: .2
+            transition-duration: .25s
+            &:hover
+                opacity: 1
+    .list
+        @extend %card
+        overflow: auto
+        table
+            width: 100%
+            min-width: 1110px
+        thead
+            th
+                font-size: 14px
+                line-height: 22px
+                color: $purple
+                text-transform: uppercase
+                font-weight: $medium
+                padding: 29px 14px 22px 14px
+        tbody
+            td
+                font-size: 14px
+                line-height: 17px
+                color: #000
+                font-weight: $semibold
+                padding: 18px 14px
+            tr
+                &:nth-of-type(odd)
+                    background-color: #f7f6fa
+                &:nth-of-type(even)
+                    background-color: #f5f3f8
+        tr
+            th:first-child,
+            td:first-child,
+                padding-left: 14px
+            th:last-child,
+            td:last-child,
+                padding-right: 14px
+            th:not(:last-child),
+            td:not(:last-child)
+                border-right: 1px solid #e4e1ea
+        img:not(:last-child)
+            margin-right: 5px
+        .list-title
+            padding: 0 12px !important
+            div
+                padding: 10px 0
+                font-size: 15px
+                color: #3f3f40
+                text-align: center
+                font-weight: $medium
+                border-radius: 8px
+                background-color: #e4e1e9
+        .geekbench
+            font-weight: bold
+            display: flex
+            align-items: center
+            .geekbench-meter
+                display: inline-block
+                margin-right: 8px
+                position: relative
+                width: 40px
+                height: 29px
+                svg
+                    position: absolute
+                    width: 40px
+                    height: 29px
+                    &.speedometer__arrow
+                        top: 7px
+                        transform-origin: 20px 13px
+                    .speedometer__speed,
+                    &.speedometer__arrow
+                        transition-duration: 1s
+                        transition-timing-function: cubicBezier(.21,.55,.43,.75)
+        .price
+            display: inline-block
+            margin-right: 20px
+            color: #3e2862
+            font-size: 22px
+            font-weight: $extrabold
+            vertical-align: middle
+            &.sale
+                color: $purple
+                .percent
+                    font-size: 10px
+                    font-weight: $medium
+                    color: $gray
+                    background-color: $purple
+                    width: 26px
+                    margin-bottom: 2px
+                .old-price
+                    font-size: 14px
+                    color: #3f3e40
+                    text-align: right
+                    font-weight: $medium
+                    position: relative
+                    &::after
+                        content: ''
+                        display: block
+                        width: 70%
+                        height: 1px
+                        background-color: $purple
+                        transform: rotate(-15deg)
+                        position: absolute
+                        right: 0
+                        top: 45%
+        a
+            @extend %button-purple
+            width: 135px
+            line-height: 43px
+            text-align: center
+            display: inline-block
+            color: #fff
+            font-size: 16px
+            font-weight: bold
+            text-transform: uppercase
+.os
+    margin-top: 72px
+    .el
+        display: flex
+        margin-bottom: 30px
+        img
+            border-radius: 50%
+            width: 70px
+            height: 70px
+            background-color: $purple
+            object-fit: none
+            margin-right: 14px
+            flex-shrink: 0
+        p
+            font-size: 14px
+            font-weight: 400
+            margin-bottom: 0
+.important-advantages
+    margin-top: 105px
+    .el
+        display: flex
+        margin-top: 86px
+        img
+            width: 92px
+            object-fit: none
+            margin-right: 24px
+            flex-shrink: 0
+        strong
+            font-size: 20px
+            line-height: 21px
+            font-weight: bold
+            color: $purple
+            margin-bottom: 8px
+        p
+            font-size: 13px
+            margin-bottom: 0
+.other-offers
+    margin-top: 135px
+    .title
+        margin-bottom: 53px
+    strong
+        font-size: 27px
+        line-height: 30px
+        margin-bottom: 24px
+        display: block
+        span
+            display: inline-block
+            color: $purple
+    ul
+        margin: 0
+        li
+            background: url(/images/list-check-mark.png) no-repeat left 50%
+            padding-left: 27px
+            margin-bottom: 24px
+    a
+        background-color: $purple
+        width: 100%
+        display: block
+        color: #fff
+        text-align: center
+        line-height: 57px
+        font-size: 18px
+        text-transform: uppercase
+        margin-bottom: 30px
+        &:hover
+            background-color: $purple-hover
+            text-decoration: none
+.faq
+    margin-top: 115px
+    .title
+        margin-bottom: 20px
+    button
+        border: 0
+        outline: 0
+        background-color: transparent
+        display: flex
+        align-items: center
+        color: $purple-black
+        font-weight: $medium
+        text-align: left
+        margin-bottom: 29px
+        background: url(/images/list-hexagon.png) no-repeat left 50%
+        padding-left: 26px
+        &:hover
+            color: $purple
+    strong
+        font-size: 32px
+        line-height: 34px
+        font-weight: $extrabold
+        display: block
+        margin-bottom: 20px
+        span
+            display: inline-block
+            color: $purple
+.hosting
+    .title
+        margin-bottom: 60px
+    .hosting-card
+        @extend %card-extended
+        padding: 20px 17px
+        background: $gray url(/images/hosting-card.png) no-repeat center calc(100% + 47px)
+        margin-bottom: 30px
+        .head
+            strong
+                font-size: 32px
+                line-height: 20px
+                font-weight: $extrabold
+                color: $purple
+                text-transform: uppercase
+            .text
+                font-size: 12px
+                font-weight: 400
+                color: #a19cab
+                margin-bottom: 0
+            .storage
+                font-size: 22px
+                line-height: 20px
+                font-weight: $extrabold
+                color: $purple-black
+                margin: 7px 0
+            .sites
+                font-size: 18px
+                line-height: 20px
+                color: $purple
+                margin-bottom: 25px
+        ul
+            margin-bottom: 40px
+            li
+                background: url(/images/list-check-mark-rounded.png) no-repeat left 2px
+                padding-left: 37px
+                margin-bottom: 33px
+                font-size: 14px
+                font-weight: 400
+                color: #4d4757
+                line-height: 25px
+        .price
+            font-size: 18px
+            color: $purple-black
+            text-align: center
+            margin-bottom: 30px
+            strong
+                font-size: 24px
+                font-weight: bold
+                color: $purple
+                display: block
+                text-transform: uppercase
+.game-hosting
+    .title
+        margin-bottom: 60px
+    .row > div:not(:nth-last-child(-n+3))
+        margin-bottom: 33px
+    @media (max-width: 767px)
+        .row > div
+            margin-bottom: 33px
+    .game-hosting-card
+        @extend %card-extended
+        padding: 20px
+        .head
+            font-size: 22px
+            line-height: 22px
+            font-weight: $extrabold
+            display: flex
+            align-items: flex-start
+            p
+                margin-top: 4px
+                margin-bottom: 42px
+            img
+                object-fit: none
+            span
+                display: block
+            &.minecraft
+                img
+                    margin: 3px 31px 3px 6px
+                span
+                    color: #32b735
+            &.samp
+                img
+                    margin: -9px 11px -9px 11px
+                span
+                    color: $purple
+            &.cs
+                img
+                    margin: 3px 19px 3px 7px
+                span
+                    color: #3271b7
+        ul
+            margin-bottom: 40px
+            li
+                background: url(/images/list-hexagon.png) no-repeat left 50%
+                padding-left: 27px
+                &:not(:last-child)
+                    margin-bottom: 30px
+        .info
+            font-weight: bold
+            margin-bottom: 20px
+.main-advantages
+    margin-bottom: -15px
+    .title
+        margin-bottom: 64px
+    .main-advantages-card
+        background: url(/images/main-advantages/bg.png) no-repeat
+        background-size: 100%
+        position: relative
+        height: 270px
+        margin-bottom: 170px
+        border-radius: 15px
+        strong
+            display: block
+            text-align: center
+            font-size: 28px
+            line-height: 32px
+            color: #fff
+            padding-top: 33px
+            @media (min-width: 992px) and (max-width: 1199px)
+                font-size: 24px
+            @media (min-width: 576px) and (max-width: 767px)
+                font-size: 42px
+                line-height: 42px
+            @media (max-width: 575px)
+                font-size: 24px
+        img
+            position: absolute
+            top: 270px
+            left: 0
+            right: 0
+            margin: auto
+            transform: translateY(-50%)
+            @media (max-width: 1199px)
+                top: 250px
+            @media (max-width: 575px)
+                max-width: 100%
+.documentation
+    .title
+        margin-bottom: 38px
+    .documentation-link
+        background-color: #ede9f3
+        width: 100%
+        min-height: 90px
+        border-radius: 45px
+        margin-bottom: 21px
+        display: flex
+        align-items: center
+        padding: 13px 0
+        @media (max-width: 575px)
+            padding-left: 20px
+        @media (min-width: 992px)
+            max-width: 800px
+        &:hover
+            text-decoration: none
+        &::after
+            content: ''
+            background: url(/images/arrow.png) no-repeat center
+            height: 16px
+            width: 32px
+            margin-left: auto
+            margin-right: 36px
+            flex-shrink: 0
+            @media (max-width: 575px)
+                margin: 0 10px
+        img
+            border-radius: 50%
+            background-color: $purple
+            width: 63px
+            height: 63px
+            object-fit: none
+            margin-left: 15px
+            margin-right: 21px
+            flex-shrink: 0
+            @media (max-width: 575px)
+                display: none
+        strong
+            font-size: 17px
+            line-height: 26px
+            font-weight: bold
+            color: $purple-black
+        p
+            font-size: 13px
+            line-height: 26px
+            color: $purple-light
+            margin-bottom: 0
+.ips
+    .title
+        margin-bottom: 116px
+    .ips-card
+        @extend %border
+        display: flex
+        padding: 30px
+        font-size: 22px
+        font-weight: $black
+        &:hover
+            background-color: $gray
+        img
+            object-fit: none
+            margin-right: 14px
+        p
+            margin-bottom: 0
+            color: $purple
+.articles.page
+    margin-top: 56px
+    .title
+        margin-bottom: 49px
+    .categories
+        margin-bottom: 60px
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        a
+            display: inline-block
+            background-color: $gray
+            border-radius: 26px
+            width: 170px
+            line-height: 52px
+            text-align: center
+            font-size: 14px
+            color: $purple-black
+            margin: 0 7.5px 15px
+            &:hover
+                text-decoration: none
+                color: #fff
+                background-color: $purple
+    .article-card-wrapper:hover
+        .article-card
+            margin-top: -12px
+            background-color: #ede9f3
+            box-shadow: 0px 25px 20px 0px rgba(125, 56, 242, 0.18)
+    .article-card
+        margin-right: 0
+        width: auto
+        overflow: hidden
+        margin-bottom: 36px
+    .dots
+        margin: 62px auto 80px auto
+        .number-dot
+            border-radius: 50%
+            background-color: $purple
+            width: 30px
+            height: 30px
+            font-size: 14px
+            line-height: 30px
+            text-align: center
+            color: #fff
+            margin: 0 18px
+            opacity: .5
+            &.active
+                opacity: 1
+.contacts-page
+    margin-top: 60px
+    .title-wrapper
+        display: flex
+        flex-wrap: wrap
+    .title
+        display: inline-block
+        margin-bottom: 36px
+        @media (max-width: 425px)
+            width: 100%
+    .bttn
+        @extend %button-purple
+        display: inline-block
+        margin-left: auto
+        width: 200px
+        height: 47px
+        line-height: 47px
+        text-align: center
+        color: #fff
+        font-weight: $medium
+        @media (max-width: 425px)
+            margin: -15px auto 15px 0
+    .phone,
+    .email
+        text-transform: uppercase
+        p
+            margin-bottom: 0
+        a
+            color: $purple
+            font-size: 36px
+            font-weight: $extrabold
+            @media (max-width: 425px)
+                font-size: 32px
+    .social
+        display: flex
+        align-items: center
+        justify-content: space-evenly
+    .chat
+        @extend %border
+        background-color: $purple
+        margin: 122px 0
+        display: flex
+        align-items: center
+        img
+            display: block
+            margin-top: -91px
+            @media (max-width: 575px)
+                margin: -91px auto 15px
+                max-width: 100%
+        p
+            font-size: 36px
+            line-height: 35px
+            color: #fff
+            font-weight: $extrabold
+            margin-bottom: 0
+            @media (min-width: 576px) and (max-width: 767px)
+                font-size: 28px
+            @media (max-width: 575px)
+                margin-bottom: 15px
+        a
+            @extend %border
+            background-color: #fff
+            width: 180px
+            line-height: 56px
+            text-align: center
+            display: block
+            font-size: 22px
+            color: $purple
+            text-transform: uppercase
+            margin: auto
+            &:hover
+                text-decoration: none
+                background-color: $yellow
+                color: #fff
+            @media (max-width: 575px)
+                margin-bottom: 15px
+.article-page
+    margin-bottom: 60px
+    aside
+        background-color: $gray
+        padding: 42px 25px
+        height: 100%
+        @media (max-width: 767px)
+            margin-bottom: 30px
+            height: auto
+        a
+            font-size: 14px
+            margin-bottom: 20px
+            display: block
+            color: $purple-black
+            &:hover
+                text-decoration: none
+                color: $purple
+    .article
+        margin-bottom: 70px
+    .article-title
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        justify-content: space-between
+        .tda
+            margin-bottom: 15px
+            h1
+                color: $purple
+                font-size: 38px
+                font-weight: $extrabold
+            .da
+                font-size: 14px
+                .date
+                    color: $purple-light
+                    margin-right: 12px
+                .author
+                    color: $purple
+        .stars
+            display: flex
+            flex-direction: row-reverse
+            .star
+                width: 37px
+                height: 35px
+                display: inline-block
+                background-image: url(/images/star-gray.png)
+                &:not(:last-child)
+                    margin-left: 8px
+                &:hover,
+                &:hover ~ .star,
+                &.active
+                    background-image: url(/images/star.png)
+    .content
+        margin-top: 49px
+        p
+            font-size: 15px
+        img
+            margin-top: 8px
+.domains-lead
+    background-image: url(/images/domains.png)
+    height: 260px
+    display: flex
+    align-items: center
+    justify-content: space-around
+    strong
+        color: #fff
+        font-size: 58px
+        line-height: 53px
+        font-weight: $black
+    a
+        @extend %button-yellow
+        color: #fff
+        width: 393px
+        line-height: 77px
+        text-align: center
+        font-size: 28px
+        font-weight: $black
+        border-radius: 0
+    @media (max-width: 991px)
+        text-align: center
+        flex-direction: column
+        justify-content: space-evenly
+        strong
+            font-size: 48px
+        a
+            font-size: 24px
+    @media (max-width: 575px)
+        a
+            width: 80%
+            margin: 0 auto
+    @media (max-width: 425px)
+        strong
+            font-size: 34px
+        a
+            font-size: 18px
+            width: 90%
+.base
+    margin-top: 0
+    margin-bottom: 108px
+    .title
+        line-height: 30px
+        padding: 47px 0 58px 22px
+    aside
+        background-color: $gray
+        height: 100%
+        li
+            background-color: #e8e3f1
+            margin-bottom: 6px
+            &:hover a
+                border-left-color: $purple
+            a
+                font-size: 14px
+                line-height: 30px
+                padding: 6px 20px
+                display: block
+                color: $purple-black
+                border-left: 7px solid transparent
+                &:hover
+                    text-decoration: none
+            &.dropdown
+                position: relative
+                &::after
+                    content: ''
+                    width: 13px
+                    height: 8px
+                    display: block
+                    background-image: url(/images/dropdown-brown.png)
+                    position: absolute
+                    top: 17px
+                    right: 12px
+                div
+                    max-height: 0
+                    overflow: hidden
+                    a
+                        padding-left: 32px
+                        &:hover
+                            color: $purple
+                &.active
+                    &:hover a
+                        border-left-color: transparent
+                    div
+                        max-height: 500px
+                        transition-duration: 1s
+    .support-btn
+        @extend %button-purple
+        display: block
+        margin: 56px 0
+        margin-left: auto
+        width: 230px
+        line-height: 47px
+        text-align: center
+        color: #fff
+    .search
+        border: 1px solid #ded9e8
+        border-radius: 5px
+        height: 52px
+        display: flex
+        position: relative
+        input
+            width: calc(100% - 149px)
+            border: 0
+            outline: 0
+            border-radius: 5px
+            padding: 19px
+            font-size: 14px
+            font-weight: $medium
+            color: $purple-black
+            &::placeholder
+                font-size: 14px
+                font-weight: $medium
+                color: $purple-black
+        button
+            @extend %button-purple
+            border-radius: 5px
+            height: 52px
+            width: 149px
+            color: #fff
+            font-size: 14px
+            font-weight: $medium
+            text-transform: uppercase
+            border: 0
+            outline: 0
+            position: absolute
+            top: -1px
+            right: -1px
+        @media (max-width: 425px)
+            height: auto
+            flex-direction: column
+            border-radius: 0
+            border: 0
+            input
+                width: 100%
+                border: 1px solid #ded9e8
+                margin-bottom: 15px
+            button
+                width: 100%
+                position: relative
+    .article
+        padding: 45px 0
+        border-bottom: 1px solid #e6e3ec
+        h2
+            font-size: 32px
+            line-height: 34px
+            font-weight: $extrabold
+            margin-bottom: 26px
+            span
+                color: $purple
+                display: block
+        p
+            margin-bottom: 0
+.server-status
+    margin-top: -330px
+    .extra-title
+        font-size: 49px
+        line-height: 48px
+        color: #fff
+        font-weight: $extrabold
+        text-align: center
+        margin-bottom: 70px
+    .server-status-list
+        @extend %card
+        padding: 0
+        overflow: hidden
+        .head
+            display: flex
+            justify-content: space-between
+            .name
+                margin-top: 12px
+                margin-left: 20px
+                font-size: 14px
+                font-weight: bold
+        .buttons
+            margin-bottom: 13px
+            display: flex
+            &>div
+                cursor: pointer
+                width: 49px
+                height: 49px
+                background: url(/images/arrow-black.png) center no-repeat
+                &.prev
+                    transform: rotate(180deg)
+                &:hover
+                    background-color: #fff
+                &.disabled
+                    opacity: 0.5
+                    background-color: #ebe6f4
+        .table-wrapper
+            overflow: auto
+        table
+            width: 100%
+            min-width: 690px
+            font-size: 14px
+            th, td
+                padding: 16px 0
+            th:first-child, td:first-child
+                padding-left: 35px
+                width: 40%
+            th:last-child, td:last-child
+                padding-right: 35px
+                width: 35%
+            th
+                color: $purple
+                font-weight: $medium
+                text-transform: uppercase
+            thead tr,
+            tr:nth-child(even)
+                background-color: #faf9fc
+            img
+                margin-right: 12px
+            .location span
+                color: #a7a0b4
+            .warning
+                color: #e5bc17
+.storage-page
+    @extend %card
+    padding: 53px 43px
+    @media (max-width: 425px)
+        padding: 30px
+    strong
+        font-size: 29px
+        line-height: 1
+        margin-bottom: 21px
+        display: block
+    .slider-overlay
+        display: flex
+        align-items: self-start
+        margin-bottom: 40px
+        img
+            width: 47px
+            object-fit: none
+            margin-right: 18px
+        &>div
+            flex-grow: 1
+            font-size: 14px
+            color: #7a7386
+            p
+                margin-bottom: 0
+            .noUi-target
+                margin-top: 10px
+                height: 14px
+                border-radius: 7px
+                border: 0
+                background-color: #fff
+                margin-bottom: 32px
+            .noUi-connects
+                cursor: pointer
+                border-radius: 7px
+            .noUi-connect
+                background-color: $purple
+            .noUi-handle
+                cursor: pointer
+                width: 24px
+                height: 24px
+                background-color: $purple
+                border: 0
+                border-radius: 50%
+                box-shadow: unset
+                right: -12px
+                top: -5px
+                &::after,
+                &::before
+                    display: none
+                &:focus
+                    outline: 0
+                &:hover,
+                &:active
+                    .noUi-tooltip
+                        display: block
+            .noUi-tooltip
+                border: 0
+                line-height: 1
+                color: #fff
+                font-size: 14px
+                background-color: $purple
+                display: none
+                &::after
+                    content: ''
+                    width: 8px
+                    height: 8px
+                    display: block
+                    position: absolute
+                    bottom: -7px
+                    left: 50%
+                    background-color: $purple
+                    transform: rotate(45deg) translateX(-50%)
+                    z-index: -1
+            .slider-value-max
+                position: absolute
+                display: inline-block
+                margin-top: 8px
+                color: $purple
+                font-size: 20px
+                font-weight: bold
+            .slider-value-max
+                right: 0
+    .select-overlay
+        @extend %custom-select
+        .custom-select-opener
+            background-color: #fff
+        p
+            font-size: 14px
+            color: #7a7386
+            margin-bottom: 12px
+    .block
+        padding: 25px
+        text-align: center
+        background-color: #fff
+        border-radius: 10px
+        strong
+            margin-top: 15px
+            @media (max-width: 425px)
+                font-size: 26px
+        .price
+            color: $purple
+            line-height: 1
+            font-size: 49px
+            font-weight: bold
+            margin-bottom: 36px
+            @media (max-width: 425px)
+                font-size: 42px
+        .characteristics
+            font-size: 26px
+            line-height: 40px
+            margin-bottom: 30px
+        .info
+            color: #cec9d8
+            font-size: 16px
+            margin-bottom: 40px
+        a
+            @extend %button-purple
+            display: block
+            border: 0
+            outline: 0
+            width: 100%
+            line-height: 64px
+            color: #fff
+            font-size: 17px
+            font-weight: bold
+            text-align: center
+        @media (max-width: 991px)
+            margin-top: 30px
+.stock-page
+    margin-top: 110px
+    .row
+        @media (max-width: 767px)
+            &>div:nth-last-child(-n+2)
+                display: none
+    .stock-card
+        @extend %card
+        margin-bottom: 26px
+        display: flex
+        &.first
+            background-image: url(/images/stock-card-bg.png)
+            position: relative
+            @media (max-width: 425px)
+                padding: 15px
+            img
+                width: 268px
+                object-fit: none
+                flex-shrink: 0
+                @extend %border
+                +stock-img(268px)
+            .percent
+                color: $purple
+                font-size: 35px
+                font-weight: bold
+                line-height: 69px
+                height: 69px
+                background-color: $gray
+                position: absolute
+                left: -32px
+                top: 0
+                bottom: 0
+                margin: auto
+                padding: 0 22px
+                transform: rotate(-90deg)
+                border-bottom-left-radius: 40px
+                border-bottom-right-radius: 40px
+                @media (max-width: 1199px)
+                    font-size: 28px
+                    line-height: 51px
+                    height: 51px
+                    border-bottom-left-radius: 30px
+                    border-bottom-right-radius: 30px
+                @media (max-width: 767px)
+                    font-size: 22px
+                    line-height: 36px
+                    height: 36px
+                    border-bottom-left-radius: 20px
+                    border-bottom-right-radius: 20px
+                @media (max-width: 425px)
+                    display: none
+            .info
+                width: 100%
+                display: flex
+                align-items: center
+                justify-content: space-between
+                position: relative
+                padding: 0 43px
+                @media (max-width: 991px)
+                    padding: 0 20px
+                @media (max-width: 767px)
+                    padding: 0 10px
+                    flex-direction: column
+                    justify-content: space-evenly
+                .date
+                    position: absolute
+                    top: 0
+                    color: $purple
+                    font-size: 14px
+                    line-height: 17px
+                    height: 40px
+                    padding: 0 25px 0 10px
+                    background-color: #fff
+                    border-bottom-left-radius: 10px
+                    border-bottom-right-radius: 10px
+                    @media (max-width: 767px)
+                        display: none
+                strong
+                    font-size: 35px
+                    color: #fff
+                    @media (max-width: 1199px)
+                        font-size: 24px
+                    @media (max-width: 991px)
+                        font-size: 18px
+                    @media (max-width: 767px)
+                        width: 100%
+                        overflow: hidden
+                        display: -webkit-box
+                        -webkit-box-orient: vertical
+                        -webkit-line-clamp: 2
+                    @media (max-width: 425px)
+                        margin-bottom: 10px
+                a
+                    background-color: #fff
+                    width: 170px
+                    line-height: 52px
+                    border-radius: 26px
+                    text-align: center
+                    color: $purple
+                    font-weight: $semibold
+                    &:hover
+                        text-decoration: none
+                        background-color: $yellow
+                        color: #fff
+        &:not(.first)
+            position: relative
+            img
+                width: 236px
+                height: 236px
+                +stock-img(236px)
+                object-fit: none
+                @extend %border
+            .info
+                width: 100%
+                padding: 22px 19px 19px 24px
+                .date
+                    font-size: 12px
+                    display: flex
+                    justify-content: space-between
+                    margin-bottom: 20px
+                strong
+                    font-size: 18px
+                    line-height: 21px
+                    margin-bottom: 12px
+                    display: block
+                    @media (max-width: 575px)
+                        overflow: hidden
+                        display: -webkit-box
+                        -webkit-box-orient: vertical
+                        -webkit-line-clamp: 2
+                    @media (max-width: 425px)
+                        margin-bottom: 30px
+                .status
+                    color: #fff
+                    background-color: #0fb717
+                    width: 157px
+                    line-height: 38px
+                    font-size: 14px
+                    text-align: center
+                    display: block
+                a
+                    font-size: 14px
+                    position: absolute
+                    right: 15px
+                    bottom: 15px
+                    color: $purple-black
+                    @media (max-width: 767px)
+                        margin-top: 15px
+                    &::after
+                        content: ''
+                        width: 14px
+                        height: 12px
+                        background-image: url(/images/arrow-purple.png)
+                        display: inline-block
+                        margin-left: 13px
+                    &:hover
+                        text-decoration: none
+                .status-date
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    margin-bottom: 14px
+                    .date,
+                    .status
+                        margin-bottom: 0
+                        margin-right: 15px
+                    .date
+                        span:last-child
+                            margin-left: 40px
+                            @media (max-width: 991px)
+                                margin-left: 15px
+                p
+                    font-size: 14px
+                    color: $purple-light
+                    width: 80%
+                    @media (max-width: 991px)
+                        display: none !important
+        &.stock-ended
+            img
+                filter: grayscale(1)
+            .info .status
+                background-color: #8d8d8d
+    .col-xl-6
+        .status,
+        .date
+            @media (max-width: 1199px)
+                display: none !important
+        .status-date
+            .status
+                display: block !important
+            .date
+                display: flex !important
+            @media (min-width: 1200px)
+                display: none !important
+            @media (max-width: 767px)
+                display: none !important
+.reviews-page
+    .card
+        @extend %card
+        padding: 14px 9px
+        @media (max-width: 767px)
+            margin-bottom: 15px
+        a
+            @extend %border
+            background-color: #fff
+            line-height: 54px
+            width: 100%
+            display: block
+            text-align: center
+            padding: 0 10px
+            &:not(:last-child)
+                margin-bottom: 10px
+            img
+                max-width: 100%
+    .banner
+        margin-top: 42px
+        @media (max-width: 767px)
+            display: none
+    .review
+        @extend %border
+        display: flex
+        flex-direction: column
+        padding: 28px 18px 18px
+        margin-bottom: 21px
+        background: $gray url(/images/review-card.png) -12px -42px no-repeat
+        .head
+            display: flex
+            flex-wrap: wrap
+            align-items: center
+            justify-content: space-between
+            margin-bottom: 20px
+            .time-site
+                font-size: 12px
+            .name
+                color: $purple
+                font-size: 22px
+                line-height: 23px
+                font-weight: bold
+            .stars
+                display: flex
+                .star
+                    width: 37px
+                    height: 35px
+                    display: inline-block
+                    background-image: url(/images/star-gray.png)
+                    &.active
+                        background-image: url(/images/star.png)
+                    &:not(.active)
+                        filter: brightness(2)
+                    &:not(:last-child)
+                        margin-right: 10px
+        p
+            font-size: 15px
+            margin-bottom: 0
+        a
+            font-size: 14px
+            color: $purple-black
+            margin-top: 35px
+            margin-left: auto
+            display: inline-block
+            &::after
+                content: ''
+                width: 14px
+                height: 12px
+                background-image: url(/images/arrow-purple.png)
+                display: inline-block
+                margin-left: 13px
+            &:hover
+                text-decoration: none
+.ssl-page
+    margin-top: -145px
+    .ssl-card
+        @extend %card
+        padding: 12px 10px
+        margin-bottom: 30px
+        .ssl-title
+            color: $purple
+            font-size: 26px
+            text-align: center
+            display: block
+            margin: 18px auto 39px
+            font-weight: $extrabold
+        .info
+            padding: 0 12px
+            font-size: 14px
+            strong
+                font-size: 22px
+                display: block
+            div:last-child
+                margin: 50px 0 29px
+        hr
+            background-color: #f9f7fe
+            margin: 0 -10px 20px
+        .price
+            font-size: 18px
+            text-align: center
+            line-height: 31px
+            margin-bottom: 22px
+            span
+                color: $purple
+                font-size: 26px
+                font-weight: $extrabold
+        .buy
+            @extend %button-purple
+            display: block
+            width: 100%
+            height: 49px
+            line-height: 49px
+            color: #fff
+            text-align: center
+            border-radius: 24px
+    .ssl-advantages
+        margin-top: 60px
+        img
+            margin: auto
+            display: block
+            margin-bottom: 30px
+        li
+            background: url(/images/list-check-mark-green.png) left center no-repeat
+            padding-left: 45px
+            margin-bottom: 48px
+.data-centers-page
+    font-size: 15px
+    .card:not(:last-child)
+        margin-bottom: 136px
+    .card-title
+        display: flex
+        align-items: center
+        justify-content: space-between
+        font-size: 18px
+        margin-bottom: 56px
+        @media (max-width: 767px)
+            flex-direction: column
+            text-align: center
+        strong
+            font-size: 35px
+            font-weight: $extrabold
+            @media (max-width: 767px)
+                line-height: 1
+                margin-bottom: 15px
+        img
+            margin-right: 12px
+        span
+            color: $purple-light
+    .slider
+        margin-bottom: 40px
+    .info
+        @extend %card
+        padding: 25px
+        @media (max-width: 991px)
+            margin-bottom: 30px
+    .more
+        @extend %button-purple
+        display: block
+        width: 369px
+        height: 58px
+        line-height: 58px
+        border-radius: 29px
+        color: #fff
+        text-align: center
+        margin: auto
+        margin-top: 66px
+        font-size: 16px
+        @media (max-width: 575px)
+            width: auto

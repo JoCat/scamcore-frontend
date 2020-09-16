@@ -22,13 +22,16 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/png', href: '/logotype.png' },
+      { rel: 'stylesheet', href: 'https://unpkg.com/nouislider@14.6.0/distribute/nouislider.min.css' }
     ]
   },
   /*
   ** Global CSS
   */
   css: [
+    '~/assets/sass/bootstrap.sass',
+    '~/assets/sass/main.sass'
   ],
   /*
   ** Plugins to load before mounting the App
