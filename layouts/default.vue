@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Nuxt />
-    <Modal />
-    <Offcanvas />
+    <Nuxt/>
+    <Modal/>
+    <Offcanvas/>
   </div>
 </template>

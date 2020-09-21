@@ -1,6 +1,17 @@
 <template>
   <div>
-    <Header />
+    <header class="index">
+      <div class="container">
+        <Nav/>
+        <div class="row lead">
+          <div class="col-12 col-lg-7">
+            <h1>Быстрый и соверменный хостинг для вашего сайта</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo</p>
+            <a href="#">Просмотреть услуги</a>
+          </div>
+        </div>
+      </div>
+    </header>
     <main>
       <section class="container products">
         <h2 class="title center">Выбери свой продукт</h2>
@@ -238,12 +249,6 @@
         </div>
       </section>
     </main>
-    <Footer />
+    <Footer/>
   </div>
 </template>
-
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({})
-</script>
