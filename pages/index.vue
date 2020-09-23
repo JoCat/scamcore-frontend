@@ -5,99 +5,58 @@
         <Nav/>
         <div class="row lead">
           <div class="col-12 col-lg-7">
-            <h1>Быстрый и соверменный хостинг для вашего сайта</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo</p>
-            <a href="#">Просмотреть услуги</a>
+            <h1>{{ translate.header.lead.title }}</h1>
+            <p>{{ translate.header.lead.description }}</p>
+            <a href="#products">{{ translate.header.lead.link }}</a>
+          </div>
+          <div class="plans">
+            <div class="bg">
+              {{ translate.header.plans.text }} <div>{{ translate.header.plans.price }}</div>
+            </div>
           </div>
         </div>
       </div>
     </header>
     <main>
-      <section class="container products">
-        <h2 class="title center">Выбери свой продукт</h2>
+      <section class="container products" id="products">
+        <h2 class="title center">{{ translate.products.title }}</h2>
         <div class="row">
-          <div class="col-12 col-md-6 col-lg-4">
+          <div
+            class="col-12 col-md-6 col-lg-4"
+            v-for="(product, i) in translate.products.elements" :key="i"
+          >
             <div class="products-card">
-              <img src="/images/products/1.png" alt="">
-              <strong>Виртуальные сервера VPS/VDS</strong>
-              <p>На базе технологий OpenVZ, KVM и Hyper-V. Оптимальные по цене тарифы на скоростных SSD дисках</p>
+              <img :src="`/images/products/${i + 1}.png`" alt="">
+              <strong v-html="product.title"></strong>
+              <p>{{ product.description }}</p>
               <div class="price">
-                от <span>4451 руб</span> в год
+                от <span>{{ product.price }}</span> в год
               </div>
-              <a class="buy" href="#">Заказать</a>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="products-card">
-              <img src="/images/products/2.png" alt="">
-              <strong>Физические выделенные сервера</strong>
-              <p>На базе технологий OpenVZ, KVM и Hyper-V. Оптимальные по цене тарифы на скоростных SSD дисках</p>
-              <div class="price">
-                от <span>4451 руб</span> в год
-              </div>
-              <a class="buy" href="#">Заказать</a>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 m-auto">
-            <div class="products-card">
-              <img src="/images/products/3.png" alt="">
-              <strong>Игровые<br> хостинги</strong>
-              <p>На базе технологий OpenVZ, KVM и Hyper-V. Оптимальные по цене тарифы на скоростных SSD дисках</p>
-              <div class="price">
-                от <span>4451 руб</span> в год
-              </div>
-              <a class="buy" href="#">Заказать</a>
+              <nuxt-link
+                class="buy"
+                :disabled="product.link.disabled" :to=product.link.href
+              >
+                {{ product.link.text }}
+              </nuxt-link>
             </div>
           </div>
         </div>
-        <a class="more" href="#">Все наши услуги</a>
+        <a class="more" href="#">{{ translate.products.more }}</a>
       </section>
 
       <section class="container services">
         <div class="row">
           <div class="col-12 col-lg-10 col-xl-9 wrapper">
             <div class="row">
-              <div class="col-12 col-sm-6 col-md-4 service-card-wrapper">
-                <a href="#" class="service-card">
-                  <img src="/images/services/1.png" alt="">
-                  <img class="white" src="/images/services/1-white.png" alt="">
-                  SSL сертификаты
-                </a>
-              </div>
-              <div class="col-12 col-sm-6 col-md-4 service-card-wrapper">
-                <a href="#" class="service-card">
-                  <img src="/images/services/2.png" alt="">
-                  <img class="white" src="/images/services/2-white.png" alt="">
-                  Бэкап хранилище
-                </a>
-              </div>
-              <div class="col-12 col-sm-6 col-md-4 service-card-wrapper">
-                <a href="#" class="service-card">
-                  <img src="/images/services/3.png" alt="">
-                  <img class="white" src="/images/services/3-white.png" alt="">
-                  Виртуальный хостинг для сайтов
-                </a>
-              </div>
-              <div class="col-12 col-sm-6 col-md-4 service-card-wrapper">
-                <a href="#" class="service-card">
-                  <img src="/images/services/4.png" alt="">
-                  <img class="white" src="/images/services/4-white.png" alt="">
-                  Домены
-                </a>
-              </div>
-              <div class="col-12 col-sm-6 col-md-4 service-card-wrapper">
-                <a href="#" class="service-card">
-                  <img src="/images/services/5.png" alt="">
-                  <img class="white" src="/images/services/5-white.png" alt="">
-                  Лицензии <br>ISP
-                </a>
-              </div>
-              <div class="col-12 col-sm-6 col-md-4 service-card-wrapper">
-                <a href="#" class="service-card">
-                  <img src="/images/services/6.png" alt="">
-                  <img class="white" src="/images/services/6-white.png" alt="">
-                  Доп услуги
-                </a>
+              <div
+                class="col-12 col-sm-6 col-md-4 service-card-wrapper"
+                v-for="(service, i) in translate.services" :key="i"
+              >
+                <nuxt-link :to="service.link" class="service-card">
+                  <img :src="`/images/services/${i + 1}.png`" alt="">
+                  <img class="white" :src="`/images/services/${i + 1}-white.png`" alt="">
+                  {{ service.title }}
+                </nuxt-link>
               </div>
             </div>
           </div>
@@ -105,50 +64,18 @@
       </section>
 
       <section class="container advantages">
-        <h2 class="title center">Наши преимущества</h2>
+        <h2 class="title center">{{ translate.advantages.title }}</h2>
         <div class="row">
           <div class="col-12 col-lg-10 col-xl-9 wrapper">
             <div class="row">
-              <div class="col-12 col-md-6 col-lg-4">
+              <div
+                class="col-12 col-md-6 col-lg-4"
+                v-for="(advantage, i) in translate.advantages.elements" :key="i"
+              >
                 <div class="advantage-card">
-                  <img src="/images/advantages/1.png" alt="">
-                  <strong>Низкие<br> цены</strong>
-                  <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do</p>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4">
-                <div class="advantage-card">
-                  <img src="/images/advantages/2.png" alt="">
-                  <strong>Лучшее<br> оборудование</strong>
-                  <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do</p>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4">
-                <div class="advantage-card">
-                  <img src="/images/advantages/3.png" alt="">
-                  <strong>Надежная<br> техподдержка</strong>
-                  <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do</p>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4">
-                <div class="advantage-card">
-                  <img src="/images/advantages/4.png" alt="">
-                  <strong>Простота<br> использования</strong>
-                  <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do</p>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4">
-                <div class="advantage-card">
-                  <img src="/images/advantages/5.png" alt="">
-                  <strong>Гибкость для<br> разных задач</strong>
-                  <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do</p>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4">
-                <div class="advantage-card">
-                  <img src="/images/advantages/6.png" alt="">
-                  <strong>Низкие<br> цены</strong>
-                  <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do</p>
+                  <img :src="`/images/advantages/${i + 1}.png`" alt="">
+                  <strong v-html="advantage.title"></strong>
+                  <p v-html="advantage.description"></p>
                 </div>
               </div>
             </div>
@@ -157,40 +84,28 @@
       </section>
 
       <section class="container solutions">
-        <h2 class="title">Еще не <br>решился?</h2>
-        <a class="bttn" href="#">Заказать услугу</a>
+        <h2 class="title" v-html="translate.solutions.title"></h2>
+        <a class="bttn" href="#products">{{ translate.solutions.link }}</a>
         <div class="row wrapper">
           <div class="col-12 col-lg-5">
-            <button type="button">
-              <img src="/images/solutions/1.png" alt="">
-              Премиальное оборудование
-            </button>
-            <button type="button">
-              <img src="/images/solutions/2.png" alt="">
-              Выгодные тарифные планы
-            </button>
-            <button type="button">
-              <img src="/images/solutions/3.png" alt="">
-              Круглосуточная поддержка
-            </button>
-            <button type="button">
-              <img src="/images/solutions/4.png" alt="">
-              Тысячи счастливых клиентов
+            <button
+              type="button" @click="selectSolution(i)"
+              v-for="(solution, i) in translate.solutions.elements" :key="i"
+            >
+              <img :src="`/images/solutions/${i + 1}.png`" alt="">
+              {{ solution.title }}
             </button>
           </div>
           <div class="col-12 col-lg-7">
             <div class="solution-card">
-              <div class="header">
-                <strong>Премиальное</strong><br>
-                оборудование
-              </div>
-              <p>Премиальное оборудование Мы используем лучшее оборудование и комплектующие, чтобы гарантировать стабильную работу и uptime не менее 99,92%.</p>
+              <div class="header" v-html="selectedSolution.title"></div>
+              <p v-html="selectedSolution.description"></p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="articles">
+      <!-- <section class="articles">
         <div class="container">
           <h2 class="title center">Наши статьи</h2>
         </div>
@@ -231,24 +146,164 @@
           </div>
           <div class="arrow-right"></div>
         </div>
-      </section>
+      </section> -->
 
-      <section class="container feedback">
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <h2 class="title">У вас еще остались <br>вопросы?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg-5 offset-lg-1">
-            <form action="">
-              <input type="text" placeholder="Ваше имя">
-              <input type="text" placeholder="Ваш Email">
-              <button type="submit">Получить консультацию</button>
-            </form>
-          </div>
-        </div>
-      </section>
+      <Feedback/>
     </main>
     <Footer/>
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  data() {
+    return {
+      translate: translate,
+      selectedSolution: translate.solutions.elements[0].card
+    }
+  },
+  methods: {
+    selectSolution: function (i: number) {
+      this.selectedSolution = this.translate.solutions.elements[i].card
+    }
+  }
+})
+
+let translate = {
+  header: {
+    lead: {
+      title: 'Быстрый и соверменный хостинг для вашего сайта',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo',
+      link: 'Просмотреть услуги'
+    },
+    plans: {
+      text: 'Планы от',
+      price: '250 руб'
+    }
+  },
+  products: {
+    title: 'Выбери свой продукт',
+    more: 'Все наши услуги',
+    elements: [
+      {
+        title: 'Виртуальные сервера VPS/VDS',
+        description: 'На базе технологий OpenVZ, KVM и Hyper-V. Оптимальные по цене тарифы на скоростных SSD дисках',
+        price: '4451 руб',
+        link: {
+          text: 'Заказать',
+          href: '/vds'
+        }
+      },
+      {
+        title: 'Физические выделенные сервера',
+        description: 'На базе технологий OpenVZ, KVM и Hyper-V. Оптимальные по цене тарифы на скоростных SSD дисках',
+        price: '4451 руб',
+        link: {
+          text: 'Заказать',
+          href: '/dedicated'
+        }
+      },
+      {
+        title: 'Игровые<br> хостинги',
+        description: 'На базе технологий OpenVZ, KVM и Hyper-V. Оптимальные по цене тарифы на скоростных SSD дисках',
+        price: '4451 руб',
+        link: {
+          text: 'Скоро',
+          href: '#',
+          disabled: true
+        }
+      }
+    ]
+  },
+  services : [
+    {
+      title: 'SSL сертификаты',
+      link: '#'
+    },
+    {
+      title: 'Бэкап хранилище',
+      link: '#'
+    },
+    {
+      title: 'Виртуальный хостинг для сайтов',
+      link: '#'
+    },
+    {
+      title: 'Домены',
+      link: '#'
+    },
+    {
+      title: 'Лицензии ISP',
+      link: '#'
+    },
+    {
+      title: 'Доп услуги',
+      link: '#'
+    }
+  ],
+  advantages: {
+    title: 'Наши преимущества',
+    elements: [
+      {
+        title: 'Низкие<br> цены',
+        description: 'Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do'
+      },
+      {
+        title: 'Лучшее<br> оборудование',
+        description: 'Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do'
+      },
+      {
+        title: 'Надежная<br> техподдержка',
+        description: 'Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do'
+      },
+      {
+        title: 'Простота<br> использования',
+        description: 'Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do'
+      },
+      {
+        title: 'Гибкость для<br> разных задач',
+        description: 'Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do'
+      },
+      {
+        title: 'Низкие<br> цены',
+        description: 'Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do'
+      }
+    ]
+  },
+  solutions: {
+    title: 'Еще не <br>решился?',
+    link: 'Заказать услугу',
+    elements: [
+      {
+        title: 'Премиальное оборудование',
+        card: {
+          title: '<strong>Премиальное</strong><br> оборудование',
+          description: 'Мы используем лучшее оборудование и комплектующие, чтобы гарантировать стабильную работу и uptime не менее 99,92%.'
+        }
+      },
+      {
+        title: 'Выгодные тарифные планы',
+        card: {
+          title: '<strong>Выгодные</strong><br> тарифные планы',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+        }
+      },
+      {
+        title: 'Круглосуточная поддержка',
+        card: {
+          title: '<strong>Круглосуточная</strong><br> поддержка',
+          description: 'Мы используем лучшее оборудование и комплектующие, чтобы гарантировать стабильную работу и uptime не менее 99,92%.'
+        }
+      },
+      {
+        title: 'Тысячи счастливых клиентов',
+        card: {
+          title: '<strong>Тысячи</strong><br> счастливых клиентов',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+        }
+      }
+    ]
+  }
+}
+</script>

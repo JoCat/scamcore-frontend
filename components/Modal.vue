@@ -40,9 +40,9 @@
             <option value="vpn">OpenVpn</option>
           </select>
           <script>
-            document.addEventListener('DOMContentLoaded', () => {
-              customSelect('#select1')
-            });
+            //document.addEventListener('DOMContentLoaded', () => {
+            //  customSelect('#select1')
+            //});
           </script>
           <select id="select2">
             <option value>Предустановленное ПО</option>
@@ -51,9 +51,9 @@
             <option value="vpn">OpenVpn</option>
           </select>
           <script>
-            document.addEventListener('DOMContentLoaded', () => {
-              customSelect('#select2')
-            });
+            //document.addEventListener('DOMContentLoaded', () => {
+            //  customSelect('#select2')
+            //});
           </script>
           <input type="text" placeholder="Домен">
           <select id="select3">
@@ -63,9 +63,9 @@
             <option value="vpn">OpenVpn</option>
           </select>
           <script>
-            document.addEventListener('DOMContentLoaded', () => {
-              customSelect('#select3')
-            });
+            //document.addEventListener('DOMContentLoaded', () => {
+            //  customSelect('#select3')
+            //});
           </script>
           <div class="row">
             <div class="col-12 col-md-6">
