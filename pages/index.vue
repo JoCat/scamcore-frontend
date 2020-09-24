@@ -41,10 +41,10 @@
             </div>
           </div>
         </div>
-        <a class="more" href="#">{{ translate.products.more }}</a>
+        <a class="more" href="#" @click.prevent="serviceToggle()">{{ translate.products.more }}</a>
       </section>
 
-      <section class="container services">
+      <section class="container services" v-if="serviceShow">
         <div class="row">
           <div class="col-12 col-lg-10 col-xl-9 wrapper">
             <div class="row">
@@ -160,12 +160,16 @@ export default Vue.extend({
   data() {
     return {
       translate: translate,
-      selectedSolution: translate.solutions.elements[0].card
+      selectedSolution: translate.solutions.elements[0].card,
+      serviceShow: false
     }
   },
   methods: {
     selectSolution: function (i: number) {
       this.selectedSolution = this.translate.solutions.elements[i].card
+    },
+    serviceToggle: function () {
+      this.serviceShow = !this.serviceShow
     }
   }
 })
