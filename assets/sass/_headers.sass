@@ -1,511 +1,504 @@
-@import "hamburger"
-
 header
-  background-size: cover
-  background-position: center bottom
-  color: #fff
-  .container
-    position: relative
-  nav
-    min-height: 90px
-    padding: 25px 0
-    display: flex
-    align-items: center
-    position: relative
-    z-index: 1
-    justify-content: center
-    @media (max-width: 1199px)
-      flex-wrap: wrap
-      .contacts
-        display: none !important
-      .dropdown-contacts
-        display: inline-block !important
-        .dropdown-menu
-          a::before,
-          .tg img
-            filter: brightness(.2)
-    @media (max-width: 991px)
-      &>ul
-        order: 1
-        margin-top: 15px !important
-      .buttons
-        margin-left: 15px
-    @media (max-width: 767px)
-      &>ul
-        margin-top: 15px !important
-        li
-          padding: 0 15px !important
-    @media (max-width: 575px)
-      &>ul,
-      .buttons
-        display: none !important
-      .offcanvas-btn
-        display: block !important
-        margin-left: auto
-      .offcanvas-menu
-        display: block !important
-    .offcanvas-btn,
-    .dropdown-contacts
-      display: none
-    .offcanvas-btn
-      outline: 0
-    .logo,
-    .offcanvas-btn
-      z-index: 1
-      &:not(.is-active) + .offcanvas-menu
-        right: calc(100% + 30px)
-    .offcanvas-menu
-      display: none
-      position: absolute
-      width: 100%
-      top: 0
-      right: 0
-      background-color: #652feb
-      margin: 0 -15px
-      padding: 90px 15px 15px
-      box-sizing: content-box
-      transition-duration: .5s
-      ul
-        li
-          margin-bottom: 5px
-        ul
-          margin: 10px 0 10px 15px
-        img
-          margin-right: 10px
-    &>ul
-      padding-left: 0
-      list-style: none
-      margin: 0 20px
-      li
-        display: inline-block
-        padding: 0 20px
-        a
-          position: relative
-          &::after
-            content: ''
-            background-color: transparent
+    background-size: cover
+    background-position: center bottom
+    color: #fff
+    .container
+        position: relative
+    nav
+        min-height: 90px
+        padding: 25px 0
+        display: flex
+        align-items: center
+        position: relative
+        z-index: 1
+        justify-content: center
+        .offcanvas-btn,
+        .dropdown-contacts
+            display: none
+        .offcanvas-btn
+            outline: 0
+        .logo,
+        .offcanvas-btn
+            z-index: 1
+            &:not(.is-active) + .offcanvas-menu
+                right: calc(100% + 30px)
+        .offcanvas-menu
+            display: none
             position: absolute
-            bottom: -8px
-            left: 0
+            width: 100%
+            top: 0
             right: 0
-            margin: auto
-            width: 24px
-            height: 5px
-            border-radius: 2px
-            transition-duration: .25s
-          &:hover
+            background-color: #652feb
+            margin: 0 -15px
+            padding: 90px 15px 15px
+            box-sizing: content-box
+            transition-duration: .5s
+            ul
+                li
+                    margin-bottom: 5px
+                ul
+                    margin: 10px 0 10px 15px
+                img
+                    margin-right: 10px
+        &>ul
+            padding-left: 0
+            list-style: none
+            margin: 0 9px
+            li
+                display: inline-block
+                padding: 0 9px
+                a
+                    position: relative
+                    &::before
+                        content: ''
+                        background-color: transparent
+                        position: absolute
+                        bottom: -8px
+                        left: 0
+                        right: 0
+                        margin: auto
+                        width: 24px
+                        height: 5px
+                        border-radius: 2px
+                        transition-duration: .25s
+                    &:hover
+                        position: relative
+                        &::before
+                            background-color: #fff
+        .dropdown
+            position: relative
+            a::before
+                display: none
+            >a::after
+                content: ''
+                background-image: url(/images/dropdown.png)
+                width: 13px
+                height: 8px
+                display: inline-block
+                margin-left: 2px
+                transition-duration: .25s
+            .dropdown-menu
+                display: none
+                position: absolute
+                @extend %border
+                background-color: #fff
+                box-shadow: 0px 25px 29px 0px rgba(0, 0, 0, 0.13)
+                padding: 24px 14px 14px
+                margin-top: 20px
+                left: 15%
+                z-index: 1
+                &::before
+                    content: ''
+                    width: 12px
+                    height: 12px
+                    background-color: #fff
+                    position: absolute
+                    top: -6px
+                    left: 25%
+                    transform: rotate(45deg)
+                a
+                    display: block
+                    margin-bottom: 14px
+                    color: $purple-black
+                    font-size: 16px
+                    font-weight: bold
+                    white-space: nowrap
+                    &:hover
+                        color: $purple
+            &.active
+                >a::after
+                    transform: rotate(180deg)
+                .dropdown-menu
+                    display: block
+        .dropdown-right
+            .dropdown-menu
+                right: 0
+                left: unset
+                &::before
+                    left: 85%
+        a
+            color: #fff
+            &:hover
+                color: #fff
+                text-decoration: none
+        .contacts,
+        .buttons
+            display: flex
+        .tel,
+        .email
+            font-size: 15px
+            font-weight: bold
+            padding-left: 30px
             position: relative
             &::after
-              background-color: #fff
-    .dropdown
-      position: relative
-      a::after
-        display: none
-      >a::before
-        content: ''
-        background-image: url(/images/dropdown.png)
-        width: 13px
-        height: 8px
-        position: absolute
-        right: -18px
-        top: 0
-        bottom: 0
-        margin: auto
-        transition-duration: .25s
-      .dropdown-menu
-        display: none
-        position: absolute
-        @extend %border
-        background-color: #fff
-        box-shadow: 0px 25px 29px 0px rgba(0, 0, 0, 0.13)
-        padding: 24px 14px 14px
-        width: 227px
-        margin-top: 20px
-        left: 15%
-        z-index: 1
-        &::after
-          content: ''
-          width: 12px
-          height: 12px
-          background-color: #fff
-          position: absolute
-          top: -6px
-          left: 25%
-          transform: rotate(45deg)
-        a
-          display: block
-          margin-bottom: 14px
-          color: $purple-black
-          font-size: 16px
-          font-weight: bold
-          &:hover
+                content: ''
+                width: 23px
+                height: 23px
+                display: inline-block
+                position: absolute
+                left: 0
+        .tel::after
+            background: url(/images/icons/call.png)
+        .email::after
+            background: url(/images/icons/email.png) no-repeat center
+        .tel,
+        .email,
+        .tg,
+        .bill
+            margin-right: 15px
+        .bill,
+        .lang
+            border: 1px solid #fff
+            border-radius: 20px
+            line-height: 36px
+            padding: 0 10px
+        .bill:hover
+            background-color: #fff
             color: $purple
-      &.active
-        >a::before
-          transform: rotate(180deg)
-        .dropdown-menu
-          display: block
-    .dropdown-right
-      .dropdown-menu
-        right: 0
-        left: unset
-        &::after
-          left: 85%
-    a
-      color: #fff
-      &:hover
-        color: #fff
-        text-decoration: none
-    .contacts,
-    .buttons
-      display: flex
-    .tel,
-    .email
-      font-size: 15px
-      font-weight: bold
-      padding-left: 30px
-      position: relative
-      &::before
-        content: ''
-        width: 23px
-        height: 23px
-        display: inline-block
-        position: absolute
-        left: 0
-    .tel::before
-      background: url(/images/icons/call.png)
-    .email::before
-      background: url(/images/icons/email.png) no-repeat center
-    .tel,
-    .email,
-    .tg,
-    .bill
-      margin-right: 15px
-    .bill,
-    .lang
-      border: 1px solid #fff
-      border-radius: 20px
-      line-height: 36px
-      padding: 0 10px
-    .bill:hover
-      background-color: #fff
-      color: $purple
-    .lang
-      padding-right: 22px
-      display: inline-block
-      &::before
-        right: 6px !important
-      &:hover
-        background-color: #fff
-        color: $purple
-        &::before
-          background-image: url(/images/dropdown-purple.png)
-      &+.dropdown-menu
-        padding: 24px 18px 4px
-        a
-          font-size: 14px
-          line-height: 1
-          margin-bottom: 19px
-        img
-          margin-right: 15px
-  .lead
-    h1
-      font-size: 48px
-      font-weight: $extrabold
-      line-height: 1.1
-      margin-bottom: 20px
-      @media (max-width: 991px)
-        font-size: 42px
-      @media (max-width: 575px)
-        font-size: 36px
-    p
-      font-size: 16px
-      font-weight: bold
-      line-height: 1.45
-      margin-bottom: 30px
-      @media (max-width: 575px)
-        font-size: 14px
-    a
-      @extend %button-yellow
-      color: #fff
-      font-size: 17px
-      font-weight: bold
-      text-transform: uppercase
-      display: inline-block
-      width: 270px
-      line-height: 70px
-      text-align: center
-  &.index,
-  &.main,
-  &.stock,
-  &.reviews
-    position: relative
-    .container::after
-      content: ''
-      position: absolute
-  &.index
-    overflow: hidden
-    background-image: url(/images/index-header-bg.png)
-    .lead
-      position: relative
-      padding-top: 80px
-      padding-bottom: 280px
-      .plans
-        position: absolute
-        right: 0
-        top: 80px
-        width: 610px
-        height: 603px
+        .lang
+            display: inline-block
+            &::after
+                margin-left: 6px !important
+            &:hover
+                background-color: #fff
+                color: $purple
+                &::after
+                    background-image: url(/images/dropdown-purple.png)
+            &+.dropdown-menu
+                padding: 24px 18px 4px
+                a
+                    font-size: 14px
+                    line-height: 1
+                    margin-bottom: 19px
+                img
+                    margin-right: 15px
         @media (max-width: 1199px)
-          right: -102px
+            .contacts
+                display: none
+            .dropdown-contacts
+                display: inline-block
+                .dropdown-menu
+                    a::after,
+                    .tg img
+                        filter: brightness(.2)
         @media (max-width: 991px)
-          display: none
-        .bg
-          border-radius: 18px
-          background-color: #fff
-          width: 343px
-          height: 369px
-          margin: auto
-          text-align: center
-          color: $purple
-          font-size: 23px
-          line-height: 1
-          font-weight: $extrabold
-          padding-top: 55px
-          div
-            color: $yellow
-            font-size: 59px
-        &::after
-          content: ''
-          position: absolute
-          right: 10px
-          bottom: 0
-          width: 610px
-          height: 430px
-          background-image: url(/images/index-header-servers.png)
-
-  &.main
-    background-image: url(/images/main-header-bg.png)
-    .container::after
-      background-image: url(/images/main-header-rocket.png)
-      background-repeat: no-repeat
-      background-position: right bottom
-      right: 70px
-      bottom: -22px
-      width: 346px
-      height: 417px
-      @media (max-width: 991px)
-        display: none
-    .lead
-      padding-top: 40px
-      padding-bottom: 105px
-  &.alternative
-    border-bottom: 2px solid $purple
-    color: $purple-black
-    nav
-      ul li a
-        color: #30273f
-        &:hover
-          color: #30273f
-          &::after
-            background-color: $purple
-      a
-        color: $purple
-      .dropdown>a::before
-        background-image: url(/images/dropdown-black.png)
-      .tel::before
-        background: url(/images/icons/call-purple.png)
-      .email::before
-        background: url(/images/icons/email-purple.png) no-repeat center
-      .bill,
-      .lang
-        border-color: $purple
-        &:hover
-          color: #fff
-          background-color: $purple
-      .lang
-        &::before
-          background-image: url(/images/dropdown-purple.png)
-        &:hover
-          color: #fff
-          background-color: $purple
-          &::before
-            background-image: url(/images/dropdown.png)
-    .offcanvas-btn
-      .hamburger-inner,
-      .hamburger-inner::after,
-      .hamburger-inner::before
-        background-color: $purple-black
-    .offcanvas-menu
-      background-color: #fff
-  &.domains
-    background-image: url(/images/domains-header.png)
-    .container
-      display: flex
-      flex-direction: column
-    .lead
-      text-align: center
-      margin-top: 45px
-      margin-bottom: 100px
-      h1
-        margin-bottom: 59px
-      form
-        display: flex
-        background-color: #fff
-        height: 57px
-        border-radius: 5px
-        overflow: hidden
-        margin: 0 40px
-        input
-          width: calc(100% - 227px)
-          border: 0
-          outline: 0
-          padding: 0 24px
-          font-size: 16px
-          font-weight: 500
-          &::placeholder
-            text-transform: uppercase
-            color: $purple-light
-        button
-          @extend %button-yellow
-          width: 227px
-          border: 0
-          outline: 0
-          border-radius: 5px
-          color: #fff
-          text-transform: uppercase
-          font-size: 16px
-          font-weight: 500
+            flex-wrap: wrap
+            &>ul
+                order: 1
+                margin-top: 15px
+            .buttons
+                margin-left: 15px
         @media (max-width: 767px)
-          margin: 0
+            &>ul
+                margin: 15px 0 0
+                li
+                    padding: 0 4px
         @media (max-width: 575px)
-          input,
-          button
-            font-size: 14px
-          input
-            width: calc(100% - 200px)
-          button
-            width: 200px
-        @media (max-width: 425px)
-          flex-wrap: wrap
-          height: 114px
-          input,
-          button
+            &>ul,
+            .buttons
+                display: none
+            .offcanvas-btn
+                display: block
+                margin-left: auto
+            .offcanvas-menu
+                display: block
+    .lead
+        h1
+            font-size: 48px
+            font-weight: $extrabold
+            line-height: 1.1
+            margin-bottom: 20px
+            @media (max-width: 991px)
+                font-size: 42px
+            @media (max-width: 575px)
+                font-size: 36px
+        p
+            font-size: 16px
+            font-weight: bold
+            line-height: 1.45
+            margin-bottom: 30px
+            @media (max-width: 575px)
+                font-size: 14px
+        a
+            @extend %button-yellow
+            color: #fff
+            font-size: 17px
+            font-weight: bold
+            text-transform: uppercase
+            display: inline-block
+            width: 270px
+            line-height: 70px
+            text-align: center
+    &.index,
+    &.main,
+    &.stock,
+    &.reviews
+        position: relative
+        .container::after
+            content: ''
+            position: absolute
+    &.index
+        overflow: hidden
+        background-image: url(/images/index-header-bg.png)
+        .lead
+          position: relative
+          padding-top: 80px
+          padding-bottom: 280px
+          .plans
+            position: absolute
+            right: 0
+            top: 80px
+            width: 610px
+            height: 603px
+            @media (max-width: 1199px)
+                right: -102px
+            @media (max-width: 991px)
+                display: none
+            .bg
+                border-radius: 18px
+                background-color: #fff
+                width: 343px
+                height: 369px
+                margin: auto
+                text-align: center
+                color: $purple
+                font-size: 23px
+                line-height: 1
+                font-weight: $extrabold
+                padding-top: 55px
+                div
+                    color: $yellow
+                    font-size: 59px
+            &::after
+                content: ''
+                position: absolute
+                right: 10px
+                bottom: 0
+                width: 610px
+                height: 430px
+                background-image: url(/images/index-header-servers.png)
+    &.main
+        background-image: url(/images/main-header-bg.png)
+        .container::after
+            background-image: url(/images/main-header-rocket.png)
+            background-repeat: no-repeat
+            background-position: right bottom
+            right: 70px
+            bottom: -22px
+            width: 346px
+            height: 417px
+            @media (max-width: 991px)
+                display: none
+        .lead
+            padding-top: 40px
+            padding-bottom: 105px
+    &.alternative
+        border-bottom: 2px solid $purple
+        color: $purple-black
+        nav
+            ul li a
+                color: #30273f
+                &:hover
+                    color: #30273f
+                    &::after
+                        background-color: $purple
+            a
+                color: $purple
+            .dropdown>a::before
+                background-image: url(/images/dropdown-black.png)
+            .tel::after
+                background: url(/images/icons/call-purple.png)
+            .email::after
+                background: url(/images/icons/email-purple.png) no-repeat center
+            .bill,
+            .lang
+                border-color: $purple
+                &:hover
+                    color: #fff
+                    background-color: $purple
+            .lang
+                &::before
+                    background-image: url(/images/dropdown-purple.png)
+                &:hover
+                    color: #fff
+                    background-color: $purple
+                    &::before
+                        background-image: url(/images/dropdown.png)
+        .offcanvas-btn
+            .hamburger-inner,
+            .hamburger-inner::after,
+            .hamburger-inner::before
+                background-color: $purple-black
+        .offcanvas-menu
+            background-color: #fff
+    &.domains
+        background-image: url(/images/domains-header.png)
+        .container
+            display: flex
+            flex-direction: column
+        .lead
+            text-align: center
+            margin-top: 45px
+            margin-bottom: 100px
+            h1
+                margin-bottom: 59px
+            form
+                display: flex
+                background-color: #fff
+                height: 57px
+                border-radius: 5px
+                overflow: hidden
+                margin: 0 40px
+                input
+                    width: calc(100% - 227px)
+                    border: 0
+                    outline: 0
+                    padding: 0 24px
+                    font-size: 16px
+                    font-weight: 500
+                    &::placeholder
+                        text-transform: uppercase
+                        color: $purple-light
+                button
+                    @extend %button-yellow
+                    width: 227px
+                    border: 0
+                    outline: 0
+                    border-radius: 5px
+                    color: #fff
+                    text-transform: uppercase
+                    font-size: 16px
+                    font-weight: 500
+                @media (max-width: 767px)
+                    margin: 0
+                @media (max-width: 575px)
+                    input,
+                    button
+                        font-size: 14px
+                    input
+                        width: calc(100% - 200px)
+                    button
+                        width: 200px
+                @media (max-width: 425px)
+                    flex-wrap: wrap
+                    height: 114px
+                    input,
+                    button
+                        width: 100%
+    &.status,
+    &.ssl,
+    &.data-centers
+        background: url(/images/status-header-bg.png) center top no-repeat
+        height: 482px
+    &.page404
+        height: 100vh
+        background: url(/images/index-header-bg.png) center top no-repeat
+        background-size: cover
+        .bg
+            position: fixed
+            bottom: 0
             width: 100%
-  &.status,
-  &.ssl,
-  &.data-centers
-    background: url(/images/status-header-bg.png) center top no-repeat
-    height: 482px
-  &.page404
-    height: 100vh
-    background: url(/images/index-header-bg.png) center top no-repeat
-    background-size: cover
-    .bg
-      position: fixed
-      bottom: 0
-      width: 100%
-    nav
-      height: auto
-      img
-        margin: auto
-    a
-      @extend %button-yellow
-      width: 208px
-      line-height: 69px
-      text-align: center
-      text-transform: uppercase
-      font-size: 17px
-      font-weight: bold
-      color: #fff
-      display: block
-      margin: auto
-      margin-top: 67px
-  &.page-notification
-    height: 100vh
-    background: url(/images/index-header-bg.png) center top no-repeat
-    background-size: cover
-    nav
-      padding: 16px 0
-      height: auto
+        nav
+            height: auto
+            img
+                margin: auto
+        a
+            @extend %button-yellow
+            width: 208px
+            line-height: 69px
+            text-align: center
+            text-transform: uppercase
+            font-size: 17px
+            font-weight: bold
+            color: #fff
+            display: block
+            margin: auto
+            margin-top: 67px
+    &.page-notification
+        height: 100vh
+        background: url(/images/index-header-bg.png) center top no-repeat
+        background-size: cover
+        nav
+            padding: 16px 0
+            height: auto
 
-    .lead
-      margin-top: 60px
-      text-align: center
-      h1
-        text-transform: uppercase
-        font-weight: $black
-        @media (max-width: 425px)
-          font-size: 32px
-      a
-        width: 208px
-        line-height: 55px
-      img
-        display: block
-        padding-left: 10px
-        margin: -20px auto 0
-        pointer-events: none
-        max-width: 100%
-  &.stock,
-  &.reviews
-    background: url(/images/stock-header.png) center bottom no-repeat
-    height: 388px
-    .lead
-      height: calc(388px - 90px)
-      align-items: center
-      p
-        font-weight: $medium
-  &.stock
-    .container::after
-      right: 62px
-      bottom: -56px
-      width: 384px
-      height: 329px
-      background: url(/images/stock.png) no-repeat
-      @media (max-width: 991px)
-        display: none
-    .lead
-      h1
-        margin-bottom: 0
-        font-size: 42px
-  &.reviews
-    .lead
-      h1
-        font-size: 60px
-        line-height: 52px
-        margin-bottom: 18px
-        @media (max-width: 767px)
-          font-size: 48px
-    .container::after
-      right: 225px
-      bottom: -20px
-      width: 272px
-      height: 334px
-      background: url(/images/reviews.png) no-repeat
-      @media (max-width: 991px)
-        display: none
-    .clients
-      border-radius: 10px
-      background-image: linear-gradient( 90deg, rgb(251,218,18) 0%, rgb(244,154,23) 100%)
-      position: absolute
-      right: 15px
-      top: 150px
-      width: 282px
-      height: 73px
-      padding: 0 24px
-      font-size: 21px
-      line-height: 23px
-      font-weight: bold
-      display: flex
-      align-items: center
-      justify-content: space-between
-      @media (max-width: 767px)
-        display: none
-  &.ssl .lead
-    margin-top: 45px
-    text-align: center
-  &.data-centers
-    height: auto
-    text-align: center
-    .lead
-      margin-top: 30px
+        .lead
+            margin-top: 60px
+            text-align: center
+            h1
+                text-transform: uppercase
+                font-weight: $black
+                @media (max-width: 425px)
+                    font-size: 32px
+            a
+                width: 208px
+                line-height: 55px
+            img
+                display: block
+                padding-left: 10px
+                margin: -20px auto 0
+                pointer-events: none
+                max-width: 100%
+    &.stock,
+    &.reviews
+        background: url(/images/stock-header.png) center bottom no-repeat
+        height: 388px
+        .lead
+            height: calc(388px - 90px)
+            align-items: center
+            p
+                font-weight: $medium
+    &.stock
+        .container::after
+            right: 62px
+            bottom: -56px
+            width: 384px
+            height: 329px
+            background: url(/images/stock.png) no-repeat
+            @media (max-width: 991px)
+                display: none
+        .lead
+            h1
+                margin-bottom: 0
+                font-size: 42px
+    &.reviews
+        .lead
+            h1
+                font-size: 60px
+                line-height: 52px
+                margin-bottom: 18px
+                @media (max-width: 767px)
+                    font-size: 48px
+        .container::after
+            right: 225px
+            bottom: -20px
+            width: 272px
+            height: 334px
+            background: url(/images/reviews.png) no-repeat
+            @media (max-width: 991px)
+                display: none
+        .clients
+            border-radius: 10px
+            background-image: linear-gradient( 90deg, rgb(251,218,18) 0%, rgb(244,154,23) 100%)
+            position: absolute
+            right: 15px
+            top: 150px
+            width: 282px
+            height: 73px
+            padding: 0 24px
+            font-size: 21px
+            line-height: 23px
+            font-weight: bold
+            display: flex
+            align-items: center
+            justify-content: space-between
+            @media (max-width: 767px)
+                display: none
+    &.ssl .lead
+        margin-top: 45px
+        text-align: center
+    &.data-centers
+        height: auto
+        text-align: center
+        .lead
+            margin-top: 30px
