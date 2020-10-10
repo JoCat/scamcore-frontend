@@ -1542,10 +1542,13 @@ section
                 strong
                     font-size: 35px
                     color: #fff
+                    width: 75%
                     @media (max-width: 1199px)
                         font-size: 24px
+                        width: 70%
                     @media (max-width: 991px)
                         font-size: 18px
+                        width: 60%
                     @media (max-width: 767px)
                         width: 100%
                         overflow: hidden
@@ -1639,6 +1642,9 @@ section
                     width: 80%
                     @media (max-width: 991px)
                         display: none !important
+                    @media (min-width: 1200px)
+                        &.hide-lg
+                            display: none
         &.stock-ended
             img
                 filter: grayscale(1)
