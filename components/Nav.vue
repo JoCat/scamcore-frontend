@@ -1,25 +1,15 @@
 <template>
 <nav>
-    <img class="logo" :src="type == 'alternative' ? '/images/logo-alternative.png' : '/images/logo.png'" alt="">
+    <nuxt-link to="/" class="d-flex">
+      <img class="logo" :src="type == 'alternative' ? '/images/logo-alternative.png' : '/images/logo.png'" alt="">
+    </nuxt-link>
     <ul>
-        <li
-          v-for="(el, i) in translate.nav" :key="i"
-          :class="isDropdown(el) ? 'dropdown js__nav-dropdown' : ''"
-        >
-          <a v-if="!isDropdown(el) && isExternalLink(el)" :href="el.link" target="_blank">{{ el.title }}</a>
-          <nuxt-link v-if="!isDropdown(el) && !isExternalLink(el)" :to="el.link">{{ el.title }}</nuxt-link>
-          <a v-if="isDropdown(el)" class="dropdown-toggle" href="#">{{ el.title }}</a>
-          <div v-if="isDropdown(el)" class="dropdown-menu">
-            <span v-for="(link, j) in el.elements" :key="j">
-              <a v-if="isExternalLink(link)" :href="link.link" target="_blank">{{ link.title }}</a>
-              <nuxt-link v-if="!isExternalLink(link)" :to="link.link">{{ link.title }}</nuxt-link>
-            </span>
-          </div>
+        <li v-for="(el, i) in translate.nav" :key="i">
+          <NavLink v-if="!isDropdown(el)" :el="el"/>
+          <NavDropdown v-if="isDropdown(el)" :el="el"/>
         </li>
-        <li class="dropdown dropdown-right js__nav-dropdown dropdown-contacts">
-          <a class="dropdown-toggle" href="#">
-              {{ translate.contacts.title }}
-          </a>
+        <li class="dropdown dropdown-right dropdown-contacts">
+          <a href="#">{{ translate.contacts.title }}</a>
           <div class="dropdown-menu">
               <!-- <a class="tel" href="tel:+79179036183">+7 917 903 61 83</a> -->
               <a class="email" :href="'mailto:' + translate.contacts.email">{{ translate.contacts.email }}</a>
@@ -39,8 +29,8 @@
     </div>
     <div class="buttons">
         <a class="bill" :href="translate.billing.link" target="_blank">{{ translate.billing.title }}</a>
-        <div class="dropdown dropdown-right js__nav-dropdown">
-            <a class="lang dropdown-toggle" href="#">RU</a>
+        <div class="dropdown dropdown-right">
+            <a class="lang" href="#">RU</a>
             <div class="dropdown-menu">
                 <a href="#">
                     <img src="/images/flags/russia.png" alt="">{{ translate.langs.ru }}
@@ -121,19 +111,21 @@ export default Vue.extend({
     }
   },
   methods: {
-    isDropdown: function(el: NavLink) {
+    isDropdown(el: NavLink) {
       return el.elements !== undefined && el.elements.length > 0
     },
-    isExternalLink: function(el: NavLink) {
-      return el.link.startsWith('http')
-    }
+    isExternalLink: isExternalLink
   }
 })
 
-interface NavLink {
+export interface NavLink {
   title: string
   link: string
   elements?: NavLink[]
+}
+
+export function isExternalLink(el: NavLink) {
+  return el.link.startsWith('http')
 }
 
 let translate = {

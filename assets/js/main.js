@@ -1,16 +1,4 @@
 // Dropdowns
-document.querySelectorAll('.js__nav-dropdown .dropdown-toggle').forEach((el) => {
-    const parent = el.parentElement;
-    document.addEventListener('click', (e) => {
-        if (e.target === el) e.preventDefault();
-        if (
-            e.target === el || // Если нажатие срабатывает на элементе
-            (parent.classList.contains('active') && !parent.contains(e.target)) // Вне элемента когда открыто меню
-        ) {
-            parent.classList.toggle('active');
-        }
-    })
-})
 
 document.querySelectorAll('.js__siblings-dropdown .dropdown-toggle').forEach((el) => {
     const parent = el.parentElement;
@@ -21,7 +9,7 @@ document.querySelectorAll('.js__siblings-dropdown .dropdown-toggle').forEach((el
             (parent.classList.contains('active') && e.target.parentElement.classList.contains('js__siblings-dropdown'))
         ) {
             parent.classList.toggle('active');
-        } 
+        }
     })
 })
 

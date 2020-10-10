@@ -69,16 +69,15 @@ header
             position: relative
             a::before
                 display: none
-            >a::after
+            a::after
                 content: ''
                 background-image: url(/images/dropdown.png)
                 width: 13px
                 height: 8px
                 display: inline-block
-                margin-left: 2px
+                margin-left: 4px
                 transition-duration: .25s
             .dropdown-menu
-                display: none
                 position: absolute
                 @extend %border
                 background-color: #fff
@@ -106,10 +105,8 @@ header
                     &:hover
                         color: $purple
             &.active
-                >a::after
+                a::after
                     transform: rotate(180deg)
-                .dropdown-menu
-                    display: block
         .dropdown-right
             .dropdown-menu
                 right: 0
