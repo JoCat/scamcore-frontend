@@ -6,18 +6,22 @@
     <ul>
         <li v-for="(el, i) in translate.nav" :key="i">
           <NavLink v-if="!isDropdown(el)" :el="el"/>
-          <NavDropdown v-if="isDropdown(el)" :el="el"/>
+          <NavDropdown v-if="isDropdown(el)" :title="el.title">
+            <NavLink v-for="(link, j) in el.elements" :key="j" :el="link"/>
+          </NavDropdown>
         </li>
-        <li class="dropdown dropdown-right dropdown-contacts">
-          <a href="#">{{ translate.contacts.title }}</a>
-          <div class="dropdown-menu">
+        <li>
+          <NavDropdown class="dropdown-right dropdown-contacts" :title="translate.contacts.title">
               <!-- <a class="tel" href="tel:+79179036183">+7 917 903 61 83</a> -->
-              <a class="email" :href="'mailto:' + translate.contacts.email">{{ translate.contacts.email }}</a>
+              <a class="email" :href="'mailto:' + translate.contacts.email">
+                  <!-- <img src="/images/icons/email.png" alt=""> -->
+                {{ translate.contacts.email }}
+              </a>
               <a class="tg" :href="translate.contacts.tg" target="_blank">
                   <img src="/images/icons/telegram.png" alt="">
                   Telegram
               </a>
-          </div>
+          </NavDropdown>
       </li>
     </ul>
     <div class="contacts">
@@ -30,7 +34,7 @@
     <div class="buttons">
         <a class="bill" :href="translate.billing.link" target="_blank">{{ translate.billing.title }}</a>
         <div class="dropdown dropdown-right">
-            <a class="lang" href="#">RU</a>
+            <a class="lang dropdown-link" href="#">RU</a>
             <div class="dropdown-menu">
                 <a href="#">
                     <img src="/images/flags/russia.png" alt="">{{ translate.langs.ru }}
@@ -113,8 +117,7 @@ export default Vue.extend({
   methods: {
     isDropdown(el: NavLink) {
       return el.elements !== undefined && el.elements.length > 0
-    },
-    isExternalLink: isExternalLink
+    }
   }
 })
 
@@ -122,10 +125,6 @@ export interface NavLink {
   title: string
   link: string
   elements?: NavLink[]
-}
-
-export function isExternalLink(el: NavLink) {
-  return el.link.startsWith('http')
 }
 
 let translate = {

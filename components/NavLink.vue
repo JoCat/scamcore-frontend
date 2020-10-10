@@ -7,12 +7,14 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { NavLink, isExternalLink } from './Nav.vue'
+import { NavLink } from './Nav.vue'
 
 export default Vue.extend({
   props: ['el'],
   methods: {
-    isExternalLink: isExternalLink
+    isExternalLink(el: NavLink) {
+      return el.link.startsWith('http')
+    }
   }
 })
 </script>

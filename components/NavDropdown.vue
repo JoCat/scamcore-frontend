@@ -1,25 +1,24 @@
 <template>
   <div class="dropdown" :class="showMenu ? 'active' : ''">
-    <a href="#" @click.prevent="toggleDropdown()">{{ el.title }}</a>
+    <a class="dropdown-link" href="#" @click.prevent="toggleDropdown()">{{ title }}</a>
     <div class="dropdown-menu" v-if="showMenu">
-      <NavLink v-for="(link, j) in el.elements" :key="j" :el="link"/>
+      <slot/>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { NavLink, isExternalLink } from './Nav.vue'
+import { NavLink } from './Nav.vue'
 
 export default Vue.extend({
-  props: ['el'],
+  props: ['title'],
   data() {
     return {
       showMenu: false
     }
   },
   methods: {
-    isExternalLink: isExternalLink,
     toggleDropdown() {
       this.showMenu = !this.showMenu
     }
