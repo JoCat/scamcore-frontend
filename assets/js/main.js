@@ -1,17 +1,17 @@
 // Dropdowns
 
-document.querySelectorAll('.js__siblings-dropdown .dropdown-toggle').forEach((el) => {
-    const parent = el.parentElement;
-    document.addEventListener('click', (e) => {
-        if (e.target === el) e.preventDefault();
-        if (
-            e.target === el ||
-            (parent.classList.contains('active') && e.target.parentElement.classList.contains('js__siblings-dropdown'))
-        ) {
-            parent.classList.toggle('active');
-        }
-    })
-})
+// document.querySelectorAll('.js__siblings-dropdown .dropdown-toggle').forEach((el) => {
+//     const parent = el.parentElement;
+//     document.addEventListener('click', (e) => {
+//         if (e.target === el) e.preventDefault();
+//         if (
+//             e.target === el ||
+//             (parent.classList.contains('active') && e.target.parentElement.classList.contains('js__siblings-dropdown'))
+//         ) {
+//             parent.classList.toggle('active');
+//         }
+//     })
+// })
 
 // Sliders
 function createSlider(name, settings, suffix = '') {
