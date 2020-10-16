@@ -53,18 +53,6 @@ function createSlider(name, settings, suffix = '') {
     // });
 }
 
-const hamburger = document.querySelector('.offcanvas-btn')
-if (hamburger !== null) {
-    document.addEventListener('click', (e) => {
-        if (
-            (e.target === hamburger || hamburger.contains(e.target)) || // Если нажатие срабатывает на элементе
-            (hamburger.classList.contains('is-active') && !document.querySelector('.offcanvas-menu').contains(e.target)) // Вне элемента когда открыто меню
-        ) {
-            hamburger.classList.toggle('is-active');
-        }
-    })
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     const geekbenchs = document.querySelectorAll('.geekbench')
     if (geekbenchs.length == 0) return
