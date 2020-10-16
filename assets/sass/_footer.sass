@@ -10,19 +10,12 @@
         display: block
         font-weight: bold
     ul
-        display: inline-block
-        margin-bottom: 0
-        max-width: 133px
         &:not(:last-child)
-            margin-right: 50px
-        @media (max-width: 1199px)
-            &:not(:last-child)
-                margin-right: 20px
-        @media (max-width: 767px)
-            &:not(:last-child)
-                margin-right: 50px
+            margin-right: auto
         @media (max-width: 575px)
-            margin: 0 80px 10px 0 !important
+            width: 180px
+        @media (max-width: 320px)
+            width: 100%
     a
         font-size: 13px
         color: #240d65
