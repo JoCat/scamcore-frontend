@@ -21,7 +21,9 @@
             </div>
           </div>
           <div class="slider">
-            <img class="img-fluid" src="/images/dc-slider.png" alt="">
+              <VueSlickCarousel :arrows="true">
+                <img v-for="(img, j) in el.images" :key="j" :src="img" alt="">
+              </VueSlickCarousel>
           </div>
           <div class="row">
             <div class="col-lg-4">
@@ -41,7 +43,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
+const VueSlickCarousel = require('vue-slick-carousel')
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+
 export default Vue.extend({
+  components: { VueSlickCarousel },
   data() {
     return {
       translate: translate
@@ -62,7 +69,9 @@ let translate = {
         country: 'Ukraine',
         city: 'Donbas'
       },
-      image: [
+      images: [
+        '/images/dc-slider.png',
+        '/images/dc-slider.png',
         '/images/dc-slider.png'
       ],
       description: `Москва, ул. Берзарина, д. 36, стр. 3<br><br>
@@ -80,7 +89,7 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
         country: 'Ukraine',
         city: 'Donbas'
       },
-      image: [
+      images: [
         '/images/dc-slider.png'
       ],
       description: `Москва, ул. Берзарина, д. 36, стр. 3<br><br>
@@ -98,7 +107,7 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
         country: 'Ukraine',
         city: 'Donbas'
       },
-      image: [
+      images: [
         '/images/dc-slider.png'
       ],
       description: `Москва, ул. Берзарина, д. 36, стр. 3<br><br>
@@ -113,3 +122,13 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
   servers: 'Показать доступные сервера'
 }
 </script>
+
+<style>
+.slick-prev {
+  left: 15px;
+  z-index: 1;
+}
+.slick-next {
+  right: 15px;
+}
+</style>
