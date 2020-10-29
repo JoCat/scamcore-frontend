@@ -52,25 +52,3 @@ function createSlider(name, settings, suffix = '') {
     //     document.querySelector(`[name=${name}_max]`).value = values[1];
     // });
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    const geekbenchs = document.querySelectorAll('.geekbench')
-    if (geekbenchs.length == 0) return
-    geekbenchs.forEach((el) => {
-        const percent = (el.dataset.geekbench / el.dataset.geekbenchMax) * 100
-
-        const deg = 238 * percent / 100
-        el.querySelector('.speedometer__arrow').style.transform = `rotate(${deg}deg)`
-
-        const size = (87.4986 - 87.4986 * percent / 100).toFixed(4)
-        el.querySelector('.speedometer__speed').style.strokeDashoffset = `${size}px`
-
-        const scoreEl = el.querySelector('.speedometer__score')
-        for (let index = 0; index < 100; index++) {
-            setTimeout(() => {
-                scoreEl.innerHTML = (el.dataset.geekbench / 100 * index).toFixed(0)
-            }, index * 10)
-        }
-        setTimeout(() => {scoreEl.innerHTML = el.dataset.geekbench}, 1000)
-    })
-})
