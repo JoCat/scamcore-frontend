@@ -207,10 +207,6 @@ let translate_ru = {
           title: "Статус сервисов",
           link: "https://main.spacecore.online/",
         },
-        {
-          title: "Статус нод",
-          link: "https://vm.spacecore.online/",
-        },
       ],
     },
     {
