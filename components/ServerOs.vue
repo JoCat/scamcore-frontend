@@ -4,37 +4,34 @@
       <div class="col-12 col-md-6 col-lg-3 el">
         <img src="/images/os/windows.png" alt="">
         <p>
-          Название системы<br>
-          Название<br>
-          Наименование<br>
-          Система операций
+          Windows Server 2019<br>
+          Windows Server 2016<br>
+          Windows Server 2012 R2
         </p>
       </div>
       <div class="col-12 col-md-6 col-lg-3 el">
         <img src="/images/os/ubuntu.png" alt="">
         <p>
-          Название системы<br>
-          Название<br>
-          Наименование<br>
-          Система операций
+          Ubuntu 20.10<br>
+          Ubuntu 20.04<br>
+          Ubuntu 18.10<br>
+          Ubuntu 18.04
         </p>
       </div>
       <div class="col-12 col-md-6 col-lg-3 el">
         <img src="/images/os/settings.png" alt="">
         <p>
-          Название системы<br>
-          Название<br>
-          Наименование<br>
-          Система операций
+          Centos 8<br>
+          Centos 7<br>
+          Centos 6
         </p>
       </div>
       <div class="col-12 col-md-6 col-lg-3 el">
         <img src="/images/os/linux.png" alt="">
         <p>
-          Название системы<br>
-          Название<br>
-          Наименование<br>
-          Система операций
+          Debian 10<br>
+          Debian 9<br>
+          Debian 8
         </p>
       </div>
     </div>

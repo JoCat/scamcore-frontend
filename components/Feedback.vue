@@ -2,8 +2,8 @@
   <section class="container feedback">
     <div class="row">
       <div class="col-12 col-md-6">
-        <h2 class="title">У вас еще остались <br>вопросы?</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id</p>
+        <h2 class="title">У Вас еще остались <br>вопросы?</h2>
+        <p>Не стоит беспокоиться, один из наших сотрудников в любое время готов предоставить Вам бесплатную консультацию и ответить на все возникающие вопросы. Всего-навсего необходимо оставить свои контактные данные, вскоре Вашим вопросом займется лучший эксперт <b> Галактики SpaceCore!</b></p>
       </div>
       <div class="col-12 col-md-6 col-lg-5 offset-lg-1">
         <form action="">

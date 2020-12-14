@@ -58,17 +58,13 @@ export default Vue.extend({
 
 
 const translate_ru = {
-  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  description: 'SpaceCore — надежный и стабильный хостинг-провайдер нашего времени. Мы стремимся к лучшему результату, делая стоимость услуг ниже, а предложения выгоднее. Сотни счастливых клиентов уже доверяют нам, самое время начать экономить на использовании хостинга! Ждем Вас в уютном круге наших пользователей!',
   copyrights: 'Все права защищены© 20!8 - 2020 SpaceCore / June 15, 2020, 12:07 am',
   nav: {
     title: 'Навигация',
     elements: [
       [
         {
-          title: "Виртуальные серверы",
-          link: "/vds",
-        },
-        {
           title: "Выделенные серверы",
           link: "/dedicated",
         },
@@ -77,64 +73,60 @@ const translate_ru = {
           link: "/not-install",
         },
         {
-          title: "Веб-хостинг",
+          title: "Виртуальные серверы VDS",
+          link: "/vds",
+        },
+        {
+          title: "Виртуальный хостинг",
           link: "/hosting",
         },
         {
-          title: "Домены",
-          link: "/domains",
-        },
-        {
-          title: "Лицензии ISP",
-          link: "/isplicense",
+          title: "Игровой хостинг",
+          link: "/game-hosting",
         }
       ],
       [
         {
-          title: "Виртуальные серверы",
-          link: "/vds",
-        },
-        {
-          title: "Выделенные серверы",
-          link: "/dedicated",
-        },
-        {
-          title: "Серверы без установки",
-          link: "/not-install",
-        },
-        {
-          title: "Веб-хостинг",
-          link: "/hosting",
-        },
-        {
-          title: "Домены",
+          title: "Доменные имена",
           link: "/domains",
         },
         {
+          title: "SSL-сертификаты",
+          link: "/ssl",
+        },
+        {
+          title: "FTP хранилище",
+          link: "/storage",
+        },
+        {
           title: "Лицензии ISP",
-          link: "/isplicense",
+          link: "/license",
+        },
+        {
+          title: "Доп. услуги",
+          link: "#",
         }
       ],
       [
         {
-          title: "Виртуальные серверы",
-          link: "/vds",
+          title: "Контакты",
+          link: "/contacts",
         },
         {
-          title: "Выделенные серверы",
-          link: "/dedicated",
+          title: "Дата-центры",
+          link: "/data-centers",
         },
         {
-          title: "Серверы без установки",
-          link: "/not-install",
+          title: "Отзывы",
+          link: "/reviews",
         },
         {
-          title: "Веб-хостинг",
-          link: "/hosting",
+          title: "Акции",
+          link: "/offers",
         },
         {
-          title: "Домены",
-          link: "/domains",
+          title: "Блог",
+          link: "/articles",
         }
       ],
     ]

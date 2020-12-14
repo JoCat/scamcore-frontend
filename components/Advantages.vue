@@ -35,28 +35,28 @@ const translate = {
     title: 'Наши преимущества',
     elements: [
       {
-        title: 'Низкие<br> цены',
-        description: 'Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do'
+        title: 'Оптимальные<br> цены',
+        description: 'Доступная стоимость услуг, которая делает наши предложение ещё лучше'
       },
       {
-        title: 'Лучшее<br> оборудование',
-        description: 'Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do'
+        title: 'Надежное<br> оборудование',
+        description: 'Современное серверное оборудование расположено в лучших дата-центров'
       },
       {
-        title: 'Надежная<br> техподдержка',
-        description: 'Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do'
+        title: 'Круглосуточная <br> тех. поддержка',
+        description: 'Быстрая, отзывчивая и качественная поддержка, предоставляемая 24/7/365'
       },
       {
-        title: 'Простота<br> использования',
-        description: 'Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do'
+        title: 'Удобство<br> использования',
+        description: 'Лёгкое управление услугами с использованием современного и комфортного интерфейса'
       },
       {
-        title: 'Гибкость для<br> разных задач',
-        description: 'Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do'
+        title: 'Применение <br> в различных сферах',
+        description: 'Различные услуги подойдут как для запусков скриптов, так и для реализации больших проектов'
       },
       {
-        title: 'Низкие<br> цены',
-        description: 'Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do'
+        title: 'Игровая защита <br> от DDoS-атак',
+        description: 'Anti-DDoS Game обеспечивает полную защиту от любых видов атак на уровнях L3-L7'
       }
     ]
   },

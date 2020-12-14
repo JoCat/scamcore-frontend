@@ -58,23 +58,23 @@ let translate = {
   title: 'Наши<br> контакты',
   phone: {
     title: 'Телефон для звонков',
-    phone: '+7 917 903 61 83'
+    phone: 'В скором времени'
   },
   email: {
     title: 'Наша почта',
-    email: 'hi@site.com'
+    email: 'support@spacecore.pro'
   },
   social: [
     {
-      link: '#',
+      link: 'https://twitter.com/SpaceCoreRU',
       image: '/images/twitter.png'
     },
     {
-      link: '#',
+      link: 'https://t.me/spacecore_pro',
       image: '/images/telegram.png'
     },
     {
-      link: '#',
+      link: 'https://vk.com/spacecore_pro',
       image: '/images/vk.png'
     }
   ],

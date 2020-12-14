@@ -30,7 +30,7 @@
               <strong v-html="product.title"></strong>
               <p>{{ product.description }}</p>
               <div class="price">
-                от <span>{{ product.price }}</span> в год
+                от <span>{{ product.price }}</span> в месяц
               </div>
               <nuxt-link
                 class="buy"
@@ -159,13 +159,13 @@ export default Vue.extend({
 let translate = {
   header: {
     lead: {
-      title: 'Быстрый и соверменный хостинг для вашего сайта',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo',
+      title: 'Быстрый и современный хостинг для Вашего проекта',
+      description: 'Постоянные акции, выгодные условия, круглосуточная техническая поддержка — добро пожаловать, хостинг SpaceCore! Мы предоставляем множество разных услуг для Вашего проекта: начиная от бюджетного размещения сайтов, заканчивая производительными выделенными серверами для большого бизнеса.',
       link: 'Просмотреть услуги'
     },
     plans: {
       text: 'Планы от',
-      price: '250 руб'
+      price: '350 руб'
     }
   },
   products: {
@@ -173,27 +173,27 @@ let translate = {
     more: 'Все наши услуги',
     elements: [
       {
-        title: 'Виртуальные сервера VPS/VDS',
-        description: 'На базе технологий OpenVZ, KVM и Hyper-V. Оптимальные по цене тарифы на скоростных SSD дисках',
-        price: '4451 руб',
+        title: 'Виртуальные серверы VDS',
+        description: 'Выгодные по цене услуги на скоростных SSD/NVME накопителях на базе технологий KVM',
+        price: '350 руб',
         link: {
           text: 'Заказать',
           href: '/vds'
         }
       },
       {
-        title: 'Физические выделенные сервера',
-        description: 'На базе технологий OpenVZ, KVM и Hyper-V. Оптимальные по цене тарифы на скоростных SSD дисках',
-        price: '4451 руб',
+        title: 'Физические выделенные серверы',
+        description: 'Высокопроизводительные серверы для масштабных проектов, которые требую особую производительность',
+        price: '3300 руб',
         link: {
           text: 'Заказать',
           href: '/dedicated'
         }
       },
       {
-        title: 'Игровые<br> хостинги',
+        title: 'Игровой <br> хостинг',
         description: 'На базе технологий OpenVZ, KVM и Hyper-V. Оптимальные по цене тарифы на скоростных SSD дисках',
-        price: '4451 руб',
+        price: '110 руб',
         link: {
           text: 'Скоро',
           href: '#',
@@ -204,27 +204,27 @@ let translate = {
   },
   services : [
     {
-      title: 'SSL сертификаты',
-      link: '#'
-    },
-    {
-      title: 'Бэкап хранилище',
-      link: '#'
-    },
-    {
       title: 'Виртуальный хостинг для сайтов',
-      link: '#'
+      link: '/hosting'
     },
     {
-      title: 'Домены',
-      link: '#'
+      title: 'Доменные имена',
+      link: '/domains'
     },
     {
       title: 'Лицензии ISP',
-      link: '#'
+      link: '/isplicense'
     },
     {
-      title: 'Доп услуги',
+      title: 'SSL сертификаты',
+      link: '/ssl'
+    },
+    {
+      title: 'FTP хранилище',
+      link: '/storage'
+    },
+    {
+      title: 'Доп. услуги',
       link: '#'
     }
   ],
@@ -243,21 +243,21 @@ let translate = {
         title: 'Выгодные тарифные планы',
         card: {
           title: '<strong>Выгодные</strong><br> тарифные планы',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+          description: 'Мы ценим Ваш выбор и предлагаем лучшие условия сотрудничества - выгодные тарифы и бонусы для наших клиентов!'
         }
       },
       {
-        title: 'Круглосуточная поддержка',
+        title: 'Бесплатный перенос проекта',
         card: {
-          title: '<strong>Круглосуточная</strong><br> поддержка',
-          description: 'Мы используем лучшее оборудование и комплектующие, чтобы гарантировать стабильную работу и uptime не менее 99,92%.'
+          title: '<strong>Бесплатный</strong><br> перенос проекта',
+          description: 'Наши сотрудники готовы в любое время предоставить услуги по переносу данных Вашего проекта от другого хостинг-провайдера'
         }
       },
       {
-        title: 'Тысячи счастливых клиентов',
+        title: 'Сотни счастливых клиентов',
         card: {
-          title: '<strong>Тысячи</strong><br> счастливых клиентов',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+          title: '<strong>Сотни</strong><br> счастливых клиентов',
+          description: 'Еженедельно мы обслуживаем сотни клиентов и получаем только положительные отзывы и благодарности.'
         }
       }
     ]
