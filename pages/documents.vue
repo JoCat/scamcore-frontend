@@ -28,34 +28,38 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  data() {
-    return {
-      translate: translate
-    }
+  computed: {
+    translate() {
+      return this.$getTranslate(this.$store.state.lang, translate);
+    },
   }
 })
 
-let translate = {
-  title: 'Наша<br> документация',
-  elements: [
-    {
-      title: 'Соглашение о предоставлениие услуги',
-      description: 'договор между компанией SpaceCore.pro и их пользователями.',
-      link: '/agreement',
-      image: '/images/documentation-deal.png'
-    },
-    {
-      title: 'Политика конфиденциальности',
-      description: 'определяет политику в отношении обработки персональных данных.',
-      link: '/privacy',
-      image: '/images/documentation-lock.png'
-    },
-    {
-      title: 'Публичная оферта',
-      description: 'публичное предложение Хостера с Пользователем договор аренды услуг.',
-      link: '/publicoffer',
-      image: '/images/documentation-deal.png'
-    }
-  ]
+const translate = {
+  ru: {
+    title: 'Наша<br> документация',
+    elements: [
+      {
+        title: 'Соглашение о предоставлениие услуги',
+        description: 'договор между компанией SpaceCore.pro и их пользователями.',
+        link: '/agreement',
+        image: '/images/documentation-deal.png'
+      },
+      {
+        title: 'Политика конфиденциальности',
+        description: 'определяет политику в отношении обработки персональных данных.',
+        link: '/privacy',
+        image: '/images/documentation-lock.png'
+      },
+      {
+        title: 'Публичная оферта',
+        description: 'публичное предложение Хостера с Пользователем договор аренды услуг.',
+        link: '/publicoffer',
+        image: '/images/documentation-deal.png'
+      }
+    ]
+  },
+  ua: {},
+  en: {}
 }
 </script>

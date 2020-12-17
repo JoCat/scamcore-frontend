@@ -11,14 +11,18 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  data() {
-    return {
-      translate: translate
-    }
-  }
+  computed: {
+    translate() {
+      return this.$getTranslate(this.$store.state.lang, translate);
+    },
+  },
 })
 
-let translate = {
-  link: 'На главную'
+const translate = {
+  ru: {
+    link: 'На главную'
+  },
+  ua: {},
+  en: {}
 }
 </script>

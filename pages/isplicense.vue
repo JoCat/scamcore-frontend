@@ -39,50 +39,54 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  data() {
-    return {
-      translate: translate
+  computed: {
+    translate() {
+      return this.$getTranslate(this.$store.state.lang, translate);
     }
   }
 })
 
-let translate = {
-  header: {
-    title: 'Лицензии ISPsystem ',
-    description: 'Продукты компании ISPSystem являются лидерами на рынке решений панелей управления выделенными и виртуальными серверами',
-    button: {
-      text: 'Просмотреть услуги',
-      href: '#'
+const translate = {
+  ru: {
+    header: {
+      title: 'Лицензии ISPsystem ',
+      description: 'Продукты компании ISPSystem являются лидерами на рынке решений панелей управления выделенными и виртуальными серверами',
+      button: {
+        text: 'Просмотреть услуги',
+        href: '#'
+      }
+    },
+    main: {
+      title: 'Лицензии ISP',
+      elements: [
+        {
+          title: 'Заголовок товара',
+          price: '112,00/мес'
+        },
+        {
+          title: 'Заголовок товара',
+          price: '112,00/мес'
+        },
+        {
+          title: 'Заголовок товара',
+          price: '112,00/мес'
+        },
+        {
+          title: 'Заголовок товара',
+          price: '112,00/мес'
+        },
+        {
+          title: 'Заголовок товара',
+          price: '112,00/мес'
+        },
+        {
+          title: 'Заголовок товара',
+          price: '112,00/мес'
+        }
+      ]
     }
   },
-  main: {
-    title: 'Лицензии ISP',
-    elements: [
-      {
-        title: 'Заголовок товара',
-        price: '112,00/мес'
-      },
-      {
-        title: 'Заголовок товара',
-        price: '112,00/мес'
-      },
-      {
-        title: 'Заголовок товара',
-        price: '112,00/мес'
-      },
-      {
-        title: 'Заголовок товара',
-        price: '112,00/мес'
-      },
-      {
-        title: 'Заголовок товара',
-        price: '112,00/мес'
-      },
-      {
-        title: 'Заголовок товара',
-        price: '112,00/мес'
-      }
-    ]
-  }
+  ua: {},
+  en: {}
 }
 </script>

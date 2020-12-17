@@ -49,77 +49,81 @@ import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 export default Vue.extend({
   components: { VueSlickCarousel },
-  data() {
-    return {
-      translate: translate
-    }
+  computed: {
+    translate() {
+      return this.$getTranslate(this.$store.state.lang, translate);
+    },
   }
 })
 
-let translate = {
-  header: {
-    title: 'Больше количество<br> дата центров',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br> tempor incididunt ut labore et dolore',
+const translate = {
+  ru: {
+    header: {
+      title: 'Больше количество<br> дата центров',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br> tempor incididunt ut labore et dolore',
+    },
+    elements: [
+      {
+        name: 'Название цода',
+        location: {
+          flag: 'canada',
+          country: 'Ukraine',
+          city: 'Donbas'
+        },
+        images: [
+          '/images/dc-slider.png',
+          '/images/dc-slider.png',
+          '/images/dc-slider.png'
+        ],
+        description: `Москва, ул. Берзарина, д. 36, стр. 3<br><br>
+Площадь серверных помещений — 1 250 м²<br><br>
+Количество серверных стоек — 500<br><br>
+Мощность ДЦ, кВТ — 3 300<br><br>
+Источники бесперебойного питания, дизель-генераторы N+1, прямой фрикулинг с адиабатическим доохлаждением`,
+        content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit animLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim`
+      },
+      {
+        name: 'Название цода',
+        location: {
+          flag: 'canada',
+          country: 'Ukraine',
+          city: 'Donbas'
+        },
+        images: [
+          '/images/dc-slider.png'
+        ],
+        description: `Москва, ул. Берзарина, д. 36, стр. 3<br><br>
+Площадь серверных помещений — 1 250 м²<br><br>
+Количество серверных стоек — 500<br><br>
+Мощность ДЦ, кВТ — 3 300<br><br>
+Источники бесперебойного питания, дизель-генераторы N+1, прямой фрикулинг с адиабатическим доохлаждением`,
+        content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit animLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim`
+      },
+      {
+        name: 'Название цода',
+        location: {
+          flag: 'canada',
+          country: 'Ukraine',
+          city: 'Donbas'
+        },
+        images: [
+          '/images/dc-slider.png'
+        ],
+        description: `Москва, ул. Берзарина, д. 36, стр. 3<br><br>
+Площадь серверных помещений — 1 250 м²<br><br>
+Количество серверных стоек — 500<br><br>
+Мощность ДЦ, кВТ — 3 300<br><br>
+Источники бесперебойного питания, дизель-генераторы N+1, прямой фрикулинг с адиабатическим доохлаждением`,
+        content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit animLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim`
+      }
+    ],
+    servers: 'Показать доступные сервера'
   },
-  elements: [
-    {
-      name: 'Название цода',
-      location: {
-        flag: 'canada',
-        country: 'Ukraine',
-        city: 'Donbas'
-      },
-      images: [
-        '/images/dc-slider.png',
-        '/images/dc-slider.png',
-        '/images/dc-slider.png'
-      ],
-      description: `Москва, ул. Берзарина, д. 36, стр. 3<br><br>
-Площадь серверных помещений — 1 250 м²<br><br>
-Количество серверных стоек — 500<br><br>
-Мощность ДЦ, кВТ — 3 300<br><br>
-Источники бесперебойного питания, дизель-генераторы N+1, прямой фрикулинг с адиабатическим доохлаждением`,
-      content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit animLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim`
-    },
-    {
-      name: 'Название цода',
-      location: {
-        flag: 'canada',
-        country: 'Ukraine',
-        city: 'Donbas'
-      },
-      images: [
-        '/images/dc-slider.png'
-      ],
-      description: `Москва, ул. Берзарина, д. 36, стр. 3<br><br>
-Площадь серверных помещений — 1 250 м²<br><br>
-Количество серверных стоек — 500<br><br>
-Мощность ДЦ, кВТ — 3 300<br><br>
-Источники бесперебойного питания, дизель-генераторы N+1, прямой фрикулинг с адиабатическим доохлаждением`,
-      content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit animLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim`
-    },
-    {
-      name: 'Название цода',
-      location: {
-        flag: 'canada',
-        country: 'Ukraine',
-        city: 'Donbas'
-      },
-      images: [
-        '/images/dc-slider.png'
-      ],
-      description: `Москва, ул. Берзарина, д. 36, стр. 3<br><br>
-Площадь серверных помещений — 1 250 м²<br><br>
-Количество серверных стоек — 500<br><br>
-Мощность ДЦ, кВТ — 3 300<br><br>
-Источники бесперебойного питания, дизель-генераторы N+1, прямой фрикулинг с адиабатическим доохлаждением`,
-      content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit animLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim`
-    }
-  ],
-  servers: 'Показать доступные сервера'
+  ua: {},
+  en: {}
 }
 </script>
 

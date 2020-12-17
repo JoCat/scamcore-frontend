@@ -128,33 +128,37 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  data() {
-    return {
-      translate: translate
+  computed: {
+    translate() {
+      return this.$getTranslate(this.$store.state.lang, translate);
     }
   }
 })
 
-let translate = {
-  header: {
-    title: 'Услуги<br> FTP хранилища',
-    description: 'Идеальный сервис для безопасного хранения<br> любого объема Ваших данных',
-    button: {
-      text: 'Просмотреть услуги',
-      href: '#'
-    }
+const translate = {
+  ru: {
+    header: {
+      title: 'Услуги<br> FTP хранилища',
+      description: 'Идеальный сервис для безопасного хранения<br> любого объема Ваших данных',
+      button: {
+        text: 'Просмотреть услуги',
+        href: '#'
+      }
+    },
+    form: {
+      title: 'Конфигурация<br> FTP хранилища',
+      volume: 'Объем хранилища',
+      ftp_users: 'Кол-во FTP юзеров',
+      location: 'Локация',
+      price: 'Стоимость',
+      month: 'мес.',
+      storage: 'диска',
+      traffic: 'трафика',
+      additional_storage:'12 руб. за дополнительный GB'
+    },
+    order: 'Заказать'
   },
-  form: {
-    title: 'Конфигурация<br> FTP хранилища',
-    volume: 'Объем хранилища',
-    ftp_users: 'Кол-во FTP юзеров', 
-    location: 'Локация',
-    price: 'Стоимость',
-    month: 'мес.',
-    storage: 'диска',
-    traffic: 'трафика',
-    additional_storage:'12 руб. за дополнительный GB'
-  },
-  order: 'Заказать'
+  ua: {},
+  en: {}
 }
 </script>

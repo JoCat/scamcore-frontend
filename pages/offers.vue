@@ -79,89 +79,93 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  data() {
-    return {
-      translate: translate
+  computed: {
+    translate() {
+      return this.$getTranslate(this.$store.state.lang, translate);
     }
   }
 })
 
-let translate = {
-  header: {
-    title: 'Наши акции',
-    description: 'В этом разделе представлены активные и готовящиеся акции'
+const translate = {
+  ru: {
+    header: {
+      title: 'Наши акции',
+      description: 'В этом разделе представлены активные и готовящиеся акции'
+    },
+    elements: [
+      {
+        date_start: 1601372291060,
+        date_end: 1602683339179,
+        title: 'Выгодные предложения на все выделенные сервера и что то еще',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: '/images/stock-card.png',
+        link: '#'
+      },
+      {
+        date_start: 1601372291060,
+        date_end: 1602683339179,
+        title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: '/images/stock-card.png',
+        link: '#'
+      },
+      {
+        date_start: 1601372291060,
+        date_end: 1602078346859,
+        title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: '/images/stock-card.png',
+        link: '#'
+      },
+      {
+        date_start: 1601372291060,
+        date_end: 1602078346859,
+        title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: '/images/stock-card.png',
+        link: '#'
+      },
+      {
+        date_start: 1601372291060,
+        date_end: 1602078346859,
+        title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: '/images/stock-card.png',
+        link: '#'
+      },
+      {
+        date_start: 1601372291060,
+        date_end: 1602078346859,
+        title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: '/images/stock-card.png',
+        link: '#'
+      },
+      {
+        date_start: 1601372291060,
+        date_end: 1602078346859,
+        title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: '/images/stock-card.png',
+        link: '#'
+      },
+      {
+        date_start: 1601372291060,
+        date_end: 1602078346859,
+        title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        image: '/images/stock-card.png',
+        link: '#'
+      }
+    ],
+    date_start: 'Начало',
+    date_end: 'Завершение',
+    date_end_first: 'Дата завершения',
+    offer_active: 'Акция активна',
+    offer_inactive: 'Акция окончена',
+    more: 'Подробнее'
   },
-  elements: [
-    {
-      date_start: 1601372291060,
-      date_end: 1602683339179,
-      title: 'Выгодные предложения на все выделенные сервера и что то еще',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      image: '/images/stock-card.png',
-      link: '#'
-    },
-    {
-      date_start: 1601372291060,
-      date_end: 1602683339179,
-      title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      image: '/images/stock-card.png',
-      link: '#'
-    },
-    {
-      date_start: 1601372291060,
-      date_end: 1602078346859,
-      title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      image: '/images/stock-card.png',
-      link: '#'
-    },
-    {
-      date_start: 1601372291060,
-      date_end: 1602078346859,
-      title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      image: '/images/stock-card.png',
-      link: '#'
-    },
-    {
-      date_start: 1601372291060,
-      date_end: 1602078346859,
-      title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      image: '/images/stock-card.png',
-      link: '#'
-    },
-    {
-      date_start: 1601372291060,
-      date_end: 1602078346859,
-      title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      image: '/images/stock-card.png',
-      link: '#'
-    },
-    {
-      date_start: 1601372291060,
-      date_end: 1602078346859,
-      title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      image: '/images/stock-card.png',
-      link: '#'
-    },
-    {
-      date_start: 1601372291060,
-      date_end: 1602078346859,
-      title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      image: '/images/stock-card.png',
-      link: '#'
-    }
-  ],
-  date_start: 'Начало',
-  date_end: 'Завершение',
-  date_end_first: 'Дата завершения',
-  offer_active: 'Акция активна',
-  offer_inactive: 'Акция окончена',
-  more: 'Подробнее'
+  ua: {},
+  en: {}
 }
 </script>

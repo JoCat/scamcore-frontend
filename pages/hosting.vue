@@ -51,67 +51,71 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  data() {
-    return {
-      translate: translate
+  computed: {
+    translate() {
+      return this.$getTranslate(this.$store.state.lang, translate);
     }
   }
 })
 
-let translate = {
-  header: {
-    title: 'Виртуальный хостинг',
-    description: 'Виртуальный SSD хостинг для сайтов любой сложности.<br> Вы можете разместить от личной визитки до высоконагруженных проектов',
-    button: {
-      text: 'Просмотреть услуги',
-      href: '#'
+const translate = {
+  ru: {
+    header: {
+      title: 'Виртуальный хостинг',
+      description: 'Виртуальный SSD хостинг для сайтов любой сложности.<br> Вы можете разместить от личной визитки до высоконагруженных проектов',
+      button: {
+        text: 'Просмотреть услуги',
+        href: '#'
+      }
+    },
+    main: {
+      title: 'Хостинг сайтов',
+      elements: [
+        {
+          title: 'host-0',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
+          storage: '13 ГБ SSD',
+          sites: '7 сайтов',
+          list: [
+            'Поддержка php / mysql и многое другое для сайта',
+            'Поддержка php / mysql и многое другое для сайта',
+            'Поддержка php / mysql и многое другое для сайта',
+            'Поддержка php / mysql и многое другое для сайта'
+          ],
+          price: '5364 rub'
+        },
+        {
+          title: 'host-0',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
+          storage: '13 ГБ SSD',
+          sites: '7 сайтов',
+          list: [
+            'Поддержка php / mysql и многое другое для сайта',
+            'Поддержка php / mysql и многое другое для сайта',
+            'Поддержка php / mysql и многое другое для сайта',
+            'Поддержка php / mysql и многое другое для сайта'
+          ],
+          price: '5364 rub'
+        },
+        {
+          title: 'host-0',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
+          storage: '13 ГБ SSD',
+          sites: '7 сайтов',
+          list: [
+            'Поддержка php / mysql и многое другое для сайта',
+            'Поддержка php / mysql и многое другое для сайта',
+            'Поддержка php / mysql и многое другое для сайта',
+            'Поддержка php / mysql и многое другое для сайта'
+          ],
+          price: '5364 rub'
+        }
+      ],
+      price: 'Цена',
+      buy: 'Оформить заказ'
     }
   },
-  main: {
-    title: 'Хостинг сайтов',
-    elements: [
-      {
-        title: 'host-0',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
-        storage: '13 ГБ SSD',
-        sites: '7 сайтов',
-        list: [
-          'Поддержка php / mysql и многое другое для сайта',
-          'Поддержка php / mysql и многое другое для сайта',
-          'Поддержка php / mysql и многое другое для сайта',
-          'Поддержка php / mysql и многое другое для сайта'
-        ],
-        price: '5364 rub'
-      },
-      {
-        title: 'host-0',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
-        storage: '13 ГБ SSD',
-        sites: '7 сайтов',
-        list: [
-          'Поддержка php / mysql и многое другое для сайта',
-          'Поддержка php / mysql и многое другое для сайта',
-          'Поддержка php / mysql и многое другое для сайта',
-          'Поддержка php / mysql и многое другое для сайта'
-        ],
-        price: '5364 rub'
-      },
-      {
-        title: 'host-0',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
-        storage: '13 ГБ SSD',
-        sites: '7 сайтов',
-        list: [
-          'Поддержка php / mysql и многое другое для сайта',
-          'Поддержка php / mysql и многое другое для сайта',
-          'Поддержка php / mysql и многое другое для сайта',
-          'Поддержка php / mysql и многое другое для сайта'
-        ],
-        price: '5364 rub'
-      }
-    ],
-    price: 'Цена',
-    buy: 'Оформить заказ'
-  }
+  ua: {},
+  en: {}
 }
 </script>

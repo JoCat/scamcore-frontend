@@ -42,96 +42,91 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { setTranslate } from './Nav.vue'
-
 export default Vue.extend({
   computed: {
     translate() {
-      return setTranslate(this.$store.state.lang, {
-        ru: translate_ru,
-        ua: translate_ua,
-        en: translate_en,
-      });
+      return this.$getTranslate(this.$store.state.lang, translate);
     },
   },
 })
 
-
-const translate_ru = {
-  description: 'SpaceCore — надежный и стабильный хостинг-провайдер нашего времени. <br> Мы стремимся к лучшему результату, делая стоимость услуг ниже, а предложения выгоднее. <br> Сотни счастливых клиентов уже доверяют нам, самое время начать экономить на использовании хостинга!<br> Ждем Вас в уютном круге наших пользователей!',
-  copyrights: 'Все права защищены© 20!8 - 2020 SpaceCore / June 15, 2020, 12:07 am',
-  nav: {
-    title: 'Навигация',
-    elements: [
-      [
-        {
-          title: "Выделенные серверы",
-          link: "/dedicated",
-        },
-        {
-          title: "Серверы без установки",
-          link: "/not-install",
-        },
-        {
-          title: "Виртуальные серверы VDS",
-          link: "/vds",
-        },
-        {
-          title: "Виртуальный хостинг",
-          link: "/hosting",
-        },
-        {
-          title: "Игровой хостинг",
-          link: "/game-hosting",
-        }
-      ],
-      [
-        {
-          title: "Доменные имена",
-          link: "/domains",
-        },
-        {
-          title: "SSL-сертификаты",
-          link: "/ssl",
-        },
-        {
-          title: "FTP хранилище",
-          link: "/storage",
-        },
-        {
-          title: "Лицензии ISP",
-          link: "/license",
-        },
-        {
-          title: "Доп. услуги",
-          link: "#",
-        }
-      ],
-      [
-        {
-          title: "Контакты",
-          link: "/contacts",
-        },
-        {
-          title: "Дата-центры",
-          link: "/data-centers",
-        },
-        {
-          title: "Отзывы",
-          link: "/reviews",
-        },
-        {
-          title: "Акции",
-          link: "/offers",
-        },
-        {
-          title: "Блог",
-          link: "/articles",
-        }
-      ],
-    ]
-  }
+const translate = {
+  ru: {
+    description: 'SpaceCore — надежный и стабильный хостинг-провайдер нашего времени. <br> Мы стремимся к лучшему результату, делая стоимость услуг ниже, а предложения выгоднее. <br> Сотни счастливых клиентов уже доверяют нам, самое время начать экономить на использовании хостинга!<br> Ждем Вас в уютном круге наших пользователей!',
+    copyrights: 'Все права защищены© 20!8 - 2020 SpaceCore / June 15, 2020, 12:07 am',
+    nav: {
+      title: 'Навигация',
+      elements: [
+        [
+          {
+            title: "Выделенные серверы",
+            link: "/dedicated",
+          },
+          {
+            title: "Серверы без установки",
+            link: "/not-install",
+          },
+          {
+            title: "Виртуальные серверы VDS",
+            link: "/vds",
+          },
+          {
+            title: "Виртуальный хостинг",
+            link: "/hosting",
+          },
+          {
+            title: "Игровой хостинг",
+            link: "/game-hosting",
+          }
+        ],
+        [
+          {
+            title: "Доменные имена",
+            link: "/domains",
+          },
+          {
+            title: "SSL-сертификаты",
+            link: "/ssl",
+          },
+          {
+            title: "FTP хранилище",
+            link: "/storage",
+          },
+          {
+            title: "Лицензии ISP",
+            link: "/license",
+          },
+          {
+            title: "Доп. услуги",
+            link: "#",
+          }
+        ],
+        [
+          {
+            title: "Контакты",
+            link: "/contacts",
+          },
+          {
+            title: "Дата-центры",
+            link: "/data-centers",
+          },
+          {
+            title: "Отзывы",
+            link: "/reviews",
+          },
+          {
+            title: "Акции",
+            link: "/offers",
+          },
+          {
+            title: "Блог",
+            link: "/articles",
+          }
+        ],
+      ]
+    }
+  },
+  ua: {},
+  en: {}
 }
-const translate_ua = {}
-const translate_en = {}
 </script>

@@ -119,7 +119,7 @@
           </div>
         </div>
       </section>
-     <Feedback/>
+      <Feedback/>
     </main>
     <Footer/>
   </div>
@@ -129,41 +129,45 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  data() {
-    return {
-      translate: translate,
+  computed: {
+    translate() {
+      return this.$getTranslate(this.$store.state.lang, translate);
     }
   }
 })
 
-let translate = {
-  header: {
-    title: 'SSL сертификаты',
-    description: 'Различные виды сертификатов для безопасной передачи данных между пользователем и веб-ресурсом'
+const translate = {
+  ru: {
+    header: {
+      title: 'SSL сертификаты',
+      description: 'Различные виды сертификатов для безопасной передачи данных между пользователем и веб-ресурсом'
+    },
+    advatages: {
+      left: [
+        {
+          title:'Безопасное подключение к сайту'
+        },
+        {
+          title:'Доверие всех популярных браузеров'
+        },
+        {
+          title:'Высокий уровень шифрования данных'
+        }
+      ],
+      right: [
+        {
+          title:'Повышение конверсии на сайте'
+        },
+        {
+          title:'Предпочтение поисковых систем'
+        },
+        {
+          title:'Круглосуточная техническая поддержка'
+        }
+      ]
+    }
   },
-  advatages: {
-    left: [
-      {
-        title:'Безопасное подключение к сайту'
-      },
-      {
-        title:'Доверие всех популярных браузеров'
-      },
-      {
-        title:'Высокий уровень шифрования данных'
-      }
-    ],
-    right: [
-      {
-        title:'Повышение конверсии на сайте'
-      },
-      {
-        title:'Предпочтение поисковых систем'
-      },
-      {
-        title:'Круглосуточная техническая поддержка'
-      }
-    ]
-  }
+  ua: {},
+  en: {}
 }
 </script>

@@ -47,40 +47,44 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  data() {
-    return {
-      translate: translate
-    }
+  computed: {
+    translate() {
+      return this.$getTranslate(this.$store.state.lang, translate);
+    },
   }
 })
 
-let translate = {
-  title: 'Наши<br> контакты',
-  phone: {
-    title: 'Телефон для звонков',
-    phone: 'В скором времени'
-  },
-  email: {
-    title: 'Наша почта',
-    email: 'support@spacecore.pro'
-  },
-  social: [
-    {
-      link: 'https://twitter.com/SpaceCoreRU',
-      image: '/images/twitter.png'
+const translate = {
+  ru: {
+    title: 'Наши<br> контакты',
+    phone: {
+      title: 'Телефон для звонков',
+      phone: 'В скором времени'
     },
-    {
-      link: 'https://t.me/spacecore_pro',
-      image: '/images/telegram.png'
+    email: {
+      title: 'Наша почта',
+      email: 'support@spacecore.pro'
     },
-    {
-      link: 'https://vk.com/spacecore_pro',
-      image: '/images/vk.png'
+    social: [
+      {
+        link: 'https://twitter.com/SpaceCoreRU',
+        image: '/images/twitter.png'
+      },
+      {
+        link: 'https://t.me/spacecore_pro',
+        image: '/images/telegram.png'
+      },
+      {
+        link: 'https://vk.com/spacecore_pro',
+        image: '/images/vk.png'
+      }
+    ],
+    chat: {
+      title: 'Онлайн чат поддержки сайта',
+      button: 'Перейти'
     }
-  ],
-  chat: {
-    title: 'Онлайн чат поддержки сайта',
-    button: 'Перейти'
-  }
+  },
+  ua: {},
+  en: {}
 }
 </script>

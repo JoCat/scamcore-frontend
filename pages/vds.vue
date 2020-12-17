@@ -54,87 +54,89 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  data() {
-    return {
-      translate: translate
-    }
-  },
   computed: {
     geekbenchMax () {
       const scores: number[] = this.translate.elements.map((e: { geekbench: number }) => e.geekbench)
       return Math.max(...scores)
+    },
+    translate() {
+      return this.$getTranslate(this.$store.state.lang, translate);
     }
   }
 })
 
-let translate = {
-  header: {
-    title: 'Виртуальные<br> серверы VDS',
-    description: 'Популярные тарифы VDS-хостинга с привлекательной ценой<br> и лучшей производительностью!',
-    button: {
-      text: 'Просмотреть услуги',
-      href: '#'
-    }
-  },
-  main : {
-    title: 'VDS серверы'
-  },
-  elements: [
-    {
-      cpu: '1 vCore Intel Core i7-6700 4.2 GHz',
-      ram: '4 GB RAM',
-      storage: '50 GB NVMe',
-      traffic: '1000 Mbps порт',
-      ddos: 'Standard-AntiDDoS',
-      location: [
-        'Germany',
-        'Finland'
-      ],
-      price: 450,
-      // sale_price: '',
-      // percent: '',
-      geekbench: 150,
-      geekbench_multithread: 24548,
-      available_os: [1, 3, 123],
-      available_soft: [6, 66, 666]
+const translate = {
+  ru: {
+    header: {
+      title: 'Виртуальные<br> серверы VDS',
+      description: 'Популярные тарифы VDS-хостинга с привлекательной ценой<br> и лучшей производительностью!',
+      button: {
+        text: 'Просмотреть услуги',
+        href: '#'
+      }
     },
-    {
-      cpu: '2 vCore Intel Core i7-6700 4.2 GHz',
-      ram: '4 GB RAM',
-      storage: '50 GB NVMe',
-      traffic: '1000 Mbps порт',
-      ddos: 'Standard-AntiDDoS',
-      location: [
-        'Germany',
-        'Finland'
-      ],
-      price: 450,
-      // sale_price: '',
-      // percent: '',
-      geekbench: 24547,
-      geekbench_multithread: 24548,
-      available_os: [1, 3, 123],
-      available_soft: [6, 66, 666]
+    main : {
+      title: 'VDS серверы'
     },
-    {
-      cpu: '3 vCore Intel Core i7-6700 4.2 GHz',
-      ram: '4 GB RAM',
-      storage: '50 GB NVMe',
-      traffic: '1000 Mbps порт',
-      ddos: 'Standard-AntiDDoS',
-      location: [
-        'Germany',
-        'Finland'
-      ],
-      price: 450,
-      // sale_price: '',
-      // percent: '',
-      geekbench: 34547,
-      geekbench_multithread: 24548,
-      available_os: [1, 3, 123],
-      available_soft: [6, 66, 666]
-    }
-  ]
+    elements: [
+      {
+        cpu: '1 vCore Intel Core i7-6700 4.2 GHz',
+        ram: '4 GB RAM',
+        storage: '50 GB NVMe',
+        traffic: '1000 Mbps порт',
+        ddos: 'Standard-AntiDDoS',
+        location: [
+          'Germany',
+          'Finland'
+        ],
+        price: 450,
+        // sale_price: '',
+        // percent: '',
+        geekbench: 150,
+        geekbench_multithread: 24548,
+        available_os: [1, 3, 123],
+        available_soft: [6, 66, 666]
+      },
+      {
+        cpu: '2 vCore Intel Core i7-6700 4.2 GHz',
+        ram: '4 GB RAM',
+        storage: '50 GB NVMe',
+        traffic: '1000 Mbps порт',
+        ddos: 'Standard-AntiDDoS',
+        location: [
+          'Germany',
+          'Finland'
+        ],
+        price: 450,
+        // sale_price: '',
+        // percent: '',
+        geekbench: 24547,
+        geekbench_multithread: 24548,
+        available_os: [1, 3, 123],
+        available_soft: [6, 66, 666]
+      },
+      {
+        cpu: '3 vCore Intel Core i7-6700 4.2 GHz',
+        ram: '4 GB RAM',
+        storage: '50 GB NVMe',
+        traffic: '1000 Mbps порт',
+        ddos: 'Standard-AntiDDoS',
+        location: [
+          'Germany',
+          'Finland'
+        ],
+        price: 450,
+        // sale_price: '',
+        // percent: '',
+        geekbench: 34547,
+        geekbench_multithread: 24548,
+        available_os: [1, 3, 123],
+        available_soft: [6, 66, 666]
+      }
+    ]
+  },
+  ua: {},
+  en: {}
 }
 </script>
 

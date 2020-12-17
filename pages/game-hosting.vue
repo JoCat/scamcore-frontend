@@ -166,36 +166,39 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  data() {
-    return {
-      translate: translate
+  computed: {
+    translate() {
+      return this.$getTranslate(this.$store.state.lang, translate);
     }
   }
 })
 
-let translate = {
-   header: {
-    title: 'Игровой хостинг',
-    description: 'Виртуальный SSD хостинг для сайтов любой сложности.<br> Вы можете разместить от личной визитки до высоконагруженных проектов',
-    button: {
-      text: 'Просмотреть услуги',
-      href: '#'
-    }    
-  },
-  advantages: {
-      title: 'Основные преимущества',
-      elements: [
-      {
-        title:'Низкая цена'
-      },
-      {
-        title:'Защита AntiDDoS Game (L3-L7)'
-      },
-      {
-        title:'Быстрая установка'
-      },
-    ]
+const translate = {
+  ru: {
+    header: {
+      title: 'Игровой хостинг',
+      description: 'Виртуальный SSD хостинг для сайтов любой сложности.<br> Вы можете разместить от личной визитки до высоконагруженных проектов',
+      button: {
+        text: 'Просмотреть услуги',
+        href: '#'
+      }
     },
-    
+    advantages: {
+        title: 'Основные преимущества',
+        elements: [
+        {
+          title:'Низкая цена'
+        },
+        {
+          title:'Защита AntiDDoS Game (L3-L7)'
+        },
+        {
+          title:'Быстрая установка'
+        },
+      ]
+      },
+  },
+  ua: {},
+  en: {}
 }
 </script>

@@ -125,11 +125,7 @@ export default Vue.extend({
       return this.$store.state.lang;
     },
     translate() {
-      return setTranslate(this.$store.state.lang, {
-        ru: translate_ru,
-        ua: translate_ua,
-        en: translate_en,
-      });
+      return this.$getTranslate(this.$store.state.lang, translate);
     },
   },
   methods: {
@@ -151,93 +147,77 @@ export interface NavLink {
   elements?: NavLink[];
 }
 
-export function setTranslate(
-  lang: string,
-  translate: { ru: Object; ua: Object; en: Object }
-) {
-  switch (lang) {
-    case "en":
-      return translate.en;
-      break;
-    case "ua":
-      return translate.ua;
-      break;
-    case "ru":
-    default:
-      return translate.ru;
-      break;
-  }
+const translate = {
+  ru: {
+    nav: [
+      {
+        title: "Услуги",
+        elements: [
+          {
+            title: "Виртуальные серверы",
+            link: "/vds",
+          },
+          {
+            title: "Выделенные серверы",
+            link: "/dedicated",
+          },
+          {
+            title: "Серверы без установки",
+            link: "/not-install",
+          },
+          {
+            title: "Веб-хостинг",
+            link: "/hosting",
+          },
+          {
+            title: "Домены",
+            link: "/domains",
+          },
+          {
+            title: "Лицензии ISP",
+            link: "/isplicense",
+          },
+        ],
+      },
+      {
+        title: "Статус",
+        elements: [
+          {
+            title: "Статус сервисов",
+            link: "https://main.spacecore.online/",
+          },
+          {
+            title: "Статус нод",
+            link: "https://vm.spacecore.online/",
+          },
+        ],
+      },
+      {
+        title: "Документы",
+        link: "/documents",
+      },
+      {
+        title: "База знаний",
+        link: "https://wiki.spacecore.pro/",
+      },
+    ],
+    contacts: {
+      title: "Контакты",
+      email: "support@spacecore.pro",
+      tg: "https://t.me/spacecore_pro",
+    },
+    billing: {
+      title: "Биллинг",
+      link: "https://billing.spacecore.pro/",
+    },
+    langs: {
+      title: "Язык",
+      ru: "Русский [₽]",
+      ua: "Украинский [₴]",
+      en: "Английский [€]",
+    },
+  },
+  ua: {},
+  en: {}
 }
-
-let translate_ru = {
-  nav: [
-    {
-      title: "Услуги",
-      elements: [
-        {
-          title: "Виртуальные серверы",
-          link: "/vds",
-        },
-        {
-          title: "Выделенные серверы",
-          link: "/dedicated",
-        },
-        {
-          title: "Серверы без установки",
-          link: "/not-install",
-        },
-        {
-          title: "Веб-хостинг",
-          link: "/hosting",
-        },
-        {
-          title: "Домены",
-          link: "/domains",
-        },
-        {
-          title: "Лицензии ISP",
-          link: "/isplicense",
-        },
-      ],
-    },
-    {
-      title: "Статус",
-      elements: [
-        {
-          title: "Статус сервисов",
-          link: "https://main.spacecore.online/",
-        },
-        {
-          title: "Статус нод",
-          link: "https://vm.spacecore.online/",
-        },
-      ],
-    },
-    {
-      title: "Документы",
-      link: "/documents",
-    },
-    {
-      title: "База знаний",
-      link: "https://wiki.spacecore.pro/",
-    },
-  ],
-  contacts: {
-    title: "Контакты",
-    email: "support@spacecore.pro",
-    tg: "https://t.me/spacecore_pro",
-  },
-  billing: {
-    title: "Биллинг",
-    link: "https://billing.spacecore.pro/",
-  },
-  langs: {
-    title: "Язык",
-    ru: "Русский [₽]",
-    ua: "Украинский [₴]",
-    en: "Английский [€]",
-  },
-};
-let translate_ua = {};
-let translate_en = {};
 </script>
