@@ -12,11 +12,11 @@
           <!-- <a class="bttn" href="#">База знаний</a> -->
         </div>
         <div class="row">
-          <div class="col-md-6 col-lg-5 col-xl-4 phone">
+          <!--div class="col-md-6 col-lg-5 col-xl-4 phone">
             <p>{{ translate.phone.title }}</p>
             <a :href="'tel:' + translate.phone.phone.replace(/ /g, '')">{{ translate.phone.phone }}</a>
-          </div>
-          <div class="col-md-6 col-lg-4 email">
+          </div-->
+          <div class="col-md-6 col-lg-6 email">
             <p>{{ translate.email.title }}</p>
             <a :href="'mailto:' + translate.email.email">{{ translate.email.email }}</a>
           </div>

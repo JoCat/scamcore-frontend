@@ -4,8 +4,8 @@
       <div class="container">
         <Nav/>
         <div class="lead">
-          <h1>SSL сертификаты</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br> tempor incididunt ut labore et dolore</p>
+          <h1 v-html="translate.header.title"></h1>
+          <p v-html="translate.header.description"></p>
         </div>
       </div>
     </header>
@@ -90,17 +90,13 @@
             <img class="img-fluid" src="/images/ssl.png" alt="">
           </div>
           <div class="col-12 col-md-6 col-lg-3">
-            <ul class="list-unstyled">
-              <li>Доверие всех популярных браузеров</li>
-              <li>Доверие всех популярных браузеров</li>
-              <li>Доверие всех популярных браузеров</li>
+            <ul class="list-unstyled"  v-for="(left, i) in translate.advatages.left" :key="i">
+              <li>{{ left.title }}</li>
             </ul>
           </div>
           <div class="col-12 col-md-6 col-lg-3">
-            <ul class="list-unstyled">
-              <li>Доверие всех популярных браузеров</li>
-              <li>Доверие всех популярных браузеров</li>
-              <li>Доверие всех популярных браузеров</li>
+            <ul class="list-unstyled"  v-for="(right, i) in translate.advatages.right" :key="i">
+              <li>{{ right.title }}</li>
             </ul>
           </div>
         </div>
@@ -123,23 +119,51 @@
           </div>
         </div>
       </section>
-
-      <section class="container feedback">
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <h2 class="title">У вас еще остались <br>вопросы?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg-5 offset-lg-1">
-            <form action="">
-              <input type="text" placeholder="Ваше имя">
-              <input type="text" placeholder="Ваш Email">
-              <button type="submit">Получить консультацию</button>
-            </form>
-          </div>
-        </div>
-      </section>
+     <Feedback/>
     </main>
     <Footer/>
   </div>
 </template>
+
+
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  data() {
+    return {
+      translate: translate,
+    }
+  }
+})
+
+let translate = {
+  header: {
+    title: 'SSL сертификаты',
+    description: 'Различные виды сертификатов для безопасной передачи данных между пользователем и веб-ресурсом'
+  },
+  advatages: {
+    left: [
+      {
+        title:'Безопасное подключение к сайту'
+      },
+      {
+        title:'Доверие всех популярных браузеров'
+      },
+      {
+        title:'Высокий уровень шифрования данных'
+      }
+    ],
+    right: [
+      {
+        title:'Повышение конверсии на сайте'
+      },
+      {
+        title:'Предпочтение поисковых систем'
+      },
+      {
+        title:'Круглосуточная техническая поддержка'
+      }
+    ]
+  }
+}
+</script>

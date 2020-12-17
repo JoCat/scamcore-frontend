@@ -6,7 +6,7 @@
         <div class="row lead">
           <div class="col-12 col-lg-7">
             <h1 v-html="translate.header.title"></h1>
-            <p>{{ translate.header.description }}</p>
+            <p v-html="translate.header.description"></p>
             <a :href="translate.header.button.href">{{ translate.header.button.text }}</a>
           </div>
         </div>
@@ -14,7 +14,7 @@
     </header>
     <main>
       <section class="container hosting">
-        <h2 class="title center">Хостинг сайтов</h2>
+        <h2 class="title center">{{ translate.main.title }}</h2>
         <div class="row">
           <div
             class="col-12 col-md-6 col-lg-4"
@@ -60,8 +60,8 @@ export default Vue.extend({
 
 let translate = {
   header: {
-    title: 'Уникальное<br> предложение тарифа',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
+    title: 'Виртуальный хостинг',
+    description: 'Виртуальный SSD хостинг для сайтов любой сложности.<br> Вы можете разместить от личной визитки до высоконагруженных проектов',
     button: {
       text: 'Просмотреть услуги',
       href: '#'

@@ -6,7 +6,7 @@
         <div class="row lead">
           <div class="col-12 col-lg-7">
             <h1 v-html="translate.header.title"></h1>
-            <p>{{ translate.header.description }}</p>
+            <p v-html="translate.header.description"></p>
             <a :href="translate.header.button.href">{{ translate.header.button.text }}</a>
           </div>
         </div>
@@ -69,15 +69,15 @@ export default Vue.extend({
 
 let translate = {
   header: {
-    title: 'Уникальное<br> предложение тарифа',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
+    title: 'Виртуальные<br> серверы VDS',
+    description: 'Популярные тарифы VDS-хостинга с привлекательной ценой<br> и лучшей производительностью!',
     button: {
       text: 'Просмотреть услуги',
       href: '#'
     }
   },
   main : {
-    title: 'VDS сервера'
+    title: 'VDS серверы'
   },
   elements: [
     {
@@ -93,7 +93,7 @@ let translate = {
       price: 450,
       // sale_price: '',
       // percent: '',
-      geekbench: 14547,
+      geekbench: 150,
       geekbench_multithread: 24548,
       available_os: [1, 3, 123],
       available_soft: [6, 66, 666]

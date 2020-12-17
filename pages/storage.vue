@@ -5,9 +5,9 @@
         <Nav/>
         <div class="row lead">
           <div class="col-12 col-lg-7">
-            <h1>Уникальное<br> предложение тарифа</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
-            <a href="#">Просмотреть услуги</a>
+            <h1 v-html="translate.header.title"></h1>
+            <p v-html="translate.header.description"></p>
+            <a :href="translate.header.button.href">{{ translate.header.button.text }}</a>
           </div>
         </div>
       </div>
@@ -16,11 +16,11 @@
       <section class="container storage-page">
         <div class="row">
           <div class="col-12 col-lg-6">
-            <strong>Конфигурация<br> бэкап хранилища</strong>
+            <strong v-html="translate.form.title"></strong>
             <div class="slider-overlay">
               <img src="/images/storage/database.png" alt="">
               <div>
-                <p>объем хранилищ</p>
+                <p>{{ translate.form.volume }}</p>
                 <div id="storage-slider"></div>
                 <input type="hidden" name="storage">
                 <script>
@@ -55,7 +55,7 @@
             <div class="slider-overlay">
               <img src="/images/storage/users.png" alt="">
               <div>
-                <p>кол-во FTP юзеров</p>
+                <p>{{ translate.form.ftp_users }}</p>
                 <div id="users-slider"></div>
                 <input type="hidden" name="users">
                 <script>
@@ -88,7 +88,7 @@
               </div>
             </div>
             <div class="select-overlay">
-              <p>кол-во FTP юзеров</p>
+              <p>{{ translate.form.location }}</p>
               <select id="select-storage">
                 <option value>Выбор ПО</option>
                 <option value="lamp">LAMP</option>
@@ -104,38 +104,57 @@
           </div>
           <div class="col-12 col-lg-6">
             <div class="block">
-              <strong>Object storage</strong>
-              <div class="price">$5.00/mo</div>
+              <strong>{{ translate.form.price }}</strong>
+              <div class="price">$5.00/{{ translate.form.month }}</div>
               <div class="characteristics">
-                <b>250 GB</b> of storage<br>
-                <b>1000 GB</b> of bandwidth
+                <b>250 GB</b> {{ translate.form.storage }}<br>
+                <b>1000 GB </b> {{ translate.form.traffic }}
               </div>
               <div class="info">
-                $0.02 per additional GB stored<br>
-                $0.01 per additional GB transferred
+                {{ translate.form.additional_storage }}
               </div>
-              <a href="#">Какая то кнопочка</a>
+              <a href="#">{{ translate.order }}</a>
             </div>
           </div>
         </div>
       </section>
-
-      <section class="container feedback">
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <h2 class="title">У вас еще остались <br>вопросы?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg-5 offset-lg-1">
-            <form action="">
-              <input type="text" placeholder="Ваше имя">
-              <input type="text" placeholder="Ваш Email">
-              <button type="submit">Получить консультацию</button>
-            </form>
-          </div>
-        </div>
-      </section>
+      <Feedback/>
     </main>
     <Footer/>
   </div>
 </template>
+
+
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  data() {
+    return {
+      translate: translate
+    }
+  }
+})
+
+let translate = {
+  header: {
+    title: 'Услуги<br> FTP хранилища',
+    description: 'Идеальный сервис для безопасного хранения<br> любого объема Ваших данных',
+    button: {
+      text: 'Просмотреть услуги',
+      href: '#'
+    }
+  },
+  form: {
+    title: 'Конфигурация<br> FTP хранилища',
+    volume: 'Объем хранилища',
+    ftp_users: 'Кол-во FTP юзеров', 
+    location: 'Локация',
+    price: 'Стоимость',
+    month: 'мес.',
+    storage: 'диска',
+    traffic: 'трафика',
+    additional_storage:'12 руб. за дополнительный GB'
+  },
+  order: 'Заказать'
+}
+</script>

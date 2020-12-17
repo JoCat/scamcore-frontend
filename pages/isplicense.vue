@@ -48,8 +48,8 @@ export default Vue.extend({
 
 let translate = {
   header: {
-    title: 'Уникальное<br> предложение тарифа',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
+    title: 'Лицензии ISPsystem ',
+    description: 'Продукты компании ISPSystem являются лидерами на рынке решений панелей управления выделенными и виртуальными серверами',
     button: {
       text: 'Просмотреть услуги',
       href: '#'

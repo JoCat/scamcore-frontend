@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-12 col-sm-8 col-md-4">
             <img class="img-fluid" src="/images/logo-footer.png" alt="">
-            <p>{{ translate.description }}</p>
+            <p v-html="translate.description"></p>
           </div>
           <div class="col-12 col-md-8 col-lg-6 footer-nav">
             <strong>{{ translate.nav.title }}</strong>
@@ -58,7 +58,7 @@ export default Vue.extend({
 
 
 const translate_ru = {
-  description: 'SpaceCore — надежный и стабильный хостинг-провайдер нашего времени. Мы стремимся к лучшему результату, делая стоимость услуг ниже, а предложения выгоднее. Сотни счастливых клиентов уже доверяют нам, самое время начать экономить на использовании хостинга! Ждем Вас в уютном круге наших пользователей!',
+  description: 'SpaceCore — надежный и стабильный хостинг-провайдер нашего времени. <br> Мы стремимся к лучшему результату, делая стоимость услуг ниже, а предложения выгоднее. <br> Сотни счастливых клиентов уже доверяют нам, самое время начать экономить на использовании хостинга!<br> Ждем Вас в уютном круге наших пользователей!',
   copyrights: 'Все права защищены© 20!8 - 2020 SpaceCore / June 15, 2020, 12:07 am',
   nav: {
     title: 'Навигация',

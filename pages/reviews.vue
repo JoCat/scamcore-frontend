@@ -6,7 +6,7 @@
         <div class="row lead">
           <div class="col-10 col-sm-6 col-lg-7">
             <h1 v-html="translate.header.title"></h1>
-            <p>{{ translate.header.description }}</p>
+            <p v-html="translate.header.description"></p>
           </div>
           <div class="clients">
             {{ translate.header.clients }} клиентов<br> довольны нами
@@ -20,8 +20,8 @@
         <div class="row">
           <div class="col-12 col-md-4 col-lg-3">
             <div class="card">
-              <a target="_blank" href="https://vk.com/topic-171073991_39268980"><img src="/images/hostings-info-logo.png" alt=""></a>
-              <a target="_blank" href="https://ru.hostings.info/spacecore-pro.html"><img src="/images/vk-logo.png" alt=""></a>
+              <a target="_blank" href="https://vk.com/topic-171073991_39268980"><img src="/images/vk-logo.png" alt=""></a>
+              <a target="_blank" href="https://ru.hostings.info/spacecore-pro.html"><img src="/images/hostings-info-logo.png" alt=""></a>
             </div>
             <div class="banner">
               <img class="img-fluid" src="/images/banner.png" alt="">
@@ -68,7 +68,7 @@ export default Vue.extend({
 let translate = {
   header: {
     title: 'Отзывы<br> клиентов',
-    description: 'Отзывы наших прекрасных и отзывчивых клиентов',
+    description: 'Все еще сомневаетесь?<br> Самое время ознакомиться с впечатлениями наших клиентов!',
     clients: 209 // TODO плюрализация
   },
   elements: [
