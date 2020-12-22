@@ -2,11 +2,23 @@
   <form class="filter row">
     <div class="col-12 col-md-6">
       <label>Стоимость</label>
-      <div id="price-slider"></div>
+      <InputSlider
+        :config="{
+          range: {
+            min: 0,
+            max: 10000
+          },
+          step: 1,
+          start: [2000, 8000],
+          suffix: ' руб'
+        }"
+        name="price"
+        v-on:valuesUpdate.prevent="priceUpdate"
+      />
+      <!-- <div id="price-slider"></div>
       <input type="hidden" name="price_min">
-      <input type="hidden" name="price_max">
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
+      <input type="hidden" name="price_max"> -->
+        <!-- document.addEventListener('DOMContentLoaded', () => {
           createSlider('price', {
             range: {
               min: 0,
@@ -15,8 +27,7 @@
             step: 1,
             start: [2000, 8000]
           }, ' руб');
-        });
-      </script>
+        }); -->
     </div>
     <div class="col-12 col-md-6">
       <label>При оплате за:</label>
@@ -153,3 +164,23 @@
     </div>
   </form>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  data() {
+    return {
+      price: {
+        min: 0,
+        max: 0
+      }
+    }
+  },
+  methods: {
+    priceUpdate(values: number[]) {
+      this.price.min = values[0]
+      this.price.max = values[1]
+    }
+  }
+})
+</script>

@@ -15,7 +15,12 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    title: process.env.npm_package_name || '',
+    titleTemplate: (titleChunk) => {
+      return titleChunk ? `${titleChunk} - SpaceCore` : 'SpaceCore'
+    },
+    htmlAttrs: {
+      lang: 'ru',
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -23,8 +28,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/png', href: '/logotype.png' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap' },
-      { rel: 'stylesheet', href: 'https://unpkg.com/nouislider@14.6.0/distribute/nouislider.min.css' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap' }
     ]
   },
   /*
@@ -61,10 +65,22 @@ export default {
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {},
+  axios: {
+    // baseURL: 'https://api.spacecore.me/v1/',
+    baseURL: 'http://localhost:4000/v1/',
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
   */
-  build: {}
+  build: {
+    extend(config, { isDev, isClient }) {
+      if (isClient && !isDev) {
+        config.optimization.splitChunks.maxSize = 250000
+      }
+    },
+    babel: {
+      compact: true,
+    },
+  }
 }
