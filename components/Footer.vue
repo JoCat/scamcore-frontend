@@ -94,7 +94,7 @@ const translate = {
           },
           {
             title: "Лицензии ISP",
-            link: "/license",
+            link: "/isplicense",
           },
           {
             title: "Доп. услуги",

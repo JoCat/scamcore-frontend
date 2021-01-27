@@ -66,7 +66,7 @@ export default Vue.extend({
 const translate = {
   ru: {
     header: {
-      title: 'Подбери свое доменное имя<br> в зоне .ru всего за 85 руб',
+      title: 'Подбери свое доменное имя<br> в зоне .ru всего за 175 руб.',
       placeholder: 'Имя домена',
       button: 'Подобрать домен'
     },

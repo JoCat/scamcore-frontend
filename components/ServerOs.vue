@@ -12,18 +12,17 @@
       <div class="col-12 col-md-6 col-lg-3 el">
         <img src="/images/os/ubuntu.png" alt="">
         <p>
-          Ubuntu 20.10<br>
           Ubuntu 20.04<br>
-          Ubuntu 18.10<br>
-          Ubuntu 18.04
+          Ubuntu 18.04<br>
+          Ubuntu 16.04
         </p>
       </div>
       <div class="col-12 col-md-6 col-lg-3 el">
         <img src="/images/os/settings.png" alt="">
         <p>
-          Centos 8<br>
-          Centos 7<br>
-          Centos 6
+          CentOS 8<br>
+          CentOS 7<br>
+          CentOS 6
         </p>
       </div>
       <div class="col-12 col-md-6 col-lg-3 el">

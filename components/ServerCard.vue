@@ -1,4 +1,4 @@
-<template>
+<!--template>
 <tr>
   <td>
     <div class="geekbench">
@@ -36,7 +36,7 @@
       1257₽<br>
       <div class="old-price">2000₽</div>
     </div>
-    <a href="#">Купить</a> -->
+    <a href="#">Купить</a>>
 
     <div class="price">{{ data.price }}₽</div>
     <a href="#">Купить</a>
@@ -77,4 +77,4 @@ export default Vue.extend({
     setTimeout(() => {this.geekbench.score = this.data.geekbench}, 1000)
   }
 })
-</script>
+</script-->

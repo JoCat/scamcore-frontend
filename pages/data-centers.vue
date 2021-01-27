@@ -59,45 +59,43 @@ export default Vue.extend({
 const translate = {
   ru: {
     header: {
-      title: 'Больше количество<br> дата центров',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br> tempor incididunt ut labore et dolore',
+      title: 'Большое количество<br> разнообразных дата-центров',
+      description: 'Наша команда сотрудничает с множеством дата-центров в разных странах',
     },
     elements: [
       {
-        name: 'Название цода',
+        name: 'ММТС-9 (Ростелеком)',
         location: {
-          flag: 'canada',
-          country: 'Ukraine',
-          city: 'Donbas'
+          flag: 'russia',
+          country: 'Россия',
+          city: 'Москва'
         },
         images: [
           '/images/dc-slider.png',
           '/images/dc-slider.png',
           '/images/dc-slider.png'
         ],
-        description: `Москва, ул. Берзарина, д. 36, стр. 3<br><br>
-Площадь серверных помещений — 1 250 м²<br><br>
-Количество серверных стоек — 500<br><br>
-Мощность ДЦ, кВТ — 3 300<br><br>
-Источники бесперебойного питания, дизель-генераторы N+1, прямой фрикулинг с адиабатическим доохлаждением`,
+        description: `Москва ул. Бутлерова, д. 7<br><br>
+Площадь серверных помещений — 9589 м²<br><br>
+Количество серверных стоек — 2240<br><br>
+Мощность ДЦ, кВТ — 15300`,
         content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit animLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim`
       },
       {
-        name: 'Название цода',
+        name: 'Цветочная 2',
         location: {
-          flag: 'canada',
-          country: 'Ukraine',
-          city: 'Donbas'
+          flag: 'russia',
+          country: 'Россия',
+          city: 'Санкт-Петербург'
         },
         images: [
           '/images/dc-slider.png'
         ],
-        description: `Москва, ул. Берзарина, д. 36, стр. 3<br><br>
-Площадь серверных помещений — 1 250 м²<br><br>
-Количество серверных стоек — 500<br><br>
-Мощность ДЦ, кВТ — 3 300<br><br>
-Источники бесперебойного питания, дизель-генераторы N+1, прямой фрикулинг с адиабатическим доохлаждением`,
+        description: `Санкт-Петербург, ул. Цветочная, д. 19<br><br>
+Площадь серверных помещений — 4000 м²<br><br>
+Количество серверных стоек — 1200<br><br>
+Мощность ДЦ, кВТ — 2 500 `,
         content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit animLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim`
       },
