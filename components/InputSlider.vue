@@ -1,10 +1,5 @@
 <template>
-  <div>
-    <div :id="name+'-slider'">
-    </div>
-    <input type="hidden" :name="name+'_min'" :value="min">
-    <input type="hidden" :name="name+'_max'" :value="max">
-  </div>
+  <div :id="name+'-slider'"></div>
 </template>
 
 <script lang="ts">
@@ -16,12 +11,6 @@ export default Vue.extend({
   props: {
     name: String,
     config: Object
-  },
-  data() {
-    return {
-      min: 0,
-      max: 0
-    }
   },
   mounted() {
     const slider = document.getElementById(this.name+'-slider') as HTMLElement
@@ -41,17 +30,16 @@ export default Vue.extend({
     max.className = 'slider-value-max';
     slider.appendChild(max);
 
-    // Сбрасывать слайдеры до дефолтных значений пир сбросе формы
-    // document.querySelector('.filter').addEventListener('reset', () => {
-    //     slider.noUiSlider.set(settings.start)
-    // });
+    this.$on('reset', () => { _noUislider.reset() });
 
+    // Юзать change если будет лагать
     _noUislider.on('update', (values, handle) => {
-        [min, max][handle].innerHTML = values[handle] + this.config.suffix
-        this.min = values[0] // dep
-        this.max = values[1] // dep
-        this.$emit('valuesUpdate', values)
-    });
+      [min, max][handle].innerHTML = values[handle] + (this.config.suffix || '')
+      this.$emit('input', {
+        min: values[0],
+        max: values[1]
+      })
+    })
   }
 })
 </script>

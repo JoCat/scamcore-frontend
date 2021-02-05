@@ -4,125 +4,73 @@
       <label>Стоимость</label>
       <InputSlider
         :config="{
-          range: {
-            min: 0,
-            max: 10000
-          },
-          step: 1,
-          start: [2000, 8000],
+          range: price,
+          snap: true,
+          start: [price.min, price.max],
           suffix: ' руб'
         }"
         name="price"
-        v-on:valuesUpdate.prevent="priceUpdate"
+        v-model="priceFilter"
       />
-      <!-- <div id="price-slider"></div>
-      <input type="hidden" name="price_min">
-      <input type="hidden" name="price_max"> -->
-        <!-- document.addEventListener('DOMContentLoaded', () => {
-          createSlider('price', {
-            range: {
-              min: 0,
-              max: 10000
-            },
-            step: 1,
-            start: [2000, 8000]
-          }, ' руб');
-        }); -->
     </div>
     <div class="col-12 col-md-6">
       <label>При оплате за:</label>
       <div class="checkbox-button">
-        <input type="checkbox" id="period1" name="period" value="1">
+        <input type="radio" id="period1" value="1" v-model="pricePeriodFilter">
         <label for="period1">1 месяц</label>
       </div>
       <div class="checkbox-button">
-        <input type="checkbox" id="period2" name="period" value="2">
+        <input type="radio" id="period2" value="3" v-model="pricePeriodFilter">
         <label for="period2">3 месяца</label>
       </div>
       <div class="checkbox-button">
-        <input type="checkbox" id="period3" name="period" value="3">
+        <input type="radio" id="period3" value="6" v-model="pricePeriodFilter">
         <label for="period3">6 месяцев</label>
       </div>
       <div class="checkbox-button">
-        <input type="checkbox" id="period4" name="period" value="4">
+        <input type="radio" id="period4" value="12" v-model="pricePeriodFilter">
         <label for="period4">1 год</label>
       </div>
     </div>
     <div class="gray-overlay">
       <div class="row">
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-8">
           <label>Процессор</label>
-          <div class="checkbox">
-            <input type="checkbox" id="proc1" name="proc" value="1">
-            <label for="proc1">Название</label>
-          </div>
-          <div class="checkbox">
-            <input type="checkbox" id="proc2" name="proc" value="2">
-            <label for="proc2">Название</label>
-          </div>
-          <div class="checkbox">
-            <input type="checkbox" id="proc3" name="proc" value="3">
-            <label for="proc3">Название</label>
-          </div>
-          <div class="checkbox">
-            <input type="checkbox" id="proc4" name="proc" value="4">
-            <label for="proc4">Название</label>
+          <div class="checkbox" v-for="cpu in cpus" :key="cpu.title">
+            <input type="checkbox" :id="'cpu-'+cpu.id" :value="cpu.id" v-model="cpuFilter">
+            <label :for="'cpu-'+cpu.id">{{ cpu.title }} {{ cpu.frequency }} GHz</label>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4">
           <label>Кол-во ядер</label>
-          <div id="core-slider"></div>
-          <input type="hidden" name="core_min">
-          <input type="hidden" name="core_max">
-          <script>
-            document.addEventListener('DOMContentLoaded', () => {
-              createSlider('core', {
-                range: {
-                  'min': 4,
-                  '25%' : 6,
-                  '50%' : 10,
-                  '75%' : 12,
-                  'max': 20
-                },
-                step: 1,
-                start: [4, 20],
-                snap: true
-              });
-            });
-          </script>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4">
-          <label>Частота</label>
-          <div id="frequency-slider"></div>
-          <input type="hidden" name="frequency_min">
-          <input type="hidden" name="frequency_max">
-          <script>
-            document.addEventListener('DOMContentLoaded', () => {
-              createSlider('frequency', {
-                range: {
-                  min: 2,
-                  max: 4.60
-                },
-                step: 0.2,
-                start: [2, 4.60]
-              }, ' ГГц');
-            });
-          </script>
+          <InputSlider
+            :config="{
+              range: cores,
+              step: 1,
+              start: [cores.min, cores.max]
+            }"
+            name="core"
+            v-model="coresFilter"
+          />
         </div>
       </div>
     </div>
     <div class="col-12 col-sm-6 col-md-4">
       <label>Тип диска</label>
       <div class="checkbox">
-        <input type="checkbox" id="drive1" name="drive" value="1">
-        <label for="drive1">Название</label>
+        <input type="radio" id="drive1" name="drive" value="1">
+        <label for="drive1">HDD</label>
       </div>
       <div class="checkbox">
-        <input type="checkbox" id="drive2" name="drive" value="2">
-        <label for="drive2">Название</label>
+        <input type="radio" id="drive2" name="drive" value="2">
+        <label for="drive2">SSD</label>
+      </div>
+      <div class="checkbox">
+        <input type="radio" id="drive3" name="drive" value="3">
+        <label for="drive3">NVMe</label>
       </div>
     </div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-2" v-if="hideDiskCount">
       <label>Кол-во дисков</label>
       <div class="checkbox">
         <input type="checkbox" id="drive_count1" name="drive_count" value="1">
@@ -136,28 +84,16 @@
     <div class="col-12 col-sm-6 col-md-4">
       <label>Объём дисков</label>
       <div id="storage-slider"></div>
-      <input type="hidden" name="storage_min">
-      <input type="hidden" name="storage_max">
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          createSlider('storage', {
-            range: {
-              'min': 240,
-              '12.5%' : 256,
-              '25%' : 512,
-              '37.5%' : 600,
-              '50%' : 960,
-              '62.5%' : 1000,
-              '75%' : 1920,
-              '87.5%' : 2000,
-              'max': 4000
-            },
-            step: 1,
-            start: [240, 4000],
-            snap: true
-          }, ' Гб');
-        });
-      </script>
+      <InputSlider
+        :config="{
+          range: storages,
+          snap: true,
+          start: [storages.min, storages.max],
+          suffix: ' Гб'
+        }"
+        name="storage"
+        v-model="storageFilter"
+      />
     </div>
     <div class="col-12 col-sm-6 col-md-2">
       <input type="reset" value="Сбросить">
@@ -168,19 +104,99 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
+  props: {
+    hideDiskCount: Boolean,
+    servers: Array
+  },
   data() {
     return {
-      price: {
+      price: {} as any,
+      priceFilter: {
         min: 0,
         max: 0
-      }
+      },
+      pricePeriodFilter: 1,
+      cpus: [] as any[],
+      cpuFilter: [],
+      cores: {
+        min: 0,
+        max: 0
+      },
+      coresFilter: {
+        min: 0,
+        max: 0
+      },
+      storages: {} as any,
+      storageFilter: {
+        min: 0,
+        max: 0
+      },
     }
   },
+  watch: {
+    priceFilter: 'filter',
+    pricePeriodFilter: 'filter',
+    cpuFilter: 'filter',
+    coresFilter: 'filter',
+    storageFilter: 'filter',
+  },
   methods: {
-    priceUpdate(values: number[]) {
-      this.price.min = values[0]
-      this.price.max = values[1]
+    filter() {
+      let filteredServers = this.servers
+        .filter((s: any) => s.price >= this.priceFilter.min)
+        .filter((s: any) => s.price <= this.priceFilter.max)
+        .filter((s: any) => s.cpuCoresCount >= this.coresFilter.min)
+        .filter((s: any) => s.cpuCoresCount <= this.coresFilter.max)
+        // .filter((s: any) => s.storage ??? >= this.storageFilter.min)
+        // .filter((s: any) => s.storage ??? <= this.storageFilter.max)
+
+        if (this.cpuFilter.length > 0) {
+          filteredServers = filteredServers.filter((s: any) => this.cpuFilter.includes(s.cpu.id as never))
+        }
+
+      this.$emit('filter', filteredServers)
     }
+  },
+  created() {
+    // Фильтр процессоров
+    new Map(this.servers.map((e: any) => [e.cpu.id, e.cpu])).forEach(cpu => { this.cpus.push(cpu) })
+
+    // Фильтр цены
+    const prices: number[] = []
+    new Set(this.servers.map((e: any) => e.price)).forEach(price => { prices.push(price) })
+    const pPercents = getPercents(prices.length)
+    prices.sort((a, b) => a - b).forEach((v, i) => {
+      this.price[pPercents[i]] = v
+    })
+
+    // Фильтр количества ядер
+    const cores: number[] = []
+    new Set(this.servers.map((e: any) => e.cpuCoresCount)).forEach(core => { cores.push(core) })
+    this.cores.min = Math.min(...cores)
+    this.cores.max = Math.max(...cores)
+    if (this.cores.min == this.cores.max) this.cores.min = 0
+
+    // Фильтр объёма дисков
+    const storages: Set<number> = new Set
+    this.servers.forEach((e: any) => {
+      e.storage.forEach((s: any) => storages.add(s.capacity))
+    })
+    const sPercents = getPercents(storages.size)
+    Array.from(storages).sort().forEach((v, i) => {
+      this.storages[sPercents[i]] = v
+    })
+
+    this.$emit('filter', this.servers)
   }
 })
+
+function getPercents(count: number) {
+    const arr = []
+    for (let i = 0; i < count; i++) {
+        arr.push(`${(i*(100 / (count - 1))).toFixed(0)}%`)
+    }
+    arr[0] = 'min'
+    arr[count-1] = 'max'
+    return arr
+}
 </script>

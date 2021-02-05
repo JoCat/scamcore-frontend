@@ -20,9 +20,9 @@
         <span class="speedometer__score">{{ geekbench.score }}</span>
       </div>
     </td>
-    <td>{{ data.cpu }}</td>
+    <td>{{ data.cpu.title }}</td>
     <td>{{ data.ram }}</td>
-    <td>{{ data.storage }}</td>
+    <td>{{ data.storage.map(s => `${s.capacity} ${s.type.toUpperCase()}`).join(' / ') }}</td>
     <td>{{ data.traffic }}</td>
     <td>{{ data.ddos }}</td>
     <td>
@@ -37,7 +37,6 @@
         <div class="old-price">2000₽</div>
       </div>
       <a href="#">Купить</a> -->
-
       <div class="price">{{ data.price }}₽</div>
       <a href="#">Купить</a>
     </td>
@@ -66,8 +65,10 @@ export default Vue.extend({
   },
   mounted() {
     const percent = (this.data.geekbench / this.geekbenchMax)
-    this.styles.arrow.transform = `rotate(${238 * percent}deg)`
-    this.styles.speed.strokeDashoffset = `${(87.4986 - 87.4986 * percent).toFixed(4)}px`
+    setImmediate(() => {
+      this.styles.arrow.transform = `rotate(${238 * percent}deg)`
+      this.styles.speed.strokeDashoffset = `${(87.4986 - 87.4986 * percent).toFixed(4)}px`
+    })
 
     for (let index = 0; index < 100; index++) {
       setTimeout(() => {
