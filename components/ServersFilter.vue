@@ -1,5 +1,5 @@
 <template>
-  <form class="filter row">
+  <form class="filter row" @reset="reset">
     <div class="col-12 col-md-6">
       <label>Стоимость</label>
       <InputSlider
@@ -11,6 +11,7 @@
         }"
         name="price"
         v-model="priceFilter"
+        ref="priceFilter"
       />
     </div>
     <div class="col-12 col-md-6">
@@ -51,6 +52,7 @@
             }"
             name="core"
             v-model="coresFilter"
+            ref="coresFilter"
           />
         </div>
       </div>
@@ -83,7 +85,6 @@
     </div>
     <div class="col-12 col-md-4">
       <label>Объём дисков</label>
-      <div id="storage-slider"></div>
       <InputSlider
         :config="{
           range: storages,
@@ -93,6 +94,7 @@
         }"
         name="storage"
         v-model="storageFilter"
+        ref="storageFilter"
       />
     </div>
     <div :class="'col-12 ' + (hideDiskCount ? 'col-md-4' : 'col-md-2')">
@@ -174,6 +176,15 @@ export default Vue.extend({
         }
 
       this.$emit('filter', filteredServers)
+    },
+    reset() {
+      this.pricePeriod = 1
+      this.cpuFilter = []
+      this.drivesType = []
+      this.drivesCount = []
+      ;((this.$refs.priceFilter as Vue).$el as any).noUiSlider.reset()
+      ;((this.$refs.coresFilter as Vue).$el as any).noUiSlider.reset()
+      ;((this.$refs.storageFilter as Vue).$el as any).noUiSlider.reset()
     }
   },
   created() {

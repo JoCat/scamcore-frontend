@@ -30,8 +30,6 @@ export default Vue.extend({
     max.className = 'slider-value-max';
     slider.appendChild(max);
 
-    this.$on('reset', () => { _noUislider.reset() });
-
     // Юзать change если будет лагать
     _noUislider.on('update', (values, handle) => {
       [min, max][handle].innerHTML = values[handle] + (this.config.suffix || '')
