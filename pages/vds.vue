@@ -15,31 +15,8 @@
     <main>
       <section class="container servers-list">
         <h2 class="title center">{{ translate.main.title }}</h2>
-        <ServersFilter/>
-        <div class="list">
-          <table>
-            <thead>
-              <tr>
-                <th>Geekbench</th>
-                <th>Процессор</th>
-                <th>ОЗУ</th>
-                <th>Накопитель</th>
-                <th>Трафик</th>
-                <th>A-DDoS</th>
-                <th class="location">Локация</th>
-                <th class="price"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colspan="8" class="list-title">
-                  <div>SAS VPS/VDS в ЕС (OpenVZ)</div>
-                </td>
-              </tr>
-              <ServerCard v-for="(data, i) in translate.elements" :key="i" :data="data" :geekbenchMax="geekbenchMax"/>
-            </tbody>
-          </table>
-        </div>
+        <ServersFilter :hideDiskCount="true" :servers="servers" @filter="filter"/>
+        <ServerList :translate="translate.main" :servers="filteredServers" :geekbenchMax="geekbenchMax"/>
       </section>
       <ServerOs/>
       <ImportantAdvantages/>
@@ -54,13 +31,30 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
+  data() {
+    return {
+      servers: [],
+      filteredServers: [] as any[],
+    }
+  },
+  async asyncData({$axios, store}) {
+    try {
+      return { servers: await $axios.$get(`${store.state.lang}/servers/vds`) }
+    } catch (error) {
+      console.error(error)
+    }
+  },
   computed: {
-    geekbenchMax () {
-      const scores: number[] = this.translate.elements.map((e: { geekbench: number }) => e.geekbench)
-      return Math.max(...scores)
-    },
     translate() {
       return this.$getTranslate(this.$store.state.lang, translate);
+    },
+    geekbenchMax(): number {
+      return Math.max(...this.servers.map((e: { geekbench: number }) => e.geekbench))
+    },
+  },
+  methods: {
+    filter(filteredServers: any[]) {
+      this.filteredServers = filteredServers
     }
   }
 })
@@ -76,68 +70,22 @@ const translate = {
       }
     },
     main : {
-      title: 'VDS серверы'
-    },
-    elements: [
-      {
-        cpu: '1 vCore Intel Core i7-6700 4.2 GHz',
-        ram: '4 GB RAM',
-        storage: '50 GB NVMe',
-        traffic: '1000 Mbps порт',
-        ddos: 'Standard-AntiDDoS',
-        location: [
-          'Germany',
-          'Finland'
-        ],
-        price: 450,
-        // sale_price: '',
-        // percent: '',
-        geekbench: 150,
-        geekbench_multithread: 24548,
-        available_os: [1, 3, 123],
-        available_soft: [6, 66, 666]
-      },
-      {
-        cpu: '2 vCore Intel Core i7-6700 4.2 GHz',
-        ram: '4 GB RAM',
-        storage: '50 GB NVMe',
-        traffic: '1000 Mbps порт',
-        ddos: 'Standard-AntiDDoS',
-        location: [
-          'Germany',
-          'Finland'
-        ],
-        price: 450,
-        // sale_price: '',
-        // percent: '',
-        geekbench: 24547,
-        geekbench_multithread: 24548,
-        available_os: [1, 3, 123],
-        available_soft: [6, 66, 666]
-      },
-      {
-        cpu: '3 vCore Intel Core i7-6700 4.2 GHz',
-        ram: '4 GB RAM',
-        storage: '50 GB NVMe',
-        traffic: '1000 Mbps порт',
-        ddos: 'Standard-AntiDDoS',
-        location: [
-          'Germany',
-          'Finland'
-        ],
-        price: 450,
-        // sale_price: '',
-        // percent: '',
-        geekbench: 34547,
-        geekbench_multithread: 24548,
-        available_os: [1, 3, 123],
-        available_soft: [6, 66, 666]
+      title: 'VDS серверы',
+      table: {
+        geekbench: 'Geekbench',
+        cpu: 'Процессор',
+        ram: 'ОЗУ',
+        storage: 'Накопитель',
+        traffic: 'Трафик',
+        ddos: 'A-DDoS',
+        location: 'Локация'
       }
-    ]
+    }
   },
   ua: {},
   en: {}
 }
+
 </script>
 
 <style scoped>

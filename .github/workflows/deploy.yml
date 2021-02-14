@@ -54,5 +54,3 @@ jobs:
           REMOTE_USER: ${{ secrets.SSH_USER }}
           SOURCE: "dist/"
           TARGET: ${{ secrets.SITE_DIR }}
-
-      
