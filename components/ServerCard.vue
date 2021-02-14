@@ -30,14 +30,13 @@
       <img src="/images/flags/england.png" alt="">
       <img src="/images/flags/canada.png" alt="">
     </td>
-    <td>
-      <!-- <div class="price sale">
+    <td class="price_block">
+      <!-- <div class="sale">
         <div class="percent">-20%</div>
         1257₽<br>
         <div class="old-price">2000₽</div>
-      </div>
-      <a href="#">Купить</a> -->
-      <div class="price">{{ data.price }}₽</div>
+      </div> -->
+      <div>{{ data.price }}₽</div>
       <a href="#">Купить</a>
     </td>
   </tr>

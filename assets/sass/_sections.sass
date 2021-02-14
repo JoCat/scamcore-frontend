@@ -533,6 +533,16 @@ section
         table
             width: 100%
             min-width: 1110px
+        tr
+            th:first-child,
+            td:first-child
+                padding-left: 14px
+            th:last-child,
+            td:last-child
+                padding-right: 14px
+            th:not(:last-child),
+            td:not(:last-child)
+                border-right: 1px solid #e4e1ea
         thead
             th
                 font-size: 14px
@@ -541,8 +551,22 @@ section
                 text-transform: uppercase
                 font-weight: $medium
                 padding: 29px 14px 22px 14px
+            .geekbench
+                width: 121px
+            .cpu
+                width: 154px
+            .ram
+                width: 105px
+            .storage
+                width: 135px
+            .traffic
+                width: 119px
+            .ddos
+                width: 96px
+            .location
+                width: 125px
             .price
-              width: 240px
+                width: 255px
         tbody
             td
                 font-size: 14px
@@ -555,91 +579,84 @@ section
                     background-color: #f7f6fa
                 &:nth-of-type(even)
                     background-color: #f5f3f8
-        tr
-            th:first-child,
-            td:first-child
-                padding-left: 14px
-            th:last-child,
-            td:last-child
-                padding-right: 14px
-            th:not(:last-child),
-            td:not(:last-child)
-                border-right: 1px solid #e4e1ea
-        img:not(:last-child)
-            margin-right: 5px
-        .list-title
-            padding: 0 12px !important
-            div
-                padding: 10px 0
-                font-size: 15px
-                color: #3f3f40
-                text-align: center
-                font-weight: $medium
-                border-radius: 8px
-                background-color: #e4e1e9
-        .geekbench
-            font-weight: bold
-            display: flex
-            align-items: center
-            .geekbench-meter
-                display: inline-block
-                margin-right: 8px
-                position: relative
-                width: 40px
-                height: 29px
-                svg
-                    position: absolute
+            img:not(:last-child)
+                margin-right: 5px
+            .list-title
+                padding: 0 12px !important
+                div
+                    padding: 10px 0
+                    font-size: 15px
+                    color: #3f3f40
+                    text-align: center
+                    font-weight: $medium
+                    border-radius: 8px
+                    background-color: #e4e1e9
+            .geekbench
+                font-weight: bold
+                display: flex
+                align-items: center
+                .geekbench-meter
+                    display: inline-block
+                    margin-right: 8px
+                    position: relative
                     width: 40px
                     height: 29px
-                    &.speedometer__arrow
-                        top: 7px
-                        transform-origin: 20px 13px
-                    .speedometer__speed,
-                    &.speedometer__arrow
-                        transition-duration: 1s
-                        transition-timing-function: cubicBezier(.21,.55,.43,.75)
-        .price
-            display: inline-block
-            margin-right: 20px
-            color: #3e2862
-            font-size: 22px
-            font-weight: $extrabold
-            vertical-align: middle
-            &.sale
-                color: $purple
-                .percent
-                    font-size: 10px
-                    font-weight: $medium
-                    color: $gray
-                    background-color: $purple
-                    width: 26px
-                    margin-bottom: 2px
-                .old-price
-                    font-size: 14px
-                    color: #3f3e40
-                    text-align: right
-                    font-weight: $medium
-                    position: relative
-                    &::after
-                        content: ''
-                        display: block
-                        width: 70%
-                        height: 1px
-                        background-color: $purple
-                        transform: rotate(-15deg)
+                    svg
                         position: absolute
-                        right: 0
-                        top: 45%
-        a
-            @extend %button-purple
-            width: 135px
-            line-height: 43px
-            text-align: center
-            display: inline-block
-            color: #fff
-            font-size: 16px
-            font-weight: bold
-            text-transform: uppercase
+                        width: 40px
+                        height: 29px
+                        &.speedometer__arrow
+                            top: 7px
+                            transform-origin: 20px 13px
+                        .speedometer__speed,
+                        &.speedometer__arrow
+                            transition-duration: 1s
+                            transition-timing-function: cubicBezier(.21,.55,.43,.75)
+            .price_block
+                display: flex
+                align-items: center
+                & > div
+                    display: inline-block
+                    margin-right: auto
+                    color: #3e2862
+                    font-size: 22px
+                    font-weight: $extrabold
+                    vertical-align: middle
+                    &.sale
+                        color: $purple
+                        .percent
+                            font-size: 10px
+                            font-weight: $medium
+                            color: $gray
+                            background-color: $purple
+                            width: 26px
+                            margin-bottom: 2px
+                        .old-price
+                            font-size: 14px
+                            color: #3f3e40
+                            text-align: right
+                            font-weight: $medium
+                            position: relative
+                            &::after
+                                content: ''
+                                display: block
+                                width: 70%
+                                height: 1px
+                                background-color: $purple
+                                transform: rotate(-15deg)
+                                position: absolute
+                                right: 0
+                                top: 45%
+            a
+                @extend %button-purple
+                width: 135px
+                line-height: 43px
+                text-align: center
+                display: inline-block
+                color: #fff
+                font-size: 16px
+                font-weight: bold
+                text-transform: uppercase
 .os
     margin-top: 72px
     .el

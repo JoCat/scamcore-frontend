@@ -3,12 +3,12 @@
     <table>
       <thead>
         <tr>
-          <th>{{ translate.table.geekbench }}</th>
-          <th>{{ translate.table.cpu }}</th>
-          <th>{{ translate.table.ram }}</th>
-          <th>{{ translate.table.storage }}</th>
-          <th>{{ translate.table.traffic }}</th>
-          <th>{{ translate.table.ddos }}</th>
+          <th class="geekbench">{{ translate.table.geekbench }}</th>
+          <th class="cpu">{{ translate.table.cpu }}</th>
+          <th class="ram">{{ translate.table.ram }}</th>
+          <th class="storage">{{ translate.table.storage }}</th>
+          <th class="traffic">{{ translate.table.traffic }}</th>
+          <th class="ddos">{{ translate.table.ddos }}</th>
           <th class="location">{{ translate.table.location }}</th>
           <th class="price"></th>
         </tr>
