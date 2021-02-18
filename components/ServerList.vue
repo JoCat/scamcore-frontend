@@ -28,6 +28,7 @@
 </template>
 
 <script lang="ts">
+
 import Vue from 'vue'
 export default Vue.extend({
   props: {
@@ -36,14 +37,14 @@ export default Vue.extend({
   },
   computed: {
     formattedServers() {
-      const groups: Map<string, any> = new Map(this.servers.map((e: any) => [e.group.id, {title: e.group.title, servers: []}]))
+      const groups: Map<number, any> = new Map(this.servers.map((e: any) => [e.group.id, {title: e.group.title, servers: []}]))
 
       this.servers.forEach((e: any) => {
         groups.get(e.group.id).servers.push(e)
       })
       return groups
     },
-    translate(): {} {
+    translate(): (typeof translate["ru"]) { // Костыль с typeof, но да похуй, спасибо кривой работе типизации
       return this.$getTranslate(this.$store.state.lang, translate)
     }
   }
@@ -61,9 +62,21 @@ const translate = {
   },
   ua: {
     geekbench: 'Geekbench',
+    cpu: '',
+    ram: '',
+    storage: '',
+    traffic: '',
+    ddos: '',
+    location: ''
   },
   en: {
     geekbench: 'Geekbench',
+    cpu: '',
+    ram: '',
+    storage: '',
+    traffic: '',
+    ddos: '',
+    location: ''
   }
 }
 </script>
