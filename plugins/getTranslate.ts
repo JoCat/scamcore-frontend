@@ -3,26 +3,15 @@ import Vue from 'vue'
 declare module 'vue/types/vue' {
   interface Vue {
     $getTranslate(
-      lang: string,
-      translate: { ru: Object; ua: Object; en: Object }
+      lang: "ru" | "ua" | "en",
+      translate: { ru: {}; ua: {}; en: {} }
     ): any
   }
 }
 
 Vue.prototype.$getTranslate = (
-  lang: string,
-  translate: { ru: Object; ua: Object; en: Object }
+  lang: "ru" | "ua" | "en",
+  translate: { ru: {}; ua: {}; en: {} }
 ) => {
-  switch (lang) {
-    case "en":
-      return translate.en;
-      break;
-    case "ua":
-      return translate.ua;
-      break;
-    case "ru":
-    default:
-      return translate.ru;
-      break;
-  }
+  return translate[lang]
 }
