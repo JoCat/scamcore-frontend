@@ -20,38 +20,8 @@
             <Subscribe/>
           </div>
         </div>
-        <ServersFilter/>
-        <div class="list">
-          <table>
-            <thead>
-              <tr>
-                <th>Geekbench</th>
-                <th>Процессор</th>
-                <th>ОЗУ</th>
-                <th>Накопитель</th>
-                <th>Трафик</th>
-                <th>A-DDoS</th>
-                <th>Локация</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colspan="8" class="list-title">
-                  <div>SAS VPS/VDS в ЕС (OpenVZ)</div>
-                </td>
-              </tr>
-              <!--ServerCard/>
-              <ServerCard/>
-              <ServerCard/>
-              <ServerCard/>
-              <ServerCard/>
-              <ServerCard/>
-              <ServerCard/>
-              <ServerCard/-->
-            </tbody>
-          </table>
-        </div>
+        <ServersFilter :hideDiskCount="true" :servers="servers" @filter="filter"/>
+        <ServerList :servers="filteredServers" :geekbenchMax="geekbenchMax"/>
       </section>
       <ServerOs/>
       <ImportantAdvantages/>
@@ -67,9 +37,30 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
+  data() {
+    return {
+      servers: [],
+      filteredServers: [] as any[],
+    }
+  },
+  async asyncData({$axios, store}) {
+    try {
+      return { servers: await $axios.$get(`${store.state.lang}/servers/not-install`) }
+    } catch (error) {
+      console.error(error)
+    }
+  },
   computed: {
     translate() {
       return this.$getTranslate(this.$store.state.lang, translate);
+    },
+    geekbenchMax(): number {
+      return Math.max(...this.servers.map((e: { geekbench: number }) => e.geekbench))
+    },
+  },
+  methods: {
+    filter(filteredServers: any[]) {
+      this.filteredServers = filteredServers
     }
   }
 })

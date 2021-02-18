@@ -16,7 +16,7 @@
       <section class="container servers-list">
         <h2 class="title center">{{ translate.main.title }}</h2>
         <ServersFilter :hideDiskCount="true" :servers="servers" @filter="filter"/>
-        <ServerList :translate="translate.main" :servers="filteredServers" :geekbenchMax="geekbenchMax"/>
+        <ServerList :servers="filteredServers" :geekbenchMax="geekbenchMax"/>
       </section>
       <ServerOs/>
       <ImportantAdvantages/>
@@ -71,21 +71,11 @@ const translate = {
     },
     main : {
       title: 'VDS серверы',
-      table: {
-        geekbench: 'Geekbench',
-        cpu: 'Процессор',
-        ram: 'ОЗУ',
-        storage: 'Накопитель',
-        traffic: 'Трафик',
-        ddos: 'A-DDoS',
-        location: 'Локация'
-      }
     }
   },
   ua: {},
   en: {}
 }
-
 </script>
 
 <style scoped>
