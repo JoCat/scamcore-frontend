@@ -296,13 +296,11 @@ header
         nav
             ul li a
                 color: #30273f
-                &:hover
-                    color: #30273f
-                    &::after
-                        background-color: $purple
+                &:hover::before
+                    background-color: $purple
             a
                 color: $purple
-            .dropdown>a::before
+            .dropdown>a::after
                 background-image: url(/images/dropdown-black.png)
             .tel::after
                 background: url(/images/icons/call-purple.png)
@@ -315,13 +313,10 @@ header
                     color: #fff
                     background-color: $purple
             .lang
-                &::before
-                    background-image: url(/images/dropdown-purple.png)
-                &:hover
-                    color: #fff
-                    background-color: $purple
-                    &::before
-                        background-image: url(/images/dropdown.png)
+                &::after
+                    background-image: url(/images/dropdown-purple.png) !important
+                &:hover::after
+                    background-image: url(/images/dropdown.png) !important
         .offcanvas-btn
             .hamburger-inner,
             .hamburger-inner::after,

@@ -29,7 +29,7 @@
             {{ translate.contacts.email }}
           </a>
           <a class="tg" :href="translate.contacts.tg" target="_blank">
-            <img src="/images/icons/telegram.png" alt="" />
+            <img :src="type == 'alternative' ? '/images/icons/telegram-purple.png' : '/images/icons/telegram.png'" alt="" />
             Telegram
           </a>
         </NavDropdown>
@@ -41,7 +41,7 @@
         translate.contacts.email
       }}</a>
       <a class="tg" :href="translate.contacts.tg" target="_blank">
-        <img src="/images/icons/telegram.png" alt="" />
+        <img :src="type == 'alternative' ? '/images/icons/telegram-purple.png' : '/images/icons/telegram.png'" alt="" />
       </a>
     </div>
     <div class="buttons">
