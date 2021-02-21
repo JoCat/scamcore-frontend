@@ -1,19 +1,9 @@
 
 export default {
-  /*
-  ** Nuxt rendering mode
-  ** See https://nuxtjs.org/api/configuration-mode
-  */
-  mode: 'universal',
-  /*
-  ** Nuxt target
-  ** See https://nuxtjs.org/api/configuration-target
-  */
+  // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
-  /*
-  ** Headers of the page
-  ** See https://nuxtjs.org/api/configuration-head
-  */
+
+  // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: (titleChunk) => {
       return titleChunk ? `${titleChunk} - SpaceCore` : 'SpaceCore'
@@ -31,48 +21,30 @@ export default {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap' }
     ]
   },
-  /*
-  ** Global CSS
-  */
+  // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     '~/assets/sass/bootstrap.sass',
     '~/assets/sass/main.sass'
   ],
-  /*
-  ** Plugins to load before mounting the App
-  ** https://nuxtjs.org/guide/plugins
-  */
+  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: ['~/plugins/getTranslate.ts'],
-  /*
-  ** Auto import components
-  ** See https://nuxtjs.org/api/configuration-components
-  */
+  // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
-  /*
-  ** Nuxt.js dev-modules
-  */
+  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     '@nuxt/typescript-build',
   ],
-  /*
-  ** Nuxt.js modules
-  */
+  // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
   ],
-  /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
+  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     // baseURL: 'https://api.spacecore.me/v1/',
     baseURL: 'http://localhost:4000/v1/',
   },
-  /*
-  ** Build configuration
-  ** See https://nuxtjs.org/api/configuration-build/
-  */
+  // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     extend(config, { isDev, isClient }) {
       if (isClient && !isDev) {
