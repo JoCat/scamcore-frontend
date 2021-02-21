@@ -32,40 +32,25 @@
           <div class="price">5364 rub</div>
         </div>
         <div class="col-12 col-md-6">
-          <select id="select1">
+          <custom-select>
             <option value>Выбор ПО</option>
             <option value="lamp">LAMP</option>
             <option value="lemp">LEMP</option>
             <option value="vpn">OpenVpn</option>
-          </select>
-          <script>
-            //document.addEventListener('DOMContentLoaded', () => {
-            //  customSelect('#select1')
-            //});
-          </script>
-          <select id="select2">
+          </custom-select>
+          <custom-select>
             <option value>Предустановленное ПО</option>
             <option value="lamp">LAMP</option>
             <option value="lemp">LEMP</option>
             <option value="vpn">OpenVpn</option>
-          </select>
-          <script>
-            //document.addEventListener('DOMContentLoaded', () => {
-            //  customSelect('#select2')
-            //});
-          </script>
+          </custom-select>
           <input type="text" placeholder="Домен">
-          <select id="select3">
+          <custom-select>
             <option value>Локация</option>
             <option value="lamp">LAMP</option>
             <option value="lemp">LEMP</option>
             <option value="vpn">OpenVpn</option>
-          </select>
-          <script>
-            //document.addEventListener('DOMContentLoaded', () => {
-            //  customSelect('#select3')
-            //});
-          </script>
+          </custom-select>
           <div class="row">
             <div class="col-12 col-md-6">
               <input type="text" placeholder="Кол-во">
