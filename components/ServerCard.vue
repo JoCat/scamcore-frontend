@@ -37,7 +37,9 @@
         <div class="old-price">2000₽</div>
       </div> -->
       <div>{{ data.price }}₽</div>
-      <a href="#">Купить</a>
+      <a href="#" @click.prevent="showModal">Купить</a>
+      <!-- Это конечно не лучшее место для применения модалки, но кого это ебёт когда дедлайн всё ближе и ближе -->
+      <Modal ref="modal"/>
     </td>
   </tr>
 </template>
@@ -75,6 +77,11 @@ export default Vue.extend({
       }, index * 10)
     }
     setTimeout(() => {this.geekbench.score = this.data.geekbench}, 1000)
+  },
+  methods: {
+    showModal() {
+      (this.$refs.modal as any).showModal()
+    }
   }
 })
 </script>

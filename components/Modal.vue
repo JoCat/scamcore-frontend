@@ -1,8 +1,7 @@
 <template>
-  <!-- Modal -->
-  <div class="modal-overlay">
+  <div class="modal-overlay" v-if="show" @click.self="hideModal">
     <div class="modal">
-      <div class="modal-close"></div>
+      <div class="modal-close" @click="hideModal"></div>
       <div class="modal-title">Заказать сервер</div>
       <div class="row">
         <div class="col-6 server-info">
@@ -81,3 +80,22 @@
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  data() {
+    return {
+      show: false
+    }
+  },
+  methods: {
+    showModal() {
+      this.show = true
+    },
+    hideModal() {
+      this.show = false
+    }
+  }
+})
+</script>
