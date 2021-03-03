@@ -1,6 +1,6 @@
 <template>
-  <tr>
-    <td>
+  <div>
+    <div class="list-el">
       <div class="geekbench">
         <div class="geekbench-meter">
           <svg class="speedometer__arrow" :style="styles.arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 5.5">
@@ -19,29 +19,28 @@
         </div>
         <span class="speedometer__score">{{ geekbench.score }}</span>
       </div>
-    </td>
-    <td>{{ data.cpu.title }}</td>
-    <td>{{ data.ram }}</td>
-    <td>{{ data.storage.map(s => `${s.capacity} ${s.type.toUpperCase()}`).join(' / ') }}</td>
-    <td>{{ data.traffic }}</td>
-    <td>{{ data.ddos }}</td>
-    <td>
-      <img src="/images/flags/united kingdom.png" alt="">
-      <img src="/images/flags/england.png" alt="">
-      <img src="/images/flags/canada.png" alt="">
-    </td>
-    <td class="price_block">
-      <!-- <div class="sale">
-        <div class="percent">-20%</div>
-        1257₽<br>
-        <div class="old-price">2000₽</div>
-      </div> -->
-      <div>{{ data.price }}₽</div>
-      <a href="#" @click.prevent="showModal">Купить</a>
-      <!-- Это конечно не лучшее место для применения модалки, но кого это ебёт когда дедлайн всё ближе и ближе -->
-      <Modal ref="modal"/>
-    </td>
-  </tr>
+      <div class="cpu">{{ data.cpu.title }}</div>
+      <div class="ram">{{ data.ram }}</div>
+      <div class="storage">{{ data.storage.map(s => `${s.capacity} ${s.type.toUpperCase()}`).join(' / ') }}</div>
+      <div class="traffic">{{ data.traffic }}</div>
+      <div class="ddos">{{ data.ddos }}</div>
+      <div class="location">
+        <img src="/images/flags/united kingdom.png" alt="">
+        <img src="/images/flags/england.png" alt="">
+        <img src="/images/flags/canada.png" alt="">
+      </div>
+      <div class="price">
+        <!-- <div class="sale">
+          <div class="percent">-20%</div>
+          1257₽<br>
+          <div class="old-price">2000₽</div>
+        </div> -->
+        <div>{{ data.price }}₽</div>
+        <a href="#" @click.prevent="showModal">Купить</a>
+      </div>
+    </div>
+    <Modal ref="modal"/>
+  </div>
 </template>
 
 <script lang="ts">

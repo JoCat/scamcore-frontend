@@ -1,34 +1,27 @@
 <template>
   <div class="list">
-    <table>
-      <thead>
-        <tr>
-          <th class="geekbench">{{ translate.geekbench }}</th>
-          <th class="cpu">{{ translate.cpu }}</th>
-          <th class="ram">{{ translate.ram }}</th>
-          <th class="storage">{{ translate.storage }}</th>
-          <th class="traffic">{{ translate.traffic }}</th>
-          <th class="ddos">{{ translate.ddos }}</th>
-          <th class="location">{{ translate.location }}</th>
-          <th class="price"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <template v-for="[groupID, group] in formattedServers">
-          <tr :key="groupID">
-            <td colspan="8" class="list-title">
-              <div>{{ group.title }}</div>
-            </td>
-          </tr>
-          <ServerCard v-for="server in group.servers" :key="groupID+'.'+server.id" :data="server" :geekbenchMax="geekbenchMax"/>
-        </template>
-      </tbody>
-    </table>
+    <div class="list-head">
+      <div class="geekbench">{{ translate.geekbench }}</div>
+      <div class="cpu">{{ translate.cpu }}</div>
+      <div class="ram">{{ translate.ram }}</div>
+      <div class="storage">{{ translate.storage }}</div>
+      <div class="traffic">{{ translate.traffic }}</div>
+      <div class="ddos">{{ translate.ddos }}</div>
+      <div class="location">{{ translate.location }}</div>
+      <div class="price"></div>
+    </div>
+    <div class="list-body">
+      <template v-for="[groupID, group] in formattedServers">
+        <div class="w-100 list-title" :key="groupID">
+          <div>{{ group.title }}</div>
+        </div>
+        <ServerCard v-for="server in group.servers" :key="groupID+'.'+server.id" :data="server" :geekbenchMax="geekbenchMax"/>
+      </template>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-
 import Vue from 'vue'
 export default Vue.extend({
   props: {
