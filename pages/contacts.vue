@@ -16,11 +16,11 @@
             <p>{{ translate.phone.title }}</p>
             <a :href="'tel:' + translate.phone.phone.replace(/ /g, '')">{{ translate.phone.phone }}</a>
           </div-->
-          <div class="col-md-6 col-lg-6 email">
+          <div class="col-lg-8 email">
             <p>{{ translate.email.title }}</p>
             <a :href="'mailto:' + translate.email.email">{{ translate.email.email }}</a>
           </div>
-          <div class="col-sm-4 col-md-6 col-lg-3 col-xl-4 social">
+          <div class="col-md-4 social">
             <a :href="social.link" v-for="(social, i) in translate.social" :key="i">
               <img :src="social.image" alt="">
             </a>

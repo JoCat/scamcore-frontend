@@ -1029,12 +1029,20 @@ section
             color: $purple
             font-size: 36px
             font-weight: $extrabold
-            @media (max-width: 425px)
+            @media (max-width: 767px)
                 font-size: 32px
+            @media (max-width: 575px)
+                font-size: 24px
+            @media (max-width: 425px)
+                font-size: 18px
     .social
         display: flex
         align-items: center
         justify-content: space-evenly
+        @media (max-width: 767px)
+            justify-content: flex-start
+            a:nth-child(2)
+                margin: 0 20px
     .chat
         @extend %border
         background-color: $purple
