@@ -51,7 +51,7 @@ export default Vue.extend({
   components: { VueSlickCarousel },
   computed: {
     translate() {
-      return this.$getTranslate(this.$store.state.lang, translate);
+      return this.$getTranslate(translate);
     },
   }
 })

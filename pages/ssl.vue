@@ -131,7 +131,7 @@ import Vue from 'vue'
 export default Vue.extend({
   computed: {
     translate() {
-      return this.$getTranslate(this.$store.state.lang, translate);
+      return this.$getTranslate(translate);
     }
   }
 })

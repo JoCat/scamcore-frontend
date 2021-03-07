@@ -142,13 +142,13 @@ export default Vue.extend({
   data() {
     return {
       serviceShow: false,
-      selectedSolution: this.$getTranslate(this.$store.state.lang, translate)
+      selectedSolution: this.$getTranslate(translate)
         .solutions.elements[0].card
     }
   },
   computed: {
     translate() {
-      return this.$getTranslate(this.$store.state.lang, translate);
+      return this.$getTranslate(translate);
     }
   },
   methods: {

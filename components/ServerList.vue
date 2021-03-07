@@ -38,7 +38,7 @@ export default Vue.extend({
       return groups
     },
     translate(): (typeof translate["ru"]) { // Костыль с typeof, но да похуй, спасибо кривой работе типизации
-      return this.$getTranslate(this.$store.state.lang, translate)
+      return this.$getTranslate(translate)
     }
   }
 })

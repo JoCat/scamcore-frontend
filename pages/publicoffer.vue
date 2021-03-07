@@ -31,7 +31,7 @@ import Vue from 'vue'
 export default Vue.extend({
   computed: {
     translate() {
-      return this.$getTranslate(this.$store.state.lang, translate);
+      return this.$getTranslate(translate);
     }
   }
 })
@@ -40,8 +40,8 @@ const translate = {
   ru: {
     title: 'Условия использования Услуг Хостинг-провайдера',
     description: `Приобретение Услуги, размещенной на сайте Хостинг-провайдера, означает, что Пользователь безоговорочно подтверждает свое согласие с правилами предоставления Услуг.<br><br>
-    
-    
+
+
     <h4>1. ОПРЕДЕЛЕНИЕ ТЕРМИНОВ</h4>
 <p>
 1.1. «Пользовательское соглашение» — правила пользования Услугами Хостинг-провайдера SpaceCore, обязательные к исполнению всеми Клиентами компании.<br>

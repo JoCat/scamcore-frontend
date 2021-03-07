@@ -46,7 +46,7 @@ export default Vue.extend({
   },
   computed: {
     translate() {
-      return this.$getTranslate(this.$store.state.lang, translate);
+      return this.$getTranslate(translate);
     },
     geekbenchMax(): number {
       return Math.max(...this.servers.map((e: { geekbench: number }) => e.geekbench))
