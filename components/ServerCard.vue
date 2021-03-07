@@ -19,7 +19,7 @@
         </div>
         <span class="speedometer__score">{{ geekbench.score }}</span>
       </div>
-      <div class="cpu">{{ data.cpu.title }}</div>
+      <div class="cpu">{{ data.cpuCoresCount }} {{ coresPlural }} {{ data.cpu.title }} {{ data.cpu.frequency }} GHz</div>
       <div class="ram">{{ data.ram }}</div>
       <div class="storage">{{ data.storage.map(s => `${s.capacity} ${s.type.toUpperCase()}`).join(' / ') }}</div>
       <div class="traffic">{{ data.traffic }}</div>
@@ -81,6 +81,32 @@ export default Vue.extend({
     showModal() {
       (this.$refs.modal as any).showModal()
     }
+  },
+  computed: {
+    coresPlural(): string {
+      return this.$pluralization(this.data.cpuCoresCount, coresTranslate)
+    }
   }
 })
+
+const coresTranslate = {
+  ru: {
+    one: "ядро",
+    few: "ядра",
+    many: "ядер",
+    other: ""
+  },
+  en: {
+    one: "core",
+    few: "",
+    many: "",
+    other: "cores"
+  },
+  ua: {
+    one: "ядро",
+    few: "ядра",
+    many: "ядер",
+    other: ""
+  }
+}
 </script>

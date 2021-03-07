@@ -27,7 +27,7 @@ export default {
     '~/assets/sass/main.sass'
   ],
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['~/plugins/getTranslate.ts'],
+  plugins: ['~/plugins/getTranslate.ts', '~/plugins/pluralization.ts'],
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)

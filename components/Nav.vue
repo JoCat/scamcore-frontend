@@ -217,7 +217,143 @@ const translate = {
       en: "Английский [€]",
     },
   },
-  ua: {},
-  en: {}
+  ua: {
+    nav: [
+      {
+        title: "Услуги",
+        elements: [
+          {
+            title: "Виртуальные серверы",
+            link: "/vds",
+          },
+          {
+            title: "Выделенные серверы",
+            link: "/dedicated",
+          },
+          {
+            title: "Серверы без установки",
+            link: "/not-install",
+          },
+          {
+            title: "Веб-хостинг",
+            link: "/hosting",
+          },
+          {
+            title: "Домены",
+            link: "/domains",
+          },
+          {
+            title: "Лицензии ISP",
+            link: "/isplicense",
+          },
+        ],
+      },
+      {
+        title: "Статус",
+        elements: [
+          {
+            title: "Статус сервисов",
+            link: "https://main.spacecore.online/",
+          },
+          {
+            title: "Статус нод",
+            link: "https://vm.spacecore.online/",
+          },
+        ],
+      },
+      {
+        title: "Документы",
+        link: "/documents",
+      },
+      {
+        title: "База знаний",
+        link: "https://wiki.spacecore.pro/",
+      },
+    ],
+    contacts: {
+      title: "Контакты",
+      email: "support@spacecore.pro",
+      tg: "https://t.me/spacecore_pro",
+    },
+    billing: {
+      title: "Биллинг",
+      link: "https://billing.spacecore.pro/",
+    },
+    langs: {
+      title: "Язык",
+      ru: "Русский [₽]",
+      ua: "Украинский [₴]",
+      en: "Английский [€]",
+    },
+  },
+  en: {
+    nav: [
+      {
+        title: "Услуги",
+        elements: [
+          {
+            title: "Виртуальные серверы",
+            link: "/vds",
+          },
+          {
+            title: "Выделенные серверы",
+            link: "/dedicated",
+          },
+          {
+            title: "Серверы без установки",
+            link: "/not-install",
+          },
+          {
+            title: "Веб-хостинг",
+            link: "/hosting",
+          },
+          {
+            title: "Домены",
+            link: "/domains",
+          },
+          {
+            title: "Лицензии ISP",
+            link: "/isplicense",
+          },
+        ],
+      },
+      {
+        title: "Статус",
+        elements: [
+          {
+            title: "Статус сервисов",
+            link: "https://main.spacecore.online/",
+          },
+          {
+            title: "Статус нод",
+            link: "https://vm.spacecore.online/",
+          },
+        ],
+      },
+      {
+        title: "Документы",
+        link: "/documents",
+      },
+      {
+        title: "База знаний",
+        link: "https://wiki.spacecore.pro/",
+      },
+    ],
+    contacts: {
+      title: "Контакты",
+      email: "support@spacecore.pro",
+      tg: "https://t.me/spacecore_pro",
+    },
+    billing: {
+      title: "Биллинг",
+      link: "https://billing.spacecore.pro/",
+    },
+    langs: {
+      title: "Язык",
+      ru: "Русский [₽]",
+      ua: "Украинский [₴]",
+      en: "Английский [€]",
+    },
+  }
 }
 </script>

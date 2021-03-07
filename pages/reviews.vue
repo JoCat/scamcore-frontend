@@ -9,7 +9,7 @@
             <p v-html="translate.header.description"></p>
           </div>
           <div class="clients">
-            {{ translate.header.clients }} клиентов<br> довольны нами
+            <span v-html="`${translate.header.clients} ${clientsPlural}`"></span>
             <img src="/images/star-gray.png" alt="">
           </div>
         </div>
@@ -61,16 +61,40 @@ export default Vue.extend({
   computed: {
     translate() {
       return this.$getTranslate(translate);
+    },
+    clientsPlural(): string {
+      return this.$pluralization(this.translate.header.clients, clientsTranslate)
     }
   }
 })
+
+const clientsTranslate = {
+  ru: {
+    one: "клиент<br> доволен нами",
+    few: "клиента<br> довольны нами",
+    many: "клиенов<br> довольны нами",
+    other: ""
+  },
+  en: {
+    one: "client<br> happy with us",
+    few: "",
+    many: "",
+    other: "clients<br> happy with us"
+  },
+  ua: {
+    one: "клієнт<br> задоволений нами",
+    few: "клієнта<br> задоволені нами",
+    many: "клієнтів<br> задоволені нами",
+    other: ""
+  }
+}
 
 const translate = {
   ru: {
     header: {
       title: 'Отзывы<br> клиентов',
       description: 'Все еще сомневаетесь?<br> Самое время ознакомиться с впечатлениями наших клиентов!',
-      clients: 209 // TODO плюрализация
+      clients: 209
     },
     elements: [
       {
@@ -97,7 +121,67 @@ const translate = {
     ],
     more: 'Подробнее'
   },
-  ua: {},
-  en: {}
+  ua: {
+    header: {
+      title: 'Отзывы<br> клиентов',
+      description: 'Все еще сомневаетесь?<br> Самое время ознакомиться с впечатлениями наших клиентов!',
+      clients: 209
+    },
+    elements: [
+      {
+        date: 1601372291060,
+        first_name: 'Данил',
+        last_name: 'Голощапов',
+        text: 'Приобрёл ВДСку, всё гуд, поддержка отличная, работает без перебоев.',
+        url: '#'
+      },
+      {
+        date: 1601372291060,
+        first_name: 'Данил',
+        last_name: 'Голощапов',
+        text: 'Приобрёл ВДСку, всё гуд, поддержка отличная, работает без перебоев.',
+        url: '#'
+      },
+      {
+        date: 1601372291060,
+        first_name: 'Данил',
+        last_name: 'Голощапов',
+        text: 'Приобрёл ВДСку, всё гуд, поддержка отличная, работает без перебоев.',
+        url: '#'
+      }
+    ],
+    more: 'Подробнее'
+  },
+  en: {
+    header: {
+      title: 'Отзывы<br> клиентов',
+      description: 'Все еще сомневаетесь?<br> Самое время ознакомиться с впечатлениями наших клиентов!',
+      clients: 209
+    },
+    elements: [
+      {
+        date: 1601372291060,
+        first_name: 'Данил',
+        last_name: 'Голощапов',
+        text: 'Приобрёл ВДСку, всё гуд, поддержка отличная, работает без перебоев.',
+        url: '#'
+      },
+      {
+        date: 1601372291060,
+        first_name: 'Данил',
+        last_name: 'Голощапов',
+        text: 'Приобрёл ВДСку, всё гуд, поддержка отличная, работает без перебоев.',
+        url: '#'
+      },
+      {
+        date: 1601372291060,
+        first_name: 'Данил',
+        last_name: 'Голощапов',
+        text: 'Приобрёл ВДСку, всё гуд, поддержка отличная, работает без перебоев.',
+        url: '#'
+      }
+    ],
+    more: 'Подробнее'
+  }
 }
 </script>
