@@ -32,17 +32,17 @@
       <div class="price">
         <!-- <div class="sale">
           <div class="percent">-20%</div>
-          1257₽<br>
-          <div class="old-price">2000₽</div>
+          {{ data.price + translate.currency }}<br>
+          <div class="old-price">{{ data.old_price + translate.currency }}</div>
         </div> -->
-        <div>{{ data.price }}₽</div>
-        <a href="#" @click.prevent="showModal">Купить</a>
+        <div>{{ data.price + translate.currency }}</div>
+        <a href="#" @click.prevent="showModal">{{ translate.buy }}</a>
       </div>
     </div>
-    <Modal ref="modal" title="Заказать сервер">
+    <Modal ref="modal" :title="translate.modal.title">
       <div class="row">
         <div class="col-6 server-info">
-          <div class="modal-title">Характеристики</div>
+          <div class="modal-title">{{ translate.modal.info.title }}</div>
           <ul class="list-unstyled">
             <li>
               <img src="/images/icons/chip.png" alt="">
@@ -65,12 +65,12 @@
               {{ data.ddos }}
             </li>
           </ul>
-          <p>Цена</p>
-          <div class="price">{{ data.price }}</div>
+          <p>{{ translate.modal.info.price }}</p>
+          <div class="price">{{ data.price + translate.currency }}</div>
         </div>
         <div class="col-12 col-md-6">
           <custom-select>
-            <option value>Выбор ОС</option>
+            <option value>{{ translate.modal.form.selectOS }}</option>
             <option value="debian8">Debian 8</option>
             <option value="debian9">Debian 9</option>
             <option value="debian10">Debian 10</option>
@@ -84,22 +84,22 @@
             <option value="windows2016">Windows Server 2016</option>
             <option value="windows2019">Windows Server 2019</option>
           </custom-select>
-          <input type="text" placeholder="Домен">
+          <input type="text" :placeholder="translate.modal.form.domain">
           <custom-select>
-            <option value>Локация</option>
+            <option value>{{ translate.modal.form.location }}</option>
             <option value="ger">Germany</option>
             <option value="fra">France</option>
             <option value="fin">Finland</option>
           </custom-select>
           <div class="row">
             <div class="col-12 col-md-6">
-              <input type="number" min="1" placeholder="Кол-во">
+              <input type="number" min="1" :placeholder="translate.modal.form.count">
             </div>
             <div class="col-12 col-md-6">
-              <input type="email" placeholder="Почта">
+              <input type="email" :placeholder="translate.modal.form.email">
             </div>
           </div>
-          <a href="#">Оформить заказ</a>
+          <a href="#">{{ translate.modal.form.checkout }}</a>
         </div>
       </div>
     </Modal>
@@ -148,6 +148,9 @@ export default Vue.extend({
   computed: {
     coresPlural(): string {
       return this.$pluralization(this.data.cpuCoresCount, coresTranslate)
+    },
+    translate(): any {
+      return this.$getTranslate(translate)
     }
   }
 })
@@ -170,6 +173,34 @@ const coresTranslate = {
     few: "ядра",
     many: "ядер",
     other: ""
+  }
+}
+
+const translate = {
+  ru: {
+    buy: 'Купить',
+    currency: '₽',
+    modal: {
+      title: 'Заказать сервер',
+      info: {
+        title: 'Характеристики',
+        price: 'Цена',
+      },
+      form: {
+        selectOS: 'Выбор ОС',
+        domain: 'Домен',
+        location: 'Локация',
+        count: 'Кол-во',
+        email: 'Почта',
+        checkout: 'Оформить заказ',
+      }
+    }
+  },
+  en: {
+
+  },
+  ua: {
+
   }
 }
 </script>
