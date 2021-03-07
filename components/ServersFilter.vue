@@ -112,23 +112,32 @@ export default Vue.extend({
   },
   data() {
     return {
-      price: {} as any,
+      price: {
+        min: 1000,
+        max: 10000
+      } as any,
       priceFilter: {
-        min: 0,
-        max: 0
+        min: 1000,
+        max: 10000
       },
       pricePeriod: 1,
       cpus: [] as any[],
       cpuFilter: [],
-      cores: {} as any,
+      cores: {
+        min: 1,
+        max: 12
+      } as any,
       coresFilter: {
-        min: 0,
-        max: 0
+        min: 1,
+        max: 12
       },
-      storages: {} as any,
+      storages: {
+        min: 128,
+        max: 4096
+      } as any,
       storageFilter: {
-        min: 0,
-        max: 0
+        min: 128,
+        max: 4096
       },
       drivesType: [],
       drivesCount: []
