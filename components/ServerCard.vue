@@ -39,7 +39,70 @@
         <a href="#" @click.prevent="showModal">Купить</a>
       </div>
     </div>
-    <Modal ref="modal"/>
+    <Modal ref="modal" title="Заказать сервер">
+      <div class="row">
+        <div class="col-6 server-info">
+          <div class="modal-title">Характеристики</div>
+          <ul class="list-unstyled">
+            <li>
+              <img src="/images/icons/chip.png" alt="">
+              {{ data.cpuCoresCount }} {{ coresPlural }} {{ data.cpu.title }} {{ data.cpu.frequency }} GHz
+            </li>
+            <li>
+              <img src="/images/icons/memory.png" alt="">
+              {{ data.ram }}
+            </li>
+            <li>
+              <img src="/images/icons/ssd.png" alt="">
+              {{ data.storage.map(s => `${s.capacity} ${s.type.toUpperCase()}`).join(' / ') }}
+            </li>
+            <li>
+              <img src="/images/icons/network.png" alt="">
+              {{ data.traffic }}
+            </li>
+            <li>
+              <img src="/images/icons/guard.png" alt="">
+              {{ data.ddos }}
+            </li>
+          </ul>
+          <p>Цена</p>
+          <div class="price">{{ data.price }}</div>
+        </div>
+        <div class="col-12 col-md-6">
+          <custom-select>
+            <option value>Выбор ОС</option>
+            <option value="debian8">Debian 8</option>
+            <option value="debian9">Debian 9</option>
+            <option value="debian10">Debian 10</option>
+            <option value="ubuntu1604">Ubuntu 16.04</option>
+            <option value="ubuntu1804">Ubuntu 18.04</option>
+            <option value="ubuntu2004">Ubuntu 20.04</option>
+            <option value="centos6">CentOS 6</option>
+            <option value="centos7">CentOS 7</option>
+            <option value="centos8">CentOS 8</option>
+            <option value="windows2012">Windows Server 2012 R2</option>
+            <option value="windows2016">Windows Server 2016</option>
+            <option value="windows2019">Windows Server 2019</option>
+          </custom-select>
+          <input type="text" placeholder="Домен">
+          <custom-select>
+            <option value>Локация</option>
+            <option value="ger">Germany</option>
+            <option value="fra">France</option>
+            <option value="fin">Finland</option>
+          </custom-select>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <input type="number" min="1" placeholder="Кол-во">
+            </div>
+            <div class="col-12 col-md-6">
+              <input type="email" placeholder="Почта">
+            </div>
+          </div>
+          <a href="#">Оформить заказ</a>
+        </div>
+      </div>
+    </Modal>
   </div>
 </template>
 
