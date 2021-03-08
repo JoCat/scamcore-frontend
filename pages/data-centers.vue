@@ -12,9 +12,9 @@
     </header>
     <main>
       <section class="container data-centers-page">
-        <div class="card" v-for="(el, i) in translate.elements" :key="i">
+        <div class="card" v-for="(el, i) in dataCenters" :key="i">
           <div class="card-title">
-            <strong>{{ el.name }}</strong>
+            <strong>{{ el.title }}</strong>
             <div>
               <img :src="`/images/flags/${el.location.flag}.png`" alt="">
               {{ el.location.city }} - <span>{{ el.location.country }}</span>
@@ -49,6 +49,13 @@ import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 export default Vue.extend({
   components: { VueSlickCarousel },
+  async asyncData({$axios, store}) {
+    const dataCenters = await $axios.$get(`${store.state.lang}/data-centers`)
+
+    return {
+      dataCenters,
+    }
+  },
   computed: {
     translate() {
       return this.$getTranslate(translate);
@@ -62,62 +69,6 @@ const translate = {
       title: 'Большое количество<br> разнообразных дата-центров',
       description: 'Наша команда сотрудничает с множеством дата-центров в разных странах',
     },
-    elements: [
-      {
-        name: 'ММТС-9 (Ростелеком)',
-        location: {
-          flag: 'russia',
-          country: 'Россия',
-          city: 'Москва'
-        },
-        images: [
-          '/images/dc-slider.png',
-          '/images/dc-slider.png',
-          '/images/dc-slider.png'
-        ],
-        description: `Москва ул. Бутлерова, д. 7<br><br>
-Площадь серверных помещений — 9589 м²<br><br>
-Количество серверных стоек — 2240<br><br>
-Мощность ДЦ, кВТ — 15300`,
-        content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit animLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim`
-      },
-      {
-        name: 'Цветочная 2',
-        location: {
-          flag: 'russia',
-          country: 'Россия',
-          city: 'Санкт-Петербург'
-        },
-        images: [
-          '/images/dc-slider.png'
-        ],
-        description: `Санкт-Петербург, ул. Цветочная, д. 19<br><br>
-Площадь серверных помещений — 4000 м²<br><br>
-Количество серверных стоек — 1200<br><br>
-Мощность ДЦ, кВТ — 2 500 `,
-        content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit animLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim`
-      },
-      {
-        name: 'Название цода',
-        location: {
-          flag: 'canada',
-          country: 'Ukraine',
-          city: 'Donbas'
-        },
-        images: [
-          '/images/dc-slider.png'
-        ],
-        description: `Москва, ул. Берзарина, д. 36, стр. 3<br><br>
-Площадь серверных помещений — 1 250 м²<br><br>
-Количество серверных стоек — 500<br><br>
-Мощность ДЦ, кВТ — 3 300<br><br>
-Источники бесперебойного питания, дизель-генераторы N+1, прямой фрикулинг с адиабатическим доохлаждением`,
-        content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit animLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim`
-      }
-    ],
     servers: 'Показать доступные сервера'
   },
   ua: {},
