@@ -1742,7 +1742,7 @@ section
         p
             font-size: 15px
             margin-bottom: 0
-        a
+        .more
             font-size: 14px
             color: $purple-black
             margin-top: 35px
@@ -1757,6 +1757,21 @@ section
                 margin-left: 13px
             &:hover
                 text-decoration: none
+    .btn
+        @extend %button-purple
+        display: block
+        width: 250px
+        height: 49px
+        margin: auto
+        margin-top: 30px
+        line-height: 49px
+        border-radius: 24px
+        border: 0
+        color: #fff
+        text-align: center
+        font-weight: $medium
+        @media (max-width: 575px)
+            width: 100%
 .ssl-page
     margin-top: -145px
     .ssl-card

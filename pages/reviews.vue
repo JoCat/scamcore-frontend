@@ -9,7 +9,7 @@
             <p v-html="translate.header.description"></p>
           </div>
           <div class="clients">
-            <span v-html="`${translate.header.clients} ${clientsPlural}`"></span>
+            <span v-html="`${reviewsCount} ${clientsPlural}`"></span>
             <img src="/images/star-gray.png" alt="">
           </div>
         </div>
@@ -28,11 +28,11 @@
             </div>
           </div>
           <div class="col-12 col-md-8 col-lg-9">
-            <div class="review" v-for="(el, i) in translate.elements" :key="i">
+            <div class="review" v-for="(el, i) in reviewsList" :key="i">
               <div class="head">
                 <div>
-                  <div class="time-site">{{ new Date(el.date).toLocaleDateString() }} • vk.com</div>
-                  <div class="name">{{ el.first_name }} {{ el.last_name }}</div>
+                  <div class="time-site">{{ new Date(el.date*1000).toLocaleDateString() }} • vk.com</div>
+                  <a class="name" :href="'https://vk.com/' + (el.screen_name || '')" target="_blank">{{ el.name }}</a>
                 </div>
                 <!-- <div class="stars">
                   <div class="star active"></div>
@@ -43,8 +43,9 @@
                 </div> -->
               </div>
               <p>{{ el.text }}</p>
-              <a target="_blank" :href="el.url">{{ translate.more }}</a>
+              <a class="more" target="_blank" :href="'https://vk.com/topic-171073991_39268980?offset=' + el.offset">{{ translate.more }}</a>
             </div>
+            <button class="btn" @click="getReviews" v-if="showBtn">Показать ещё</button>
           </div>
         </div>
       </section>
@@ -58,12 +59,35 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
+  data() {
+    return {
+      reviewsCount: 0,
+      reviewsList: [],
+      reviewsOffset: 0,
+      showBtn: true
+    }
+  },
+  async asyncData({$axios, store}) {
+    const reviews = await $axios.$get(`${store.state.lang}/reviews`)
+
+    return {
+      reviewsCount: reviews.count,
+      reviewsList: reviews.items
+    }
+  },
   computed: {
     translate() {
       return this.$getTranslate(translate);
     },
     clientsPlural(): string {
-      return this.$pluralization(this.translate.header.clients, clientsTranslate)
+      return this.$pluralization(this.reviewsCount, clientsTranslate)
+    }
+  },
+  methods: {
+    async getReviews() {
+      const reviews = await this.$axios.$get(`${this.$store.state.lang}/reviews?offset=${this.reviewsOffset += 20}`)
+      this.reviewsList.push(...(reviews.items as never[]))
+      if (reviews.last) this.showBtn = false
     }
   }
 })
@@ -94,93 +118,21 @@ const translate = {
     header: {
       title: 'Отзывы<br> клиентов',
       description: 'Все еще сомневаетесь?<br> Самое время ознакомиться с впечатлениями наших клиентов!',
-      clients: 209
     },
-    elements: [
-      {
-        date: 1601372291060,
-        first_name: 'Данил',
-        last_name: 'Голощапов',
-        text: 'Приобрёл ВДСку, всё гуд, поддержка отличная, работает без перебоев.',
-        url: '#'
-      },
-      {
-        date: 1601372291060,
-        first_name: 'Данил',
-        last_name: 'Голощапов',
-        text: 'Приобрёл ВДСку, всё гуд, поддержка отличная, работает без перебоев.',
-        url: '#'
-      },
-      {
-        date: 1601372291060,
-        first_name: 'Данил',
-        last_name: 'Голощапов',
-        text: 'Приобрёл ВДСку, всё гуд, поддержка отличная, работает без перебоев.',
-        url: '#'
-      }
-    ],
     more: 'Подробнее'
   },
   ua: {
     header: {
       title: 'Отзывы<br> клиентов',
       description: 'Все еще сомневаетесь?<br> Самое время ознакомиться с впечатлениями наших клиентов!',
-      clients: 209
     },
-    elements: [
-      {
-        date: 1601372291060,
-        first_name: 'Данил',
-        last_name: 'Голощапов',
-        text: 'Приобрёл ВДСку, всё гуд, поддержка отличная, работает без перебоев.',
-        url: '#'
-      },
-      {
-        date: 1601372291060,
-        first_name: 'Данил',
-        last_name: 'Голощапов',
-        text: 'Приобрёл ВДСку, всё гуд, поддержка отличная, работает без перебоев.',
-        url: '#'
-      },
-      {
-        date: 1601372291060,
-        first_name: 'Данил',
-        last_name: 'Голощапов',
-        text: 'Приобрёл ВДСку, всё гуд, поддержка отличная, работает без перебоев.',
-        url: '#'
-      }
-    ],
     more: 'Подробнее'
   },
   en: {
     header: {
       title: 'Отзывы<br> клиентов',
       description: 'Все еще сомневаетесь?<br> Самое время ознакомиться с впечатлениями наших клиентов!',
-      clients: 209
     },
-    elements: [
-      {
-        date: 1601372291060,
-        first_name: 'Данил',
-        last_name: 'Голощапов',
-        text: 'Приобрёл ВДСку, всё гуд, поддержка отличная, работает без перебоев.',
-        url: '#'
-      },
-      {
-        date: 1601372291060,
-        first_name: 'Данил',
-        last_name: 'Голощапов',
-        text: 'Приобрёл ВДСку, всё гуд, поддержка отличная, работает без перебоев.',
-        url: '#'
-      },
-      {
-        date: 1601372291060,
-        first_name: 'Данил',
-        last_name: 'Голощапов',
-        text: 'Приобрёл ВДСку, всё гуд, поддержка отличная, работает без перебоев.',
-        url: '#'
-      }
-    ],
     more: 'Подробнее'
   }
 }
