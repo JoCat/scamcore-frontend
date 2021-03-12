@@ -14,61 +14,60 @@
     <main>
       <section class="container stock-page">
         <div class="row">
-          <div class="col-12">
-            <div class="stock-card first">
-              <div v-if="translate.elements[0].sale" class="percent">{{ translate.elements[0].sale }}</div>
-              <img :src="translate.elements[0].image" alt="">
+          <div class="col-12" v-for="(el, i) in currentOffers" :key="`c${i}`">
+            <div class="stock-card current">
+              <div v-if="el.percentage" class="percent">-{{ el.percentage }}%</div>
+              <img :src="el.image" alt="">
               <div class="info">
                 <div class="date">
-                  {{ translate.date_end_first }}:<br> {{ new Date(translate.elements[0].date_end).toLocaleDateString() }}
+                  {{ translate.date_end_current }}:<br> {{ new Date(el.end).toLocaleDateString() }}
                 </div>
-                <strong>{{ translate.elements[0].title }}</strong>
+                <strong>{{ el.title }}</strong>
                 <a href="#">{{ translate.more }}</a>
               </div>
             </div>
           </div>
-          <div class="col-xl-6" v-for="(el, i) in translate.elements.slice(1, 5)" :key="i">
-            <div class="stock-card" :class="Date.now() > el.date_end ? 'stock-ended' : ''">
+          <div class="col-xl-6" v-for="(el, i) in expiredOffers.slice(0, 4)" :key="`e${i}`">
+            <div class="stock-card stock-ended">
               <img :src="el.image" alt="">
               <div class="info">
                 <div class="status-date">
-                  <div class="status">{{ Date.now() > el.date_end ? translate.offer_inactive : translate.offer_active }}</div>
+                  <div class="status">{{ translate.offer_inactive }}</div>
                   <div class="date">
-                    <span>{{ translate.date_start }}: {{ new Date(el.date_start).toLocaleDateString() }}</span>
-                    <span>{{ translate.date_end }}: {{ new Date(el.date_end).toLocaleDateString() }}</span>
+                    <span>{{ translate.date_start }}: {{ new Date(el.start).toLocaleDateString() }}</span>
+                    <span>{{ translate.date_end }}: {{ new Date(el.end).toLocaleDateString() }}</span>
                   </div>
                 </div>
                 <div class="date">
-                    <span>{{ translate.date_start }}: {{ new Date(el.date_start).toLocaleDateString() }}</span>
-                    <span>{{ translate.date_end }}: {{ new Date(el.date_end).toLocaleDateString() }}</span>
+                    <span>{{ translate.date_start }}: {{ new Date(el.start).toLocaleDateString() }}</span>
+                    <span>{{ translate.date_end }}: {{ new Date(el.end).toLocaleDateString() }}</span>
                 </div>
                 <strong v-html="el.title"></strong>
-                <p class="hide-lg">{{ el.description }}</p>
-                <div class="status">{{ Date.now() > el.date_end ? translate.offer_inactive : translate.offer_active }}</div>
+                <!-- <p class="hide-lg">{{ el.description }}</p> -->
+                <div class="status">{{ translate.offer_inactive }}</div>
                 <a href="#">{{ translate.more }}</a>
               </div>
             </div>
           </div>
-          <div class="col-12" v-for="(el, i) in translate.elements.slice(6)" :key="6+i">
-            <div class="stock-card" :class="Date.now() > el.date_end ? 'stock-ended' : ''">
+          <div class="col-12" v-for="(el, i) in expiredOffers.slice(4)" :key="`e${4+i}`">
+            <div class="stock-card stock-ended">
               <img :src="el.image" alt="">
               <div class="info">
                 <div class="status-date">
-                  <div class="status">{{ Date.now() > el.date_end ? translate.offer_inactive : translate.offer_active }}</div>
+                  <div class="status">{{ translate.offer_inactive }}</div>
                   <div class="date">
-                    <span>{{ translate.date_start }}: {{ new Date(el.date_start).toLocaleDateString() }}</span>
-                    <span>{{ translate.date_end }}: {{ new Date(el.date_end).toLocaleDateString() }}</span>
+                    <span>{{ translate.date_start }}: {{ new Date(el.start).toLocaleDateString() }}</span>
+                    <span>{{ translate.date_end }}: {{ new Date(el.end).toLocaleDateString() }}</span>
                   </div>
                 </div>
                 <strong v-html="el.title"></strong>
-                <p>{{ el.description }}</p>
+                <!-- <p>{{ el.description }}</p> -->
                 <a href="#">{{ translate.more }}</a>
               </div>
             </div>
           </div>
         </div>
       </section>
-
       <Faq/>
       <Feedback/>
     </main>
@@ -79,9 +78,27 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
+  data() {
+    return {
+      offers: [] as any[]
+    }
+  },
+  async asyncData({$axios, store}) {
+    const offers = await $axios.$get(`${store.state.lang}/offers`)
+
+    return {
+      offers
+    }
+  },
   computed: {
     translate() {
-      return this.$getTranslate(translate);
+      return this.$getTranslate(translate)
+    },
+    currentOffers(): any[] {
+      return this.offers.filter(e => new Date(e.end).getTime() > Date.now())
+    },
+    expiredOffers(): any[] {
+      return this.offers.filter(e => new Date(e.end).getTime() <= Date.now())
     }
   }
 })
@@ -92,80 +109,33 @@ const translate = {
       title: 'Наши акции',
       description: 'В этом разделе представлены активные и готовящиеся акции'
     },
-    elements: [
-      {
-        date_start: 1601372291060,
-        date_end: 1602683339179,
-        title: 'Выгодные предложения на все выделенные сервера и что то еще',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        image: '/images/stock-card.png',
-        link: '#'
-      },
-      {
-        date_start: 1601372291060,
-        date_end: 1602683339179,
-        title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        image: '/images/stock-card.png',
-        link: '#'
-      },
-      {
-        date_start: 1601372291060,
-        date_end: 1602078346859,
-        title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        image: '/images/stock-card.png',
-        link: '#'
-      },
-      {
-        date_start: 1601372291060,
-        date_end: 1602078346859,
-        title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        image: '/images/stock-card.png',
-        link: '#'
-      },
-      {
-        date_start: 1601372291060,
-        date_end: 1602078346859,
-        title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        image: '/images/stock-card.png',
-        link: '#'
-      },
-      {
-        date_start: 1601372291060,
-        date_end: 1602078346859,
-        title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        image: '/images/stock-card.png',
-        link: '#'
-      },
-      {
-        date_start: 1601372291060,
-        date_end: 1602078346859,
-        title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        image: '/images/stock-card.png',
-        link: '#'
-      },
-      {
-        date_start: 1601372291060,
-        date_end: 1602078346859,
-        title: 'Выгодные предложения<br> на все выделенные сервера и что то еще',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        image: '/images/stock-card.png',
-        link: '#'
-      }
-    ],
     date_start: 'Начало',
     date_end: 'Завершение',
-    date_end_first: 'Дата завершения',
-    offer_active: 'Акция активна',
+    date_end_current: 'Дата завершения',
     offer_inactive: 'Акция окончена',
     more: 'Подробнее'
   },
-  ua: {},
-  en: {}
+  ua: {
+    header: {
+      title: 'Наши акции',
+      description: 'В этом разделе представлены активные и готовящиеся акции'
+    },
+    date_start: 'Начало',
+    date_end: 'Завершение',
+    date_end_current: 'Дата завершения',
+    offer_inactive: 'Акция окончена',
+    more: 'Подробнее'
+  },
+  en: {
+    header: {
+      title: 'Наши акции',
+      description: 'В этом разделе представлены активные и готовящиеся акции'
+    },
+    date_start: 'Начало',
+    date_end: 'Завершение',
+    date_end_current: 'Дата завершения',
+    offer_inactive: 'Акция окончена',
+    more: 'Подробнее'
+  }
 }
 </script>
