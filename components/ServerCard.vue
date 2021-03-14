@@ -197,10 +197,42 @@ const translate = {
     }
   },
   en: {
-
+    buy: 'Купить',
+    currency: '₽',
+    modal: {
+      title: 'Заказать сервер',
+      info: {
+        title: 'Характеристики',
+        price: 'Цена',
+      },
+      form: {
+        selectOS: 'Выбор ОС',
+        domain: 'Домен',
+        location: 'Локация',
+        count: 'Кол-во',
+        email: 'Почта',
+        checkout: 'Оформить заказ',
+      }
+    }
   },
   ua: {
-
+    buy: 'Купить',
+    currency: '₽',
+    modal: {
+      title: 'Заказать сервер',
+      info: {
+        title: 'Характеристики',
+        price: 'Цена',
+      },
+      form: {
+        selectOS: 'Выбор ОС',
+        domain: 'Домен',
+        location: 'Локация',
+        count: 'Кол-во',
+        email: 'Почта',
+        checkout: 'Оформить заказ',
+      }
+    }
   }
 }
 </script>
