@@ -17,22 +17,7 @@
         <strong v-html="translate.lead.title"></strong>
         <a target="_blank" :href="getDomainTransferLink()">{{ translate.lead.button }}</a>
       </section>
-
-      <section class="container other-offers">
-        <h2 class="title center">{{ translate.offers.title }}</h2>
-        <div class="row">
-          <div
-            class="col-12 col-md-6 col-lg-4"
-            v-for="(el, i) in translate.offers.elements" :key="i"
-          >
-            <strong v-html="el.title"></strong>
-            <ul class="list-unstyled">
-              <li v-for="(string, j) in el.list" :key="j">{{ string }}</li>
-            </ul>
-            <a :href="el.link.href" target="_blank">{{ el.link.text }}</a>
-          </div>
-        </div>
-      </section>
+      <Offers page="domains"/>
       <Feedback/>
     </main>
     <Footer/>
@@ -73,50 +58,6 @@ const translate = {
     lead: {
       title: 'Уже есть свой<br> домен?',
       button: 'Перенеси его к нам'
-    },
-    offers: {
-      title: 'Другие предложения',
-      elements: [
-        {
-          title: 'Название услуги <span>в две строки</span>',
-          list: [
-            'Какое то преимущество услуги',
-            'Какое то преимущество услуги',
-            'Какое то преимущество услуги',
-            'Какое то преимущество услуги'
-          ],
-          link: {
-            text: 'Заказать услугу',
-            href: '#'
-          }
-        },
-        {
-          title: 'Название услуги <span>в две строки</span>',
-          list: [
-            'Какое то преимущество услуги',
-            'Какое то преимущество услуги',
-            'Какое то преимущество услуги',
-            'Какое то преимущество услуги'
-          ],
-          link: {
-            text: 'Заказать услугу',
-            href: '#'
-          }
-        },
-        {
-          title: 'Название услуги <span>в две строки</span>',
-          list: [
-            'Какое то преимущество услуги',
-            'Какое то преимущество услуги',
-            'Какое то преимущество услуги',
-            'Какое то преимущество услуги'
-          ],
-          link: {
-            text: 'Заказать услугу',
-            href: '#'
-          }
-        }
-      ]
     }
   },
   ua: {},
