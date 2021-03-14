@@ -125,14 +125,13 @@ const translate = {
 
 function getISPDomainLink(action: string, domain?: string) {
   const queryParams = {
-    startpage: 'domain',
     startform: 'domain.order.name',
     domain_action: action,
     domain_name: domain
   }
   if (domain == undefined) delete queryParams.domain_name
 
-  return `https://billing.spacecore.pro/billmgr?func=register&redirect=${encodeURIComponent(toQueryString(queryParams))}`
+  return `https://billing.spacecore.pro/billmgr?${toQueryString(queryParams)}`
 }
 
 function toQueryString(object: any): string {
