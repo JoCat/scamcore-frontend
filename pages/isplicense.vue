@@ -61,7 +61,7 @@ export default Vue.extend({
       licenses: [] as any[],
       currentLicense: {
         productID: 0
-      } as any,
+      },
       form: {
         license: '',
         ip: '',
@@ -90,7 +90,7 @@ export default Vue.extend({
           ip: this.form.ip
         }
 
-        return `https://billing.spacecore.pro/billmgr?${toQueryString(queryParams)}`
+        return `https://billing.spacecore.pro/billmgr?${this.$toQueryString(queryParams)}`
     }
   },
   methods: {
@@ -137,11 +137,5 @@ const translate = {
   },
   ua: {},
   en: {}
-}
-
-function toQueryString(object: any): string {
-  return Object.keys(object)
-    .map(key => `${key}=${object[key].toString()}`)
-    .join('&');
 }
 </script>
