@@ -34,13 +34,41 @@
                 {{ translate.main.price }}
                 <strong>{{ el.price }} {{ translate.main.currency }}</strong>
               </p>
-              <a class="buy" href="#">{{ translate.main.buy }}</a>
+              <a class="buy" @click.prevent="showModal(el)" href="#">{{ translate.main.buy }}</a>
             </div>
           </div>
         </div>
+        <Modal ref="modal" :title="translate.modal.title">
+          <div class="row">
+            <div class="col-6 server-info">
+              <div class="modal-title">{{ currentHost.title }}</div>
+              <p v-for="(text, j) in currentHost.features" :key="j">{{ text }}</p>
+              <p class="mt-1">{{ translate.main.price }}</p>
+              <div class="price">{{ currentHost.price }} {{ translate.main.currency }}</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <input type="text" v-model="form.domain" :placeholder="translate.modal.form.domain">
+              <custom-select v-model="form.location">
+                <option value>{{ translate.modal.form.location }}</option>
+                <option value="ger">Germany</option>
+                <option value="fra">France</option>
+                <option value="fin">Finland</option>
+              </custom-select>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <input type="number" min="1" v-model="form.count" :placeholder="translate.modal.form.count">
+                </div>
+                <div class="col-12 col-md-6">
+                  <input type="email" v-model="form.email" :placeholder="translate.modal.form.email">
+                </div>
+              </div>
+              <a @click="hideModal" target="_blank" :href="getHostLink">{{ translate.modal.form.checkout }}</a>
+            </div>
+          </div>
+        </Modal>
       </section>
       <Advantages/>
-      <Faq/>
+      <Faq page="hosting"/>
       <Feedback/>
     </main>
     <Footer/>
@@ -52,7 +80,17 @@ import Vue from 'vue'
 export default Vue.extend({
   data() {
     return {
-      tariffs: {}
+      tariffs: {},
+      currentHost: {
+        productID: 0,
+        features: ['']
+      },
+      form: {
+        count: 1,
+        email: '',
+        domain: '',
+        location: ''
+      }
     }
   },
   async asyncData({$axios, store}) {
@@ -68,6 +106,17 @@ export default Vue.extend({
   computed: {
     translate() {
       return this.$getTranslate(translate);
+    },
+    getHostLink(): string {
+        const queryParams = {
+          startform: 'vhost.order.param',
+          itemtype: 44,
+          pricelist: this.currentHost.productID,
+          period: 1,
+          domain: this.form.domain
+        }
+
+        return `https://billing.spacecore.pro/billmgr?${this.$toQueryString(queryParams)}`
     }
   },
   methods: {
@@ -76,6 +125,19 @@ export default Vue.extend({
     },
     async getTariffs() {
       this.tariffs = await this.$axios.$get(`${this.$store.state.lang}/hosting`)
+    },
+    showModal(el: any) {
+      this.currentHost = el;
+      (this.$refs.modal as any).showModal()
+    },
+    hideModal() {
+      this.form = {
+        count: 1,
+        email: '',
+        domain: '',
+        location: ''
+      };
+      (this.$refs.modal as any).hideModal()
     }
   }
 })
@@ -101,8 +163,6 @@ const sitesTranslate = {
   }
 }
 
-
-
 const translate = {
   ru: {
     header: {
@@ -118,6 +178,16 @@ const translate = {
       price: 'Цена',
       currency: '₽',
       buy: 'Оформить заказ',
+    },
+    modal: {
+      title: 'Заказать виртуальный хостинг',
+      form: {
+        domain: 'Домен',
+        location: 'Локация',
+        count: 'Кол-во',
+        email: 'Почта',
+        checkout: 'Оформить заказ',
+      }
     }
   },
   ua: {
@@ -134,6 +204,16 @@ const translate = {
       price: 'Цена',
       currency: '₴',
       buy: 'Оформить заказ'
+    },
+    modal: {
+      title: 'Заказать виртуальный хостинг',
+      form: {
+        domain: 'Домен',
+        location: 'Локация',
+        count: 'Кол-во',
+        email: 'Почта',
+        checkout: 'Оформить заказ',
+      }
     }
   },
   en: {
@@ -150,6 +230,16 @@ const translate = {
       price: 'Цена',
       currency: '€',
       buy: 'Оформить заказ'
+    },
+    modal: {
+      title: 'Заказать виртуальный хостинг',
+      form: {
+        domain: 'Домен',
+        location: 'Локация',
+        count: 'Кол-во',
+        email: 'Почта',
+        checkout: 'Оформить заказ',
+      }
     }
   }
 }
