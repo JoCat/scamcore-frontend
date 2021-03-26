@@ -1,17 +1,15 @@
-import Vue from 'vue'
+import Vue from "vue";
 
-type Langs = "ru" | "ua" | "en"
+type Langs = "ru" | "ua" | "en";
 
-declare module 'vue/types/vue' {
+declare module "vue/types/vue" {
   interface Vue {
-    $getTranslate<Translate>(
-      translate: Record<Langs, Translate>
-    ): Translate
+    $getTranslate<Translate>(translate: Record<Langs, Translate>): Translate;
   }
 }
 
-Vue.prototype.$getTranslate = function<Translate>(
+Vue.prototype.$getTranslate = function <Translate>(
   translate: Record<Langs, Translate>
 ): Translate {
-  return translate[this.$store.state.lang as Langs]
-}
+  return translate[this.$store.state.lang as Langs];
+};

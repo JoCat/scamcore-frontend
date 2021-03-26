@@ -15,61 +15,72 @@
         <div class="w-100 list-title" :key="groupID">
           <div>{{ group.title }}</div>
         </div>
-        <ServerCard v-for="server in group.servers" :key="groupID+'.'+server.id" :data="server" :geekbenchMax="geekbenchMax"/>
+        <ServerCard
+          v-for="server in group.servers"
+          :key="groupID + '.' + server.id"
+          :data="server"
+          :geekbenchMax="geekbenchMax"
+        />
       </template>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from "vue";
 export default Vue.extend({
   props: {
     servers: Array,
-    geekbenchMax: Number
+    geekbenchMax: Number,
   },
   computed: {
     formattedServers() {
-      const groups: Map<number, any> = new Map(this.servers.map((e: any) => [e.group.id, {title: e.group.title, servers: []}]))
+      const groups: Map<number, any> = new Map(
+        this.servers.map((e: any) => [
+          e.group.id,
+          { title: e.group.title, servers: [] },
+        ])
+      );
 
       this.servers.forEach((e: any) => {
-        groups.get(e.group.id).servers.push(e)
-      })
-      return groups
+        groups.get(e.group.id).servers.push(e);
+      });
+      return groups;
     },
-    translate(): (typeof translate["ru"]) { // Костыль с typeof, но да похуй, спасибо кривой работе типизации
-      return this.$getTranslate(translate)
-    }
-  }
-})
+    translate(): typeof translate["ru"] {
+      // Костыль с typeof, но да похуй, спасибо кривой работе типизации
+      return this.$getTranslate(translate);
+    },
+  },
+});
 
 const translate = {
   ru: {
-    geekbench: 'Geekbench',
-    cpu: 'Процессор',
-    ram: 'ОЗУ',
-    storage: 'Накопитель',
-    traffic: 'Трафик',
-    ddos: 'A-DDoS',
-    location: 'Локация'
+    geekbench: "Geekbench",
+    cpu: "Процессор",
+    ram: "ОЗУ",
+    storage: "Накопитель",
+    traffic: "Трафик",
+    ddos: "A-DDoS",
+    location: "Локация",
   },
   ua: {
-    geekbench: 'Geekbench',
-    cpu: '',
-    ram: '',
-    storage: '',
-    traffic: '',
-    ddos: '',
-    location: ''
+    geekbench: "Geekbench",
+    cpu: "",
+    ram: "",
+    storage: "",
+    traffic: "",
+    ddos: "",
+    location: "",
   },
   en: {
-    geekbench: 'Geekbench',
-    cpu: '',
-    ram: '',
-    storage: '',
-    traffic: '',
-    ddos: '',
-    location: ''
-  }
-}
+    geekbench: "Geekbench",
+    cpu: "",
+    ram: "",
+    storage: "",
+    traffic: "",
+    ddos: "",
+    location: "",
+  },
+};
 </script>

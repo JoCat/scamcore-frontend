@@ -2,7 +2,7 @@
   <div>
     <header class="alternative">
       <div class="container">
-        <Nav type="alternative"/>
+        <Nav type="alternative" />
       </div>
     </header>
     <main>
@@ -10,25 +10,25 @@
         <h2 class="title">{{ translate.title }}</h2>
         <div v-html="translate.description"></div>
       </section>
-      <Feedback/>
+      <Feedback />
     </main>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from "vue";
 export default Vue.extend({
   computed: {
     translate() {
       return this.$getTranslate(translate);
-    }
-  }
-})
+    },
+  },
+});
 
 const translate = {
   ru: {
-    title: 'Политика конфиденциальности',
+    title: "Политика конфиденциальности",
     description: `Настоящая Политика конфиденциальности персональных данных от 10.09.2018 (далее – Политика конфиденциальности) действует в отношении всей информации, которую Хостинг-Провайдер SpaceCore может получить о Пользователе во время использования данного сайта, его продуктов и услуг.<br><br>
 <h4>1. ОПРЕДЕЛЕНИЕ ТЕРМИНОВ</h4>
 <p>1.1. В настоящей Политике конфиденциальности используются следующие термины:<br>
@@ -101,9 +101,9 @@ const translate = {
 <p>9.1. Администрация сайта вправе вносить изменения в настоящую Политику конфиденциальности без согласия Пользователя.<br>
 9.2. Новая Политика конфиденциальности вступает в силу с момента ее размещения на Сайте хостинг-провайдера, если иное не предусмотрено новой редакцией Политики конфиденциальности.<br>
 9.3. Все предложения или вопросы по настоящей Политике конфиденциальности следует сообщать на E-Mail: admin@spacecore.pro</p>
-</div>`
+</div>`,
   },
   ua: {},
-  en: {}
-}
+  en: {},
+};
 </script>

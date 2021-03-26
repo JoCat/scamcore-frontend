@@ -2,7 +2,7 @@
   <div>
     <header class="alternative">
       <div class="container">
-        <Nav type="alternative"/>
+        <Nav type="alternative" />
       </div>
     </header>
     <main>
@@ -26,10 +26,17 @@
                 <div class="star"></div>
                 <div class="star"></div>
               </div>
-              <img src="/images/news.png" alt="">
+              <img src="/images/news.png" alt="" />
               <div class="text">
-                <strong>Заголовок статьи<br> сточка</strong>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse</p>
+                <strong
+                  >Заголовок статьи<br />
+                  сточка</strong
+                >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Quis ipsum suspendisse
+                </p>
                 <a href="#">Подробнее</a>
               </div>
             </div>
@@ -43,10 +50,17 @@
                 <div class="star"></div>
                 <div class="star"></div>
               </div>
-              <img src="/images/news.png" alt="">
+              <img src="/images/news.png" alt="" />
               <div class="text">
-                <strong>Заголовок статьи<br> сточка</strong>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse</p>
+                <strong
+                  >Заголовок статьи<br />
+                  сточка</strong
+                >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Quis ipsum suspendisse
+                </p>
                 <a href="#">Подробнее</a>
               </div>
             </div>
@@ -60,10 +74,17 @@
                 <div class="star"></div>
                 <div class="star"></div>
               </div>
-              <img src="/images/news.png" alt="">
+              <img src="/images/news.png" alt="" />
               <div class="text">
-                <strong>Заголовок статьи<br> сточка</strong>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse</p>
+                <strong
+                  >Заголовок статьи<br />
+                  сточка</strong
+                >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Quis ipsum suspendisse
+                </p>
                 <a href="#">Подробнее</a>
               </div>
             </div>
@@ -77,10 +98,17 @@
                 <div class="star"></div>
                 <div class="star"></div>
               </div>
-              <img src="/images/news.png" alt="">
+              <img src="/images/news.png" alt="" />
               <div class="text">
-                <strong>Заголовок статьи<br> сточка</strong>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse</p>
+                <strong
+                  >Заголовок статьи<br />
+                  сточка</strong
+                >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Quis ipsum suspendisse
+                </p>
                 <a href="#">Подробнее</a>
               </div>
             </div>
@@ -94,10 +122,17 @@
                 <div class="star"></div>
                 <div class="star"></div>
               </div>
-              <img src="/images/news.png" alt="">
+              <img src="/images/news.png" alt="" />
               <div class="text">
-                <strong>Заголовок статьи<br> сточка</strong>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse</p>
+                <strong
+                  >Заголовок статьи<br />
+                  сточка</strong
+                >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Quis ipsum suspendisse
+                </p>
                 <a href="#">Подробнее</a>
               </div>
             </div>
@@ -111,10 +146,17 @@
                 <div class="star"></div>
                 <div class="star"></div>
               </div>
-              <img src="/images/news.png" alt="">
+              <img src="/images/news.png" alt="" />
               <div class="text">
-                <strong>Заголовок статьи<br> сточка</strong>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse</p>
+                <strong
+                  >Заголовок статьи<br />
+                  сточка</strong
+                >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Quis ipsum suspendisse
+                </p>
                 <a href="#">Подробнее</a>
               </div>
             </div>
@@ -128,10 +170,17 @@
                 <div class="star"></div>
                 <div class="star"></div>
               </div>
-              <img src="/images/news.png" alt="">
+              <img src="/images/news.png" alt="" />
               <div class="text">
-                <strong>Заголовок статьи<br> сточка</strong>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse</p>
+                <strong
+                  >Заголовок статьи<br />
+                  сточка</strong
+                >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Quis ipsum suspendisse
+                </p>
                 <a href="#">Подробнее</a>
               </div>
             </div>
@@ -145,10 +194,17 @@
                 <div class="star"></div>
                 <div class="star"></div>
               </div>
-              <img src="/images/news.png" alt="">
+              <img src="/images/news.png" alt="" />
               <div class="text">
-                <strong>Заголовок статьи<br> сточка</strong>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse</p>
+                <strong
+                  >Заголовок статьи<br />
+                  сточка</strong
+                >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Quis ipsum suspendisse
+                </p>
                 <a href="#">Подробнее</a>
               </div>
             </div>
@@ -162,10 +218,17 @@
                 <div class="star"></div>
                 <div class="star"></div>
               </div>
-              <img src="/images/news.png" alt="">
+              <img src="/images/news.png" alt="" />
               <div class="text">
-                <strong>Заголовок статьи<br> сточка</strong>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse</p>
+                <strong
+                  >Заголовок статьи<br />
+                  сточка</strong
+                >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Quis ipsum suspendisse
+                </p>
                 <a href="#">Подробнее</a>
               </div>
             </div>
@@ -186,6 +249,6 @@
         </div>
       </section>
     </main>
-    <Footer/>
+    <Footer />
   </div>
 </template>

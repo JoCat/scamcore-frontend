@@ -2,7 +2,7 @@
   <div>
     <header class="alternative">
       <div class="container">
-        <Nav type="alternative"/>
+        <Nav type="alternative" />
       </div>
     </header>
     <main>
@@ -18,17 +18,23 @@
           </div-->
           <div class="col-lg-8 email">
             <p>{{ translate.email.title }}</p>
-            <a :href="'mailto:' + translate.email.email">{{ translate.email.email }}</a>
+            <a :href="'mailto:' + translate.email.email">{{
+              translate.email.email
+            }}</a>
           </div>
           <div class="col-md-4 social">
-            <a :href="social.link" v-for="(social, i) in translate.social" :key="i">
-              <img :src="social.image" alt="">
+            <a
+              :href="social.link"
+              v-for="(social, i) in translate.social"
+              :key="i"
+            >
+              <img :src="social.image" alt="" />
             </a>
           </div>
         </div>
         <div class="row chat">
           <div class="col-sm-1 col-md-3 col-lg-5 col-xl-4">
-            <img src="/images/chat.png" alt="">
+            <img src="/images/chat.png" alt="" />
           </div>
           <div class="col-sm-5 col-md-5 col-lg-4 col-xl-5">
             <p>{{ translate.chat.title }}</p>
@@ -38,53 +44,53 @@
           </div>
         </div>
       </section>
-      <Feedback/>
+      <Feedback />
     </main>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from "vue";
 export default Vue.extend({
   computed: {
     translate() {
       return this.$getTranslate(translate);
     },
-  }
-})
+  },
+});
 
 const translate = {
   ru: {
-    title: 'Наши<br> контакты',
+    title: "Наши<br> контакты",
     phone: {
-      title: 'Телефон для звонков',
-      phone: 'В скором времени'
+      title: "Телефон для звонков",
+      phone: "В скором времени",
     },
     email: {
-      title: 'Наша почта',
-      email: 'support@spacecore.pro'
+      title: "Наша почта",
+      email: "support@spacecore.pro",
     },
     social: [
       {
-        link: 'https://twitter.com/SpaceCoreRU',
-        image: '/images/twitter.png'
+        link: "https://twitter.com/SpaceCoreRU",
+        image: "/images/twitter.png",
       },
       {
-        link: 'https://t.me/spacecore_pro',
-        image: '/images/telegram.png'
+        link: "https://t.me/spacecore_pro",
+        image: "/images/telegram.png",
       },
       {
-        link: 'https://vk.com/spacecore_pro',
-        image: '/images/vk.png'
-      }
+        link: "https://vk.com/spacecore_pro",
+        image: "/images/vk.png",
+      },
     ],
     chat: {
-      title: 'Онлайн чат поддержки сайта',
-      button: 'Перейти'
-    }
+      title: "Онлайн чат поддержки сайта",
+      button: "Перейти",
+    },
   },
   ua: {},
-  en: {}
-}
+  en: {},
+};
 </script>

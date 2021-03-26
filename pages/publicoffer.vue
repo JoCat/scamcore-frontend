@@ -2,7 +2,7 @@
   <div>
     <header class="alternative">
       <div class="container">
-        <Nav type="alternative"/>
+        <Nav type="alternative" />
       </div>
     </header>
     <main>
@@ -10,9 +10,9 @@
         <h2 class="title">{{ translate.title }}</h2>
         <div v-html="translate.description"></div>
       </section>
-      <Feedback/>
+      <Feedback />
     </main>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
@@ -25,20 +25,19 @@
 }
 </style>
 
-
 <script lang="ts">
-import Vue from 'vue'
+import Vue from "vue";
 export default Vue.extend({
   computed: {
     translate() {
       return this.$getTranslate(translate);
-    }
-  }
-})
+    },
+  },
+});
 
 const translate = {
   ru: {
-    title: 'Условия использования Услуг Хостинг-провайдера',
+    title: "Условия использования Услуг Хостинг-провайдера",
     description: `Приобретение Услуги, размещенной на сайте Хостинг-провайдера, означает, что Пользователь безоговорочно подтверждает свое согласие с правилами предоставления Услуг.<br><br>
 
 
@@ -147,9 +146,9 @@ const translate = {
 Перед приобретением товаров, каждому Пользователю следует ознакомиться с Пользовательским соглашением компании. И в случае несогласия с каким-либо пунктом соглашения, Вы имеете полное право на отказ от предоставления Услуг Хостинг-провайдера.
 <br><br>
 Обновлено 28.12.2020
-</p>`
+</p>`,
   },
   ua: {},
-  en: {}
-}
+  en: {},
+};
 </script>

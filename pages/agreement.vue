@@ -2,7 +2,7 @@
   <div>
     <header class="alternative">
       <div class="container">
-        <Nav type="alternative"/>
+        <Nav type="alternative" />
       </div>
     </header>
     <main>
@@ -10,25 +10,25 @@
         <h2 class="title">{{ translate.title }}</h2>
         <div v-html="translate.description"></div>
       </section>
-      <Feedback/>
+      <Feedback />
     </main>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from "vue";
 export default Vue.extend({
   computed: {
     translate() {
       return this.$getTranslate(translate);
     },
-  }
-})
+  },
+});
 
 const translate = {
   ru: {
-    title: 'Соглашение о предоставлении услуги',
+    title: "Соглашение о предоставлении услуги",
     description: `Гарантии Провайдера для всех тарифов на виртуальные выделенные серверы распространяются только на зону ответственности Провайдера: <br>
 Узел связи Провайдера;<br>
 Арендованные Провайдером и/или принадлежащие Провайдеру внешние каналы связи вплоть до интерфейсов узлов других поставщиков услуг связи, непосредственно соединенных с оборудованием Провайдера;<br>
@@ -44,9 +44,9 @@ const translate = {
 Предоставляем услуг службы поддержки на уровни базового администратирования включают в себя:<br>
 Настройку оборудования, установка/настройка пакетов;<br>
 Помощь в базовых командах OC;<br>
-Выяснение причин падения оборудования.`
+Выяснение причин падения оборудования.`,
   },
   ua: {},
-  en: {}
-}
+  en: {},
+};
 </script>

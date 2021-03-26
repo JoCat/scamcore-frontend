@@ -10,7 +10,7 @@ import "nouislider/distribute/nouislider.min.css";
 export default Vue.extend({
   props: {
     name: String,
-    config: Object
+    config: Object,
   },
   mounted() {
     const slider = document.getElementById(
@@ -25,8 +25,8 @@ export default Vue.extend({
           format: {
             to: (value: number) =>
               value.toFixed(this.name == "frequency" ? 2 : 0),
-            from: (value: any) => value
-          }
+            from: (value: any) => value,
+          },
         },
         this.config
       )
@@ -46,13 +46,13 @@ export default Vue.extend({
           values[handle] + (this.config.suffix || "");
         this.$emit("input", {
           min: values[0],
-          max: values[1]
+          max: values[1],
         });
       } else {
         max.innerHTML = values[0] + (this.config.suffix || "");
         this.$emit("input", values[0]);
       }
     });
-  }
+  },
 });
 </script>

@@ -20,7 +20,7 @@
 <script lang="ts">
 import Vue from "vue";
 export default Vue.extend({
-  props: ['page'],
+  props: ["page"],
   data() {
     return {
       domain: "",
@@ -30,7 +30,7 @@ export default Vue.extend({
     translate() {
       return this.$getTranslate(translate);
     },
-  }
+  },
 });
 
 const translate = {

@@ -3,27 +3,27 @@
     <div class="modal">
       <div class="modal-close" @click="hideModal"></div>
       <div class="modal-title">{{ title }}</div>
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from "vue";
 export default Vue.extend({
-  props: ['title'],
+  props: ["title"],
   data() {
     return {
-      show: false
-    }
+      show: false,
+    };
   },
   methods: {
     showModal() {
-      this.show = true
+      this.show = true;
     },
     hideModal() {
-      this.show = false
-    }
-  }
-})
+      this.show = false;
+    },
+  },
+});
 </script>

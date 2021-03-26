@@ -2,11 +2,11 @@
   <div>
     <header class="data-centers">
       <div class="container">
-        <Nav/>
+        <Nav />
         <div class="lead">
-            <h1 v-html="translate.header.title"></h1>
-            <p v-html="translate.header.description"></p>
-            <img src="/images/data-centers.png" alt="">
+          <h1 v-html="translate.header.title"></h1>
+          <p v-html="translate.header.description"></p>
+          <img src="/images/data-centers.png" alt="" />
         </div>
       </div>
     </header>
@@ -16,14 +16,14 @@
           <div class="card-title">
             <strong>{{ el.title }}</strong>
             <div>
-              <img :src="`/images/flags/${el.location.flag}.png`" alt="">
+              <img :src="`/images/flags/${el.location.flag}.png`" alt="" />
               {{ el.location.city }} - <span>{{ el.location.country }}</span>
             </div>
           </div>
           <div class="slider">
-              <VueSlickCarousel :arrows="true">
-                <img v-for="(img, j) in el.images" :key="j" :src="img" alt="">
-              </VueSlickCarousel>
+            <VueSlickCarousel :arrows="true">
+              <img v-for="(img, j) in el.images" :key="j" :src="img" alt="" />
+            </VueSlickCarousel>
           </div>
           <div class="row">
             <div class="col-lg-4">
@@ -31,49 +31,52 @@
             </div>
             <div class="col-lg-8" v-html="el.content"></div>
           </div>
-          <nuxt-link class="more" to="/dedicated">{{ translate.servers }}</nuxt-link>
+          <nuxt-link class="more" to="/dedicated">{{
+            translate.servers
+          }}</nuxt-link>
         </div>
       </section>
-      <Faq/>
-      <Feedback/>
+      <Faq />
+      <Feedback />
     </main>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-const VueSlickCarousel = require('vue-slick-carousel')
-import 'vue-slick-carousel/dist/vue-slick-carousel.css'
-import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import Vue from "vue";
+const VueSlickCarousel = require("vue-slick-carousel");
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default Vue.extend({
   components: { VueSlickCarousel },
-  async asyncData({$axios, store}) {
-    const dataCenters = await $axios.$get(`${store.state.lang}/data-centers`)
+  async asyncData({ $axios, store }) {
+    const dataCenters = await $axios.$get(`${store.state.lang}/data-centers`);
 
     return {
       dataCenters,
-    }
+    };
   },
   computed: {
     translate() {
       return this.$getTranslate(translate);
     },
-  }
-})
+  },
+});
 
 const translate = {
   ru: {
     header: {
-      title: 'Большое количество<br> разнообразных дата-центров',
-      description: 'Наша команда сотрудничает с множеством дата-центров в разных странах',
+      title: "Большое количество<br> разнообразных дата-центров",
+      description:
+        "Наша команда сотрудничает с множеством дата-центров в разных странах",
     },
-    servers: 'Показать доступные сервера'
+    servers: "Показать доступные сервера",
   },
   ua: {},
-  en: {}
-}
+  en: {},
+};
 </script>
 
 <style>

@@ -27,12 +27,12 @@
                   :config="{
                     range: {
                       min: 50,
-                      max: 400
+                      max: 400,
                     },
                     step: 10,
                     start: [form.volume],
                     connect: 'lower',
-                    suffix: ' GB'
+                    suffix: ' GB',
                   }"
                   name="volume"
                   v-model="form.volume"
@@ -47,12 +47,12 @@
                   :config="{
                     range: {
                       min: 50,
-                      max: 400
+                      max: 400,
                     },
                     step: 10,
                     start: [form.users],
                     connect: 'lower',
-                    suffix: ' GB'
+                    suffix: ' GB',
                   }"
                   name="users"
                   v-model="form.users"
@@ -158,8 +158,8 @@ export default Vue.extend({
         count: 1,
         email: "",
         ip: "",
-        location: ""
-      }
+        location: "",
+      },
     };
   },
   computed: {
@@ -167,16 +167,18 @@ export default Vue.extend({
       return this.$getTranslate(translate);
     },
     getFTPLink(): string {
-        const queryParams = {
-          startform: 'storage.order.param',
-          itemtype: 5,
-          pricelist: 1818,
-          period: 1,
-          addon_1819: this.form.volume
-        }
+      const queryParams = {
+        startform: "storage.order.param",
+        itemtype: 5,
+        pricelist: 1818,
+        period: 1,
+        addon_1819: this.form.volume,
+      };
 
-        return `https://billing.spacecore.pro/billmgr?${this.$toQueryString(queryParams)}`
-    }
+      return `https://billing.spacecore.pro/billmgr?${this.$toQueryString(
+        queryParams
+      )}`;
+    },
   },
   methods: {
     showModal() {
@@ -189,11 +191,11 @@ export default Vue.extend({
         count: 1,
         email: "",
         ip: "",
-        location: ""
+        location: "",
       };
       (this.$refs.modal as any).hideModal();
-    }
-  }
+    },
+  },
 });
 
 const translate = {
@@ -204,8 +206,8 @@ const translate = {
         "Идеальный сервис для безопасного хранения<br> любого объема Ваших данных",
       button: {
         text: "Просмотреть услуги",
-        href: "#"
-      }
+        href: "#",
+      },
     },
     form: {
       title: "Конфигурация<br> FTP хранилища",
@@ -219,22 +221,22 @@ const translate = {
       storage: "диска",
       users: "FTP юзеров",
       additional_storage: "руб. за дополнительный GB",
-      order: "Заказать"
+      order: "Заказать",
     },
     modal: {
       title: "Заказать внешнее FTP хранилище",
       info: {
         title: "Характеристики",
-        price: "Цена"
+        price: "Цена",
       },
       form: {
         ip: "IP адрес",
         location: "Локация",
         count: "Кол-во",
         email: "Почта",
-        checkout: "Оформить заказ"
-      }
-    }
+        checkout: "Оформить заказ",
+      },
+    },
   },
   ua: {
     header: {
@@ -243,8 +245,8 @@ const translate = {
         "Идеальный сервис для безопасного хранения<br> любого объема Ваших данных",
       button: {
         text: "Просмотреть услуги",
-        href: "#"
-      }
+        href: "#",
+      },
     },
     form: {
       title: "Конфигурация<br> FTP хранилища",
@@ -258,22 +260,22 @@ const translate = {
       storage: "диска",
       users: "FTP юзеров",
       additional_storage: "руб. за дополнительный GB",
-      order: "Заказать"
+      order: "Заказать",
     },
     modal: {
       title: "Заказать внешнее FTP хранилище",
       info: {
         title: "Характеристики",
-        price: "Цена"
+        price: "Цена",
       },
       form: {
         ip: "IP адрес",
         location: "Локация",
         count: "Кол-во",
         email: "Почта",
-        checkout: "Оформить заказ"
-      }
-    }
+        checkout: "Оформить заказ",
+      },
+    },
   },
   en: {
     header: {
@@ -282,8 +284,8 @@ const translate = {
         "Идеальный сервис для безопасного хранения<br> любого объема Ваших данных",
       button: {
         text: "Просмотреть услуги",
-        href: "#"
-      }
+        href: "#",
+      },
     },
     form: {
       title: "Конфигурация<br> FTP хранилища",
@@ -297,22 +299,22 @@ const translate = {
       storage: "диска",
       users: "FTP юзеров",
       additional_storage: "руб. за дополнительный GB",
-      order: "Заказать"
+      order: "Заказать",
     },
     modal: {
       title: "Заказать внешнее FTP хранилище",
       info: {
         title: "Характеристики",
-        price: "Цена"
+        price: "Цена",
       },
       form: {
         ip: "IP адрес",
         location: "Локация",
         count: "Кол-во",
         email: "Почта",
-        checkout: "Оформить заказ"
-      }
-    }
-  }
+        checkout: "Оформить заказ",
+      },
+    },
+  },
 };
 </script>
