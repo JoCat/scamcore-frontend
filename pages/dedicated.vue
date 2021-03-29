@@ -18,16 +18,16 @@
       <section class="container servers-list">
         <h2 class="title center">{{ translate.main.title }}</h2>
         <ServersFilter
-          :hideDiskCount="true"
           :servers="servers"
           @filter="filter"
+          @changePeriod="changePeriod"
         />
-        <ServerList :servers="filteredServers" :geekbenchMax="geekbenchMax" />
+        <ServerList :servers="filteredServers" :geekbenchMax="geekbenchMax" :params="params" />
       </section>
       <ServerOs />
-      <ImportantAdvantages />
-      <Offers />
-      <Faq />
+      <ImportantAdvantages page="dedicated" />
+      <Offers page="dedicated" />
+      <Faq page="dedicated" />
       <Feedback />
     </main>
     <Footer />
@@ -41,6 +41,11 @@ export default Vue.extend({
     return {
       servers: [],
       filteredServers: [] as any[],
+      params: {
+        period: 1,
+        startform: 57,
+        itemtype: "dedic.order.param",
+      }
     };
   },
   async asyncData({ $axios, store }) {
@@ -66,6 +71,9 @@ export default Vue.extend({
     filter(filteredServers: any[]) {
       this.filteredServers = filteredServers;
     },
+    changePeriod(period: number) {
+      this.params.period = period;
+    }
   },
 });
 

@@ -167,6 +167,9 @@ export default Vue.extend({
     storageFilter: "filter",
     drivesType: "filter",
     drivesCount: "filter",
+    pricePeriod() {
+      this.$emit("changePeriod", this.pricePeriod);
+    }
   },
   methods: {
     filter() {

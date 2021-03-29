@@ -21,13 +21,14 @@
           :hideDiskCount="true"
           :servers="servers"
           @filter="filter"
+          @changePeriod="changePeriod"
         />
-        <ServerList :servers="filteredServers" :geekbenchMax="geekbenchMax" />
+        <ServerList :servers="filteredServers" :geekbenchMax="geekbenchMax" :params="params" />
       </section>
       <ServerOs />
-      <ImportantAdvantages />
-      <Offers />
-      <Faq />
+      <ImportantAdvantages page="vds" />
+      <Offers page="vds" />
+      <Faq page="vds" />
       <Feedback />
     </main>
     <Footer />
@@ -41,6 +42,12 @@ export default Vue.extend({
     return {
       servers: [],
       filteredServers: [] as any[],
+      params: {
+        period: 1,
+        startform: 57,
+        itemtype: "vds.order.param",
+        showRecipe: true
+      }
     };
   },
   async asyncData({ $axios, store }) {
@@ -64,6 +71,9 @@ export default Vue.extend({
     filter(filteredServers: any[]) {
       this.filteredServers = filteredServers;
     },
+    changePeriod(period: number) {
+      this.params.period = period;
+    }
   },
 });
 

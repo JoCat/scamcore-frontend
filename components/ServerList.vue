@@ -20,6 +20,7 @@
           :key="groupID + '.' + server.id"
           :data="server"
           :geekbenchMax="geekbenchMax"
+          :params="params"
         />
       </template>
     </div>
@@ -32,6 +33,7 @@ export default Vue.extend({
   props: {
     servers: Array,
     geekbenchMax: Number,
+    params: Object
   },
   computed: {
     formattedServers() {
@@ -47,8 +49,7 @@ export default Vue.extend({
       });
       return groups;
     },
-    translate(): typeof translate["ru"] {
-      // Костыль с typeof, но да похуй, спасибо кривой работе типизации
+    translate(): any {
       return this.$getTranslate(translate);
     },
   },

@@ -43,7 +43,7 @@
             </g>
           </svg>
         </div>
-        <span class="speedometer__score">{{ geekbench.score }}</span>
+        <span class="speedometer__score">{{ geekbenchScore }}</span>
       </div>
       <div class="cpu">
         {{ data.cpuCoresCount }} {{ coresPlural }} {{ data.cpu.title }}
@@ -80,6 +80,10 @@
           <div class="modal-title">{{ translate.modal.info.title }}</div>
           <ul class="list-unstyled">
             <li>
+              Geekbench (Single / Multiple):
+              {{ data.geekbench }} / {{ data.geekbenchMultithread }}
+            </li>
+            <li>
               <img src="/images/icons/chip.png" alt="" />
               {{ data.cpuCoresCount }} {{ coresPlural }} {{ data.cpu.title }}
               {{ data.cpu.frequency }} GHz
@@ -109,7 +113,7 @@
           <div class="price">{{ data.price + translate.currency }}</div>
         </div>
         <div class="col-12 col-md-6">
-          <custom-select>
+          <custom-select v-model="form.os">
             <option value>{{ translate.modal.form.selectOS }}</option>
             <option value="debian8">Debian 8</option>
             <option value="debian9">Debian 9</option>
@@ -124,8 +128,18 @@
             <option value="windows2016">Windows Server 2016</option>
             <option value="windows2019">Windows Server 2019</option>
           </custom-select>
-          <input type="text" :placeholder="translate.modal.form.domain" />
-          <custom-select>
+          <custom-select v-model="form.recipe" v-if="params.showRecipe">
+            <option value>{{ translate.modal.form.recipe }}</option>
+            <option value="django">Django</option>
+            <option value="ispmanager_lite">ISPmanager Lite</option>
+            <option value="lamp">LAMP</option>
+            <option value="openvpn">Openvpn</option>
+            <option value="redmine">Redmine</option>
+            <option value="teamspeak">Teamspeak</option>
+            <option value="tomcat">Tomcat</option>
+          </custom-select>
+          <input type="text" v-model="form.domain" :placeholder="translate.modal.form.domain" />
+          <custom-select v-model="form.location">
             <option value>{{ translate.modal.form.location }}</option>
             <option value="ger">Germany</option>
             <option value="fra">France</option>
@@ -136,14 +150,15 @@
               <input
                 type="number"
                 min="1"
+                v-model="form.count"
                 :placeholder="translate.modal.form.count"
               />
             </div>
             <div class="col-12 col-md-6">
-              <input type="email" :placeholder="translate.modal.form.email" />
+              <input type="email" v-model="form.email" :placeholder="translate.modal.form.email" />
             </div>
           </div>
-          <a href="#">{{ translate.modal.form.checkout }}</a>
+          <a @click="hideModal" target="_blank" :href="getServerLink">{{ translate.modal.form.checkout }}</a>
         </div>
       </div>
     </Modal>
@@ -153,12 +168,10 @@
 <script lang="ts">
 import Vue from "vue";
 export default Vue.extend({
-  props: ["data", "geekbenchMax"],
+  props: ["data", "geekbenchMax", "params"],
   data() {
     return {
-      geekbench: {
-        score: 0,
-      },
+      geekbenchScore: 0,
       styles: {
         arrow: {
           transform: "rotate(0deg)",
@@ -167,6 +180,14 @@ export default Vue.extend({
           strokeDashoffset: "87.4986px",
           strokeDasharray: "87.4986px",
         },
+      },
+      form: {
+        os: "",
+        domain: "",
+        location: "",
+        count: 1,
+        email: "",
+        recipe: "",
       },
     };
   },
@@ -182,19 +203,30 @@ export default Vue.extend({
 
     for (let index = 0; index < 100; index++) {
       setTimeout(() => {
-        this.geekbench.score = parseInt(
+        this.geekbenchScore = parseInt(
           ((this.data.geekbench / 100) * index).toFixed(0),
           10
         );
       }, index * 10);
     }
     setTimeout(() => {
-      this.geekbench.score = this.data.geekbench;
+      this.geekbenchScore = this.data.geekbench;
     }, 1000);
   },
   methods: {
     showModal() {
       (this.$refs.modal as any).showModal();
+    },
+    hideModal() {
+      this.form = {
+        os: "",
+        domain: "",
+        location: "",
+        count: 1,
+        email: "",
+        recipe: "",
+      };
+      (this.$refs.modal as any).hideModal();
     },
   },
   computed: {
@@ -203,6 +235,26 @@ export default Vue.extend({
     },
     translate(): any {
       return this.$getTranslate(translate);
+    },
+    getServerLink(): string {
+      const queryParams = {
+        startform: this.params.startform,
+        itemtype: this.params.itemtype,
+        pricelist: this.data.productId,
+        // datacenter: 1 // как-то придумать уже при парсинге (this.data.datacenter)
+        period: this.params.period,
+        domain: this.form.domain,
+        ostempl: this.form.os,
+        recipe: this.form.recipe
+      };
+
+      // if (this.params.showRecipe == true) {
+      //   queryParams.recipe = this.form.recipe
+      // }
+
+      return `https://billing.spacecore.pro/billmgr?${this.$toQueryString(
+        queryParams
+      )}`;
     },
   },
 });
@@ -240,6 +292,7 @@ const translate = {
       },
       form: {
         selectOS: "Выбор ОС",
+        recipe: "Выбор ПО",
         domain: "Домен",
         location: "Локация",
         count: "Кол-во",
@@ -259,6 +312,7 @@ const translate = {
       },
       form: {
         selectOS: "Выбор ОС",
+        recipe: "Выбор ПО",
         domain: "Домен",
         location: "Локация",
         count: "Кол-во",
@@ -278,6 +332,7 @@ const translate = {
       },
       form: {
         selectOS: "Выбор ОС",
+        recipe: "Выбор ПО",
         domain: "Домен",
         location: "Локация",
         count: "Кол-во",
