@@ -138,6 +138,7 @@ export default Vue.extend({
         pricelist: this.currentHost.productID,
         period: 1,
         domain: this.form.domain,
+        "showroom.redirect": "on",
       };
 
       return `https://billing.spacecore.pro/billmgr?${this.$toQueryString(

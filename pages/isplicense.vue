@@ -107,6 +107,7 @@ export default Vue.extend({
         period: 1,
         licname: this.form.license,
         ip: this.form.ip,
+        "showroom.redirect": "on",
       };
 
       return `https://billing.spacecore.pro/billmgr?${this.$toQueryString(

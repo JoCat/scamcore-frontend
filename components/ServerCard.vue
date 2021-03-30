@@ -70,7 +70,7 @@
           {{ data.price + translate.currency }}<br>
           <div class="old-price">{{ data.old_price + translate.currency }}</div>
         </div> -->
-        <div>{{ data.price + translate.currency }}</div>
+        <div>{{ (data.price * params.period) + translate.currency }}</div>
         <a href="#" @click.prevent="showModal">{{ translate.buy }}</a>
       </div>
     </div>
@@ -110,7 +110,7 @@
             </li>
           </ul>
           <p>{{ translate.modal.info.price }}</p>
-          <div class="price">{{ data.price + translate.currency }}</div>
+          <div class="price">{{ (data.price * params.period) + translate.currency }}</div>
         </div>
         <div class="col-12 col-md-6">
           <custom-select v-model="form.os">

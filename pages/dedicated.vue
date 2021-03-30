@@ -43,8 +43,8 @@ export default Vue.extend({
       filteredServers: [] as any[],
       params: {
         period: 1,
-        startform: 57,
-        itemtype: "dedic.order.param",
+        itemtype: 57,
+        startform: "dedic.order.param",
       }
     };
   },
