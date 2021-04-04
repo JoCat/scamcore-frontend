@@ -70,7 +70,7 @@
           {{ data.price + translate.currency }}<br>
           <div class="old-price">{{ data.old_price + translate.currency }}</div>
         </div> -->
-        <div>{{ (data.price * params.period) + translate.currency }}</div>
+        <div>{{ data.price * params.period + translate.currency }}</div>
         <a href="#" @click.prevent="showModal">{{ translate.buy }}</a>
       </div>
     </div>
@@ -110,7 +110,9 @@
             </li>
           </ul>
           <p>{{ translate.modal.info.price }}</p>
-          <div class="price">{{ (data.price * params.period) + translate.currency }}</div>
+          <div class="price">
+            {{ data.price * params.period + translate.currency }}
+          </div>
         </div>
         <div class="col-12 col-md-6">
           <custom-select v-model="form.os">
@@ -138,7 +140,11 @@
             <option value="teamspeak">Teamspeak</option>
             <option value="tomcat">Tomcat</option>
           </custom-select>
-          <input type="text" v-model="form.domain" :placeholder="translate.modal.form.domain" />
+          <input
+            type="text"
+            v-model="form.domain"
+            :placeholder="translate.modal.form.domain"
+          />
           <custom-select v-model="form.location">
             <option value>{{ translate.modal.form.location }}</option>
             <option value="ger">Germany</option>
@@ -155,10 +161,16 @@
               />
             </div>
             <div class="col-12 col-md-6">
-              <input type="email" v-model="form.email" :placeholder="translate.modal.form.email" />
+              <input
+                type="email"
+                v-model="form.email"
+                :placeholder="translate.modal.form.email"
+              />
             </div>
           </div>
-          <a @click="hideModal" target="_blank" :href="getServerLink">{{ translate.modal.form.checkout }}</a>
+          <a @click="hideModal" target="_blank" :href="getServerLink">{{
+            translate.modal.form.checkout
+          }}</a>
         </div>
       </div>
     </Modal>
@@ -245,7 +257,7 @@ export default Vue.extend({
         period: this.params.period,
         domain: this.form.domain,
         ostempl: this.form.os,
-        recipe: this.form.recipe
+        recipe: this.form.recipe,
       };
 
       // if (this.params.showRecipe == true) {

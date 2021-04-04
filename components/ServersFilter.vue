@@ -169,7 +169,7 @@ export default Vue.extend({
     drivesCount: "filter",
     pricePeriod() {
       this.$emit("changePeriod", this.pricePeriod);
-    }
+    },
   },
   methods: {
     filter() {

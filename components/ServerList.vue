@@ -33,7 +33,7 @@ export default Vue.extend({
   props: {
     servers: Array,
     geekbenchMax: Number,
-    params: Object
+    params: Object,
   },
   computed: {
     formattedServers() {

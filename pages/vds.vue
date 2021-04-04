@@ -23,7 +23,11 @@
           @filter="filter"
           @changePeriod="changePeriod"
         />
-        <ServerList :servers="filteredServers" :geekbenchMax="geekbenchMax" :params="params" />
+        <ServerList
+          :servers="filteredServers"
+          :geekbenchMax="geekbenchMax"
+          :params="params"
+        />
       </section>
       <ServerOs />
       <ImportantAdvantages page="vds" />
@@ -46,8 +50,8 @@ export default Vue.extend({
         period: 1,
         startform: "vds.order.param",
         itemtype: 57,
-        showRecipe: true
-      }
+        showRecipe: true,
+      },
     };
   },
   async asyncData({ $axios, store }) {
@@ -73,7 +77,7 @@ export default Vue.extend({
     },
     changePeriod(period: number) {
       this.params.period = period;
-    }
+    },
   },
 });
 
