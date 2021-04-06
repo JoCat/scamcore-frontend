@@ -20,19 +20,25 @@
 <script lang="ts">
 import Vue from "vue";
 export default Vue.extend({
-  async asyncData({ $axios, store }) {
+  props: ["page"],
+  data() {
+    return {
+      advantages: [],
+    };
+  },
+  computed: {
+    translate(): any {
+      return this.$getTranslate(translate);
+    },
+  },
+  async mounted() {
     try {
-      return {
-        advantages: await $axios.$get(`${store.state.lang}/advantages`),
-      };
+      this.advantages = await this.$axios.$get(
+        `${this.$store.state.lang}/advantages/${this.page}`
+      );
     } catch (error) {
       console.error(error);
     }
-  },
-  computed: {
-    translate() {
-      return this.$getTranslate(translate);
-    },
   },
 });
 
