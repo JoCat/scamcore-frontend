@@ -7,7 +7,7 @@
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
-    "prettier": "prettier --write components pages plugins"
+    "prettier": "prettier --write components pages plugins store"
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^1.0.0",

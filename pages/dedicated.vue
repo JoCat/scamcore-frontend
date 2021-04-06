@@ -46,6 +46,7 @@ export default Vue.extend({
       servers: [],
       filteredServers: [] as any[],
       params: {
+        page: 'dedicated',
         period: 1,
         itemtype: 57,
         startform: "dedic.order.param",

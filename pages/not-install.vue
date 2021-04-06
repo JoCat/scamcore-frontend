@@ -51,6 +51,7 @@ export default Vue.extend({
       servers: [],
       filteredServers: [] as any[],
       params: {
+        page: 'not-install',
         period: 1,
         itemtype: 57,
         startform: "dedic.order.param",

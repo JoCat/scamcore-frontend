@@ -121,6 +121,10 @@ export default Vue.extend({
       (this.$refs.modal as any).showModal();
     },
     hideModal() {
+      this.$axios.$post('/modal-log', {
+        page: "isplicense",
+        email: this.form.email
+      });
       this.form = {
         license: "",
         ip: "",

@@ -148,10 +148,14 @@ export default Vue.extend({
     },
     setLang(lang: string) {
       this.$store.commit("setLang", lang);
+      localStorage.setItem("lang", lang);
     },
     toggleOffcanvas() {
       this.showOffcanvas = !this.showOffcanvas;
     },
+  },
+  mounted() {
+    this.$store.commit("setLang", localStorage.getItem("lang") || "ru");
   },
 });
 

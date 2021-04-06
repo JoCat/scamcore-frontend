@@ -47,9 +47,10 @@ export default Vue.extend({
       servers: [],
       filteredServers: [] as any[],
       params: {
+        page: 'vds',
         period: 1,
-        startform: "vds.order.param",
         itemtype: 57,
+        startform: "vds.order.param",
         showRecipe: true,
       },
     };
