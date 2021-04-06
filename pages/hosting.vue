@@ -160,9 +160,9 @@ export default Vue.extend({
       (this.$refs.modal as any).showModal();
     },
     hideModal() {
-      this.$axios.$post('/modal-log', {
+      this.$axios.$post("/modal-log", {
         page: "hosting",
-        email: this.form.email
+        email: this.form.email,
       });
       this.form = {
         count: 1,

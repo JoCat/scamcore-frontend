@@ -185,9 +185,9 @@ export default Vue.extend({
       (this.$refs.modal as any).showModal();
     },
     hideModal() {
-      this.$axios.$post('/modal-log', {
+      this.$axios.$post("/modal-log", {
         page: "storage",
-        email: this.form.email
+        email: this.form.email,
       });
       this.form = {
         volume: 250,
