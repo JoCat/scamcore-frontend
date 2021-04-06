@@ -113,11 +113,13 @@ export default Vue.extend({
     };
   },
   async asyncData({ $axios, store }) {
-    const offers = await $axios.$get(`${store.state.lang}/offers`);
-
-    return {
-      offers,
-    };
+    try {
+      return {
+        offers: await $axios.$get(`${store.state.lang}/offers`),
+      };
+    } catch (error) {
+      console.error(error);
+    }
   },
   computed: {
     translate() {

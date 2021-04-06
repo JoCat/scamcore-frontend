@@ -90,12 +90,16 @@ export default Vue.extend({
     };
   },
   async asyncData({ $axios, store }) {
-    const reviews = await $axios.$get(`${store.state.lang}/reviews`);
+    try {
+      const reviews = await $axios.$get(`${store.state.lang}/reviews`);
 
-    return {
-      reviewsCount: reviews.count,
-      reviewsList: reviews.items,
-    };
+      return {
+        reviewsCount: reviews.count,
+        reviewsList: reviews.items,
+      };
+    } catch (error) {
+      console.error(error);
+    }
   },
   computed: {
     translate() {

@@ -118,11 +118,13 @@ export default Vue.extend({
     };
   },
   async asyncData({ $axios, store }) {
-    const tariffs = await $axios.$get(`${store.state.lang}/hosting`);
-
-    return {
-      tariffs,
-    };
+    try {
+      return {
+        tariffs: await $axios.$get(`${store.state.lang}/hosting`),
+      };
+    } catch (error) {
+      console.error(error);
+    }
   },
   watch: {
     translate: "getTariffs",

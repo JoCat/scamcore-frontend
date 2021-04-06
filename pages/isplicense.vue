@@ -89,11 +89,13 @@ export default Vue.extend({
     };
   },
   async asyncData({ $axios, store }) {
-    const licenses = await $axios.$get(`${store.state.lang}/isp`);
-
-    return {
-      licenses,
-    };
+    try {
+      return {
+        licenses: await $axios.$get(`${store.state.lang}/isp`),
+      };
+    } catch (error) {
+      console.error(error);
+    }
   },
   computed: {
     translate() {

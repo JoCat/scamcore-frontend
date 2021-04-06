@@ -52,11 +52,13 @@ import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default Vue.extend({
   components: { VueSlickCarousel },
   async asyncData({ $axios, store }) {
-    const dataCenters = await $axios.$get(`${store.state.lang}/data-centers`);
-
-    return {
-      dataCenters,
-    };
+    try {
+      return {
+        dataCenters: await $axios.$get(`${store.state.lang}/data-centers`),
+      };
+    } catch (error) {
+      console.error(error);
+    }
   },
   computed: {
     translate() {
