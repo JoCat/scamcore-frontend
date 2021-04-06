@@ -1,48 +1,69 @@
 <template>
   <section class="container faq">
-    <h2 class="title">Ответы на <br />частые вопросы</h2>
+    <h2 class="title" v-html="translate.title"></h2>
     <div class="row wrapper">
       <div class="col-md-5 col-xl-4">
-        <button type="button">
-          Как сделать что то и что бы это получилось в две строки
-        </button>
-        <button type="button">
-          Как сделать что то и что бы это получилось в две строки
-        </button>
-        <button type="button">
-          Как сделать что то и что бы это получилось в две строки
-        </button>
-        <button type="button">
-          Как сделать что то и что бы это получилось в две строки
-        </button>
-        <button type="button">
-          Как сделать что то и что бы это получилось в две строки
-        </button>
-        <button type="button">
-          Как сделать что то и что бы это получилось в две строки
+        <button
+          v-for="el in faq"
+          :key="el.id"
+          type="button"
+          @click="select(el)"
+        >
+          {{ el.button }}
         </button>
       </div>
       <div class="col-md-7 col-xl-8">
-        <strong
-          ><span>Как заказать</span><br />
-          выделенный сервер в России?</strong
-        >
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum. Sed ut
-          perspiciatis unde omnis iste natus error sit voluptatem accusantium
-          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-          inventore veritatis et quasi architecto beatae vitae dicta sunt
-          explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-          odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-          voluptate
-        </p>
+        <strong v-html="selectedFaq.title"></strong>
+        <p>{{ selectedFaq.text }}</p>
       </div>
     </div>
   </section>
 </template>
+
+<script lang="ts">
+import Vue from "vue";
+export default Vue.extend({
+  props: ["page"],
+  data() {
+    return {
+      faq: [],
+      selectedFaq: {
+        title: "",
+        text: "",
+      },
+    };
+  },
+  computed: {
+    translate(): any {
+      return this.$getTranslate(translate);
+    },
+  },
+  methods: {
+    select(faq: any) {
+      this.selectedFaq = faq;
+    },
+  },
+  async fetch() {
+    try {
+      this.faq = await this.$axios.$get(
+        `${this.$store.state.lang}/faq/${this.page}`
+      );
+      if (this.faq[0] !== undefined) this.select(this.faq[0]);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+});
+
+const translate = {
+  ru: {
+    title: "Ответы на <br />частые вопросы",
+  },
+  en: {
+    title: "Ответы на <br />частые вопросы",
+  },
+  ua: {
+    title: "Ответы на <br />частые вопросы",
+  },
+};
+</script>
