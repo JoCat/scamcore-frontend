@@ -38,11 +38,18 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/recaptcha',
   ],
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     // baseURL: 'https://api.spacecore.me/v1/',
     baseURL: 'http://localhost:4000/v1/',
+  },
+  // reCAPTCHA module configuration
+  recaptcha: {
+    hideBadge: true,
+    siteKey: '6LflTKAaAAAAAAzIL6m7qvp8iDvejtHXWdfNnoig',
+    version: 3,
   },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {

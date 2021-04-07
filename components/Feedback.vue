@@ -46,9 +46,11 @@ export default Vue.extend({
   methods: {
     async send() {
       try {
+        const token = await this.$recaptcha.execute('login');
         await this.$axios.$post("/feedback", {
           name: this.name,
           email: this.email,
+          token
         });
         (this.$refs.modal as any).showModal();
         this.name = "";
@@ -58,6 +60,16 @@ export default Vue.extend({
       }
     },
   },
+  async mounted() {
+    try {
+      await this.$recaptcha.init()
+    } catch (e) {
+      console.error(e);
+    }
+  },
+  beforeDestroy() {
+    this.$recaptcha.destroy()
+  }
 });
 
 const translate = {
