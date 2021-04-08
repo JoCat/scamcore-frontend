@@ -26,6 +26,17 @@ export default Vue.extend({
       offers: [],
     };
   },
+  watch: {
+    async translate() {
+      try {
+        this.offers = await this.$axios.$get(
+          `${this.$store.state.lang}/other-offers/${this.page}`
+        );
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  },
   computed: {
     translate(): any {
       return this.$getTranslate(translate);
