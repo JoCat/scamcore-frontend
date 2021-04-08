@@ -55,9 +55,9 @@ export default Vue.extend({
       },
     };
   },
-  async asyncData({ $axios, store }) {
+  async mounted() {
     try {
-      return { servers: await $axios.$get(`${store.state.lang}/servers/vds`) };
+      this.servers = await this.$axios.$get(`${this.$store.state.lang}/servers/vds`);
     } catch (error) {
       console.error(error);
     }
