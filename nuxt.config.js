@@ -41,8 +41,8 @@ export default {
   ],
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    // baseURL: 'https://api.spacecore.me/v1/',
-    baseURL: 'http://localhost:4000/v1/',
+     baseURL: 'https://api.spacecore.me/v1/',
+    //baseURL: 'http://localhost:4000/v1/',
   },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
