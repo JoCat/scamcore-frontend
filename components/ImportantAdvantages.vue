@@ -31,7 +31,7 @@ export default Vue.extend({
       return this.$getTranslate(translate);
     },
   },
-  async fetch() {
+  async mounted() {
     try {
       this.advantages = await this.$axios.$get(
         `${this.$store.state.lang}/advantages/${this.page}`
