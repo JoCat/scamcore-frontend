@@ -43,7 +43,7 @@ export default Vue.extend({
       this.selectedFaq = faq;
     },
   },
-  async fetch() {
+  async mounted() {
     try {
       this.faq = await this.$axios.$get(
         `${this.$store.state.lang}/faq/${this.page}`
