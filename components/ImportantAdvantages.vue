@@ -26,6 +26,17 @@ export default Vue.extend({
       advantages: [],
     };
   },
+  watch: {
+    async translate() {
+      try {
+        this.advantages = await this.$axios.$get(
+          `${this.$store.state.lang}/advantages/${this.page}`
+        );
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  },
   computed: {
     translate(): any {
       return this.$getTranslate(translate);
