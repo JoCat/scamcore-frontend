@@ -12,6 +12,14 @@ export default Vue.extend({
     name: String,
     config: Object,
   },
+  watch: {
+    config() {
+      const slider = document.getElementById(
+        this.name + "-slider"
+      ) as any
+      slider.noUiSlider.updateOptions(this.config)
+    }
+  },
   mounted() {
     const slider = document.getElementById(
       this.name + "-slider"
@@ -23,8 +31,7 @@ export default Vue.extend({
           connect: true,
           tooltips: true,
           format: {
-            to: (value: number) =>
-              value.toFixed(this.name == "frequency" ? 2 : 0),
+            to: (value: number) => value,
             from: (value: any) => value,
           },
         },
@@ -44,13 +51,13 @@ export default Vue.extend({
       if (values.length === 2) {
         [min, max][handle].innerHTML =
           values[handle] + (this.config.suffix || "");
-        this.$emit("input", {
+        this.$emit("update", {
           min: values[0],
           max: values[1],
         });
       } else {
         max.innerHTML = values[0] + (this.config.suffix || "");
-        this.$emit("input", values[0]);
+        this.$emit("update", values[0]);
       }
     });
   },

@@ -58,13 +58,20 @@ export default Vue.extend({
       },
     };
   },
-  async asyncData({ $axios, store }) {
+  async mounted() {
     try {
-      return {
-        servers: await $axios.$get(`${store.state.lang}/servers/not-install`),
-      };
+      this.servers = await this.$axios.$get(`${this.$store.state.lang}/servers/not-install`);
     } catch (error) {
       console.error(error);
+    }
+  },
+  watch: {
+    async translate() {
+      try {
+        this.servers = await this.$axios.$get(`${this.$store.state.lang}/servers/not-install`);
+      } catch (error) {
+        console.error(error);
+      }
     }
   },
   computed: {

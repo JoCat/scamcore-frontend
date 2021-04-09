@@ -62,6 +62,15 @@ export default Vue.extend({
       console.error(error);
     }
   },
+  watch: {
+    async translate() {
+      try {
+        this.servers = await this.$axios.$get(`${this.$store.state.lang}/servers/vds`);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  },
   computed: {
     translate() {
       return this.$getTranslate(translate);

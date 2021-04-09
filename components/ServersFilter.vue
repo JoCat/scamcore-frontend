@@ -10,7 +10,7 @@
           suffix: ' руб',
         }"
         name="price"
-        v-model="priceFilter"
+        @update="priceUpdate"
         ref="priceFilter"
       />
     </div>
@@ -55,10 +55,11 @@
             :config="{
               range: cores,
               step: 1,
+              snap: true,
               start: [cores.min, cores.max],
             }"
             name="core"
-            v-model="coresFilter"
+            @update="coresUpdate"
             ref="coresFilter"
           />
         </div>
@@ -110,7 +111,7 @@
           suffix: ' Гб',
         }"
         name="storage"
-        v-model="storageFilter"
+        @update="storageUpdate"
         ref="storageFilter"
       />
     </div>
@@ -161,6 +162,7 @@ export default Vue.extend({
     };
   },
   watch: {
+    servers: "init",
     priceFilter: "filter",
     cpuFilter: "filter",
     coresFilter: "filter",
@@ -172,6 +174,64 @@ export default Vue.extend({
     },
   },
   methods: {
+    priceUpdate(price: any) {
+      this.priceFilter = price
+    },
+    coresUpdate(price: any) {
+      this.coresFilter = price
+    },
+    storageUpdate(price: any) {
+      this.storageFilter = price
+    },
+    init() {
+      const numSort = (a: number, b: number) => a - b;
+
+      // Фильтр процессоров
+      this.cpus = []
+      new Map(this.servers.map((e: any) => [e.cpu.id, e.cpu])).forEach((cpu) =>
+        this.cpus.push(cpu)
+      );
+
+      // Фильтр цены
+      const prices: number[] = [];
+      this.price = {min: 1, max: 2}; // ГОСТ 5812-2014
+      new Set(this.servers.map((e: any) => e.price)).forEach((price) =>
+        prices.push(price)
+      );
+      const pPercents = getPercents(prices.length);
+      prices.sort(numSort).forEach((v, i) => {
+        this.price[pPercents[i]] = v;
+      });
+      if (this.price.min == this.price.max) this.price.min = 0;
+      this.priceFilter.min = this.price.min;
+      this.priceFilter.max = this.price.min;
+
+      // Фильтр количества ядер
+      const cores: number[] = [];
+      new Set(this.servers.map((e: any) => e.cpuCoresCount)).forEach((core) =>
+        cores.push(core)
+      );
+      const cPercents = getPercents(cores.length);
+      cores.sort(numSort).forEach((v, i) => {
+        this.cores[cPercents[i]] = v;
+      });
+      if (this.cores.min == this.cores.max) this.cores.min = 0;
+
+      // Фильтр объёма дисков
+      const storages: Set<number> = new Set();
+      this.servers.forEach((e: any) =>
+        e.storage.forEach((s: any) => storages.add(s.capacity))
+      );
+      const sPercents = getPercents(storages.size);
+      Array.from(storages)
+        .sort(numSort)
+        .forEach((v, i) => {
+          this.storages[sPercents[i]] = v;
+        });
+      if (this.storages.min == this.storages.max) this.storages.min = 0;
+
+      this.$emit("filter", this.servers);
+    },
     filter() {
       let filteredServers = this.servers
         .filter((s: any) => s.price >= this.priceFilter.min)
@@ -226,49 +286,7 @@ export default Vue.extend({
     },
   },
   created() {
-    const numSort = (a: number, b: number) => a - b;
-
-    // Фильтр процессоров
-    new Map(this.servers.map((e: any) => [e.cpu.id, e.cpu])).forEach((cpu) =>
-      this.cpus.push(cpu)
-    );
-
-    // Фильтр цены
-    const prices: number[] = [];
-    new Set(this.servers.map((e: any) => e.price)).forEach((price) =>
-      prices.push(price)
-    );
-    const pPercents = getPercents(prices.length);
-    prices.sort(numSort).forEach((v, i) => {
-      this.price[pPercents[i]] = v;
-    });
-    if (this.price.min == this.price.max) this.price.min = 0;
-
-    // Фильтр количества ядер
-    const cores: number[] = [];
-    new Set(this.servers.map((e: any) => e.cpuCoresCount)).forEach((core) =>
-      cores.push(core)
-    );
-    const cPercents = getPercents(cores.length);
-    cores.sort(numSort).forEach((v, i) => {
-      this.cores[cPercents[i]] = v;
-    });
-    if (this.cores.min == this.cores.max) this.cores.min = 0;
-
-    // Фильтр объёма дисков
-    const storages: Set<number> = new Set();
-    this.servers.forEach((e: any) =>
-      e.storage.forEach((s: any) => storages.add(s.capacity))
-    );
-    const sPercents = getPercents(storages.size);
-    Array.from(storages)
-      .sort(numSort)
-      .forEach((v, i) => {
-        this.storages[sPercents[i]] = v;
-      });
-    if (this.storages.min == this.storages.max) this.storages.min = 0;
-
-    this.$emit("filter", this.servers);
+    this.init()
   },
 });
 

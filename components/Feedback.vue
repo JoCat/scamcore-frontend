@@ -56,7 +56,7 @@ export default Vue.extend({
         this.name = "";
         this.email = "";
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     },
   },
